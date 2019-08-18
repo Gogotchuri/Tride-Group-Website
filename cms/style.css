@@ -1,0 +1,51 @@
+.form-img{
+    border: 1px solid #aaa;
+    max-width: 120px;
+    max-height: 120px;
+    display: block;
+    margin-top: 10px;
+}
+.modal-footer{
+    padding-bottom: 0px;
+}
+.sign-in{
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+}
+#YTvideos .modal-body .input-group .form-control{
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 20px;
+}
+#YTvideos .modal-body .input-group .btn{
+    border: 0px;
+    outline: none;
+    margin-top: -5px;
+    margin-left: 3px;
+}
+.uploaded-pics {
+    max-height: 200px;
+    overflow-y: scroll;
+    padding: 10px;
+    padding-top: 0px;
+    box-shadow: 0px 0px 5px inset rgba(0,0,0,0.3);
+}
+.uploaded-pics img{
+    display: inline-block;
+    max-width: 60px;
+}
+.uploaded-pics img:hover{
+    border-color: red;
+    opacity: 0.7;
+}
+#remove-pic{    
+    float: right;
+}
+.removable{
+    border: 2px solid red;
+}
+.hidden{
+    display:none;
+}
+input[type=date]{
+    padding: 0px!important;
+}

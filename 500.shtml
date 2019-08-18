@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50741180-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-50741180-3');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>tride Group  - 500 Internal server error</title>
+    <link href="http://tridegroup.ge/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://tridegroup.ge/css/stylish-portfolio.css" rel="stylesheet">
+    <link href="http://tridegroup.ge/css/custom.css" rel="stylesheet">
+    <link href="http://tridegroup.ge/img/icons/favicon.png" rel="shortcut icon">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="top"></div>
+    <!-- About -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1">
+            <h2 class="text-center">500 Internal server error</h2>
+            <hr class="small">
+            <div class="row">
+              <h4 class="text-center">Encountered an internal server error. We'll handle it soon.<br> <br> <a href="http://tridegroup.ge/index.php" class="btn btn-yellow">Go back</a></h4>
+            </div>
+            <!-- /.row (nested) -->
+          </div>
+          <!-- /.col-lg-8 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- Footer -->
+    <script src="http://tridegroup.ge/js/jquery.js"></script>
+    <script src="http://tridegroup.ge/js/bootstrap.min.js"></script>
+    <script src="http://tridegroup.ge/js/custom.js"></script>
+  </body>
+</html>
