@@ -48,13 +48,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>tride Group - პროექტის სათაური</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="css/img-map.css" rel="stylesheet">
-    <link href="img/icons/favicon.png" rel="shortcut icon">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="css/img-map.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/stylish-portfolio.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../css/img-map.css" rel="stylesheet">
+    <link href="../img/icons/favicon.png" rel="shortcut icon">
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/img-map.css" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -115,12 +115,12 @@
     </div>
     <div class="ft-wkr"></div>
     <?php include "footer.php" ?>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script type="text/javascript" src="js/jquery.rwdImageMaps.js"></script>
-    <script type="text/javascript" src="js/jquery.maphilight.js"></script>
-    <script type="text/javascript" src="js/project.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <script type="text/javascript" src="../js/jquery.rwdImageMaps.js"></script>
+    <script type="text/javascript" src="../js/jquery.maphilight.js"></script>
+    <script type="text/javascript" src="../js/project.js"></script>
     <script>
       data =<?= json_encode($floors) ?>;
       $("area").on("click", function(e){
@@ -136,6 +136,6 @@
         }
       }
     </script>
-    <script type="text/javascript" src="js/map-resizer.js"></script>
+    <script type="text/javascript" src="../js/map-resizer.js"></script>
   </body>
 </html>

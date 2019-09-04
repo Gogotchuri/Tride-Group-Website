@@ -31,11 +31,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>tride Group  - <?= $translator->translate("სიახლეები") ?></title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="img/icons/favicon.png" rel="shortcut icon">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/stylish-portfolio.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../img/icons/favicon.png" rel="shortcut icon">
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -88,9 +88,9 @@
     </section>
     <!-- Footer -->
     <?php include("footer.php") ?>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/custom.js"></script>
     <script>
       var socHTML = "<ul class='soc-share'> <li><a target='_blank' class='fb_share btn btn-md social btn-fb' href='https://www.facebook.com/share.php?u=http://tridegroup.ge/updates.php'><i class='fa fa-facebook-square'></i> Share</a></li><li><a target='_blank' class='tw_share btn btn-md social btn-twt' href='https://twitter.com/intent/tweet?url=http://tridegroup.ge/updates.php'><i class='fa fa-twitter'></i> Tweet</a></li></ul>"
       $(document).ready(function() {

@@ -1,7 +1,7 @@
 <?php
-  include 'database.php';
-  include 'texts.php';
-  
+  include ROOT.'/database.php';
+  include  ROOT.'/texts.php';
+
   $database = new mysqli($host, $user, $password, $db);
   if ($database->connect_errno)
   {
@@ -36,11 +36,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>tride Group - <?= $translator->translate("პროექტები") ?></title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="img/icons/favicon.png" rel="shortcut icon">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/stylish-portfolio.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../img/icons/favicon.png" rel="shortcut icon">
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -63,7 +63,7 @@
                 while($row = $updates_current->fetch_array()){ ?>
               <div class="col-lg-4 col-md-4 col-xs-6">
                 <div class="portfolio-item">
-                  <a href="project.php?ID=<?=$row["ID"]?>">
+                  <a href="project.php?ID=<?=$row['id']?>">
                     <img class="img-portfolio img-responsive" src="<?=$row["thumb"]?>" alt="panorama3">
                     <div class="gallery-descr"><span><?=$row["name".$lang]?></span></div>
                   </a>
@@ -80,7 +80,7 @@
                 while($row = $updates_->fetch_array()){ ?>
               <div class="col-lg-4 col-md-4 col-xs-6">
                 <div class="portfolio-item">
-                  <a href="project.php?ID=<?=$row["ID"]?>">
+                  <a href="project.php?ID=<?=$row['id']?>">
                     <img class="img-portfolio img-responsive" src="<?=$row["thumb"]?>" alt="panorama3">
                     <div class="gallery-descr"><span><?=$row["name".$lang]?></span></div>
                   </a>
@@ -106,7 +106,7 @@
             <div class="row">
               <div class="col-md-12 about-content">
                 <div class="col-sm-6">
-                  <img class="img-responsive news-thumb" src="img/homepage/featured1.jpg" alt="">
+                  <img class="img-responsive news-thumb" src="../img/homepage/featured1.jpg" alt="">
                 </div>
                 <div class="col-md-6 about-txt">
                   <h3><?= $translator->translate("საბავშვო ბაღი")?></h3>
@@ -214,8 +214,8 @@
     </div>
     <!-- Footer -->
     <?php include "footer.php" ?>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/custom.js"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
-include ROOT.'/database.php';
-include ROOT.'/texts.php';
+    include(ROOT.'/database.php');
+    include(LOCALE."/exportTranslator.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +84,7 @@ include ROOT.'/texts.php';
     <img src="img/slider/4.png">
 </div>
 <!-- Static navbar -->
-<?php include VIEWS . "/partials/navbar.php" ?>
+<?php include(VIEWS."/partials/navbar.php"); ?>
 <div id="top"></div>
 <header class="header">
     <ul id="bullets">

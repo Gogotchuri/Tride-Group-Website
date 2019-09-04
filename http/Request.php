@@ -8,7 +8,7 @@ class Request
 {
     private $requestParams;
 
-    function __construct()
+    public function __construct()
     {
         $this->bootstrapRequest();
     }

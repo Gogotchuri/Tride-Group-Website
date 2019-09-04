@@ -1,17 +1,4 @@
 <?php
-
-$lang = "KA";
-if(isset($_GET["lang"])){
-  $tmp = $_GET["lang"]; 
-}else if(isset($_COOKIE["lang"])){
-  $tmp = $_COOKIE["lang"];
-}else{
-  $tmp = "KA"; // DEFAULT
-}
-if($tmp == "KA" || $tmp == "EN" || $tmp == "RU")
-    $lang = $tmp;
-setcookie("lang", $lang);
-
 class Translate{
   public function __construct($lang){
     if($lang == "KA")
@@ -153,5 +140,5 @@ class Translate{
     return isset($this->default[$caption]) ? $this->default[$caption] : $caption;
   }
 }
+
 $translator = new Translate($lang);
-?>

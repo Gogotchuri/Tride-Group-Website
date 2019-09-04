@@ -1,2 +1,1 @@
-<?php
-    echo "\n footer!";
+<footer> <div class="container"> <div class="row"> <div class="col-lg-12 text-center"> <p class="col-lg-4 text-muted">&copy; tride Group 2018</p><p class="col-lg-4 text-muted"><?=$translator->translate("ყველა უფლება დაცულია")?></p><div class="col-lg-4"><a href="tel:995599675675"><i class="fa fa-phone"></i> 599 67 56 75</a></div></div></div></div><a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-angle-up fa-fw fa-1x"></i></a></footer>

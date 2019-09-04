@@ -1,6 +1,6 @@
 <?php
-  include ROOT.'/database.php';
-  include ROOT.'/texts.php';
+    include (ROOT.'/database.php');
+    include(LOCALE."/exportTranslator.php");
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@
   </head>
   <body>
     <!-- Static navbar -->
-    <?php include "navigation.php" ?>
+    <?php include(VIEWS."/partials/navbar.php") ?>
     <div id="top"></div>
     <!-- About -->
     <section id="about" class="about">

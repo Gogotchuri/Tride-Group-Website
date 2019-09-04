@@ -23,6 +23,26 @@
         require(VIEWS."/about.php");
     });
 
+    $router->get("/projects", function (){
+        require(VIEWS."/projects.php");
+    });
+
+    $router->get("/project", function (){
+        require(VIEWS."/project.php");
+    });
+
+    $router->get("/gallery", function (){
+        require(VIEWS."/gallery.php");
+    });
+
+    $router->get("/album", function (){
+        require(VIEWS."/album.php");
+    });
+
+    $router->get("/updates", function (){
+        require(VIEWS."/updates.php");
+    });
+
     //admin
     $router->get("/admin", function (){
        require(ROOT."/cms/sign-in.php");
