@@ -1,6 +1,6 @@
 <?php
-  include 'database.php';
-  include 'texts.php';
+  include ROOT.'/database.php';
+  include ROOT.'/texts.php';
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,11 +18,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>tride Group - <?=$translator->translate("ჩვენს შესახებ")?></title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="img/icons/favicon.png" rel="shortcut icon">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/stylish-portfolio.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../img/icons/favicon.png" rel="shortcut icon">
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -72,9 +72,9 @@
     <!-- Footer -->
     <div class="ft-wkr"></div>
     <?php include "footer.php" ?>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/custom.js"></script>
     <script>
       $(document).ready(function() {
           $("#about_cont").empty().load(tridegroup);

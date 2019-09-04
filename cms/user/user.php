@@ -27,6 +27,4 @@ class User {
         header("Location: sign-in");
         die();
     }
-}   
-
-?>
+}

@@ -1,6 +1,5 @@
 <?php
-  session_start();
-  require_once "user/user.php";
+    require_once "user/user.php";
     
     if($_SERVER["REQUEST_METHOD"] === "POST"){
     
