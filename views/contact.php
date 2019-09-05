@@ -1,2 +1,2 @@
-<?php
-    echo "contact page";
+<?php include(LOCALE."/exportTranslator.php");
+    echo "Contact page";

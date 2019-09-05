@@ -1,7 +1,8 @@
 <?php
-    include_once "config.php";
-    include_once "http\Request.php";
-    include_once "http\Router.php";
+    include_once ("config.php");
+    include_once (HTTP."\Request.php");
+    include_once (HTTP."\Router.php");
+
     use http\Request;
     use http\Router;
 
@@ -48,7 +49,7 @@
        require(ROOT."/cms/sign-in.php");
     });
 
-    $router->get("/gallery", function (){
+    $router->get("/cms/gallery", function (){
         require(ROOT."/cms/gallery.php");
     });
 

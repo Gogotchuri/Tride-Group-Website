@@ -1,55 +1,27 @@
 <?php
-  include ROOT.'/database.php';
-  include  ROOT.'/texts.php';
+    include(LOCALE."/exportTranslator.php");
+    include_once(CLASSES."/managers/ProjectsManager.php");
+    use manager\ProjectsManager;
 
-  $database = new mysqli($host, $user, $password, $db);
-  if ($database->connect_errno)
-  {
-    printf ("Failed to connect to MySQL: %s\n" , $database->connect_error);
-    exit();
-  }
-  $database->set_charset("utf8");
-  $query = "SELECT * FROM projects WHERE status = 1";
-  if(!($updates_current = $database->query($query))){
-    printf("Database not configured correctly");
-    exit();
-  }
-  $query = "SELECT * FROM projects WHERE status = 0";
-  if(!($updates_ = $database->query($query))){
-    printf("Database not configured correctly");
-    exit();
-  }
+    $ongoing_projects = ProjectsManager::allProjectsWithStatus(1);
+    if($ongoing_projects == null){
+        require(VIEWS."/errors/500.shtml");
+        exit();
+    }
+
+    $finished_projects = ProjectsManager::allProjectsWithStatus(0);
+    if($finished_projects == null){
+        require(VIEWS."/errors/500.shtml");
+        exit();
+    }
+
   ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50741180-3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-50741180-3');
-    </script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>tride Group - <?= $translator->translate("პროექტები") ?></title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/stylish-portfolio.css" rel="stylesheet">
-    <link href="../css/custom.css" rel="stylesheet">
-    <link href="../img/icons/favicon.png" rel="shortcut icon">
-    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
+<?php include(VIEWS."/partials/head.php")?>
   <body>
     <!-- Static navbar -->
-    <?php include "navigation.php" ?>
+    <?php include(VIEWS."/partials/navbar.php"); ?>
     <div id="top"></div>
     <!-- Portfolio -->
     <section id="gallery" class="gallery">
@@ -60,16 +32,16 @@
             <hr class="small">
             <div class="row">
               <?php
-                while($row = $updates_current->fetch_array()){ ?>
-              <div class="col-lg-4 col-md-4 col-xs-6">
-                <div class="portfolio-item">
-                  <a href="project.php?ID=<?=$row['id']?>">
-                    <img class="img-portfolio img-responsive" src="<?=$row["thumb"]?>" alt="panorama3">
-                    <div class="gallery-descr"><span><?=$row["name".$lang]?></span></div>
-                  </a>
-                  <div class="thumb-descr"><?=$row["description".$lang]?></div>
-                </div>
-              </div>
+                foreach($ongoing_projects as $project){ ?>
+                  <div class="col-lg-4 col-md-4 col-xs-6">
+                    <div class="portfolio-item">
+                      <a href="project?ID=<?=$project['ID']?>">
+                        <img class="img-portfolio img-responsive" src="<?=$project["thumb"]?>" alt="panorama3">
+                        <div class="gallery-descr"><span><?=$project["name".$lang]?></span></div>
+                      </a>
+                      <div class="thumb-descr"><?=$project["description".$lang]?></div>
+                    </div>
+                  </div>
               <?php } ?>
             </div>
             <!-- /.row (nested) -->
@@ -77,16 +49,16 @@
             <hr class="small">
             <div class="row">
               <?php
-                while($row = $updates_->fetch_array()){ ?>
-              <div class="col-lg-4 col-md-4 col-xs-6">
-                <div class="portfolio-item">
-                  <a href="project.php?ID=<?=$row['id']?>">
-                    <img class="img-portfolio img-responsive" src="<?=$row["thumb"]?>" alt="panorama3">
-                    <div class="gallery-descr"><span><?=$row["name".$lang]?></span></div>
-                  </a>
-                  <div class="thumb-descr"><?=$row["description".$lang]?></div>
-                </div>
-              </div>
+                foreach($finished_projects as $project){ ?>
+                  <div class="col-lg-4 col-md-4 col-xs-6">
+                    <div class="portfolio-item">
+                      <a href="project?ID=<?=$project['ID']?>">
+                        <img class="img-portfolio img-responsive" src="<?=$project["thumb"]?>" alt="panorama3">
+                        <div class="gallery-descr"><span><?=$project["name".$lang]?></span></div>
+                      </a>
+                      <div class="thumb-descr"><?=$project["description".$lang]?></div>
+                    </div>
+                  </div>
               <?php } ?>
             </div>
             <!-- /.row (nested) -->
@@ -213,7 +185,7 @@
       </div>
     </div>
     <!-- Footer -->
-    <?php include "footer.php" ?>
+    <?php include(VIEWS."/partials/footer.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>

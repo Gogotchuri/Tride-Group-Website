@@ -7,6 +7,8 @@
         $tmp = $_GET["lang"];
     else if(isset($_COOKIE["lang"]))
         $tmp = $_COOKIE["lang"];
+    else
+        $tmp = "KA";
 
     if($tmp === "EN" || $tmp === "RU")
         $lang = $tmp;

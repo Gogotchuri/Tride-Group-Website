@@ -19,11 +19,11 @@
   }
   $ID = intval($_GET["ID"]);
   $floors = array();
-  while($row = $floors_->fetch_array(MYSQLI_ASSOC)){
-    if($row["floor"] == $ID){
-      $floor = $row;
+  while($project = $floors_->fetch_array(MYSQLI_ASSOC)){
+    if($project["floor"] == $ID){
+      $floor = $project;
     }
-    array_push($floors,$row["floor"]);
+    array_push($floors,$project["floor"]);
   }
   $query = "SELECT * FROM appartments where projectID = " .intval($_GET["projectID"]) . " and floor=" . intval($_GET["ID"]);
   if(!($app_ = $database->query($query))){
@@ -31,8 +31,8 @@
     exit();
   }
   $app = array();
-  while ($row = $app_->fetch_array(MYSQLI_ASSOC)){
-    $app[$row["number"]] = $row;
+  while ($project = $app_->fetch_array(MYSQLI_ASSOC)){
+    $app[$project["number"]] = $project;
   }
   $app_->close();
   
@@ -42,37 +42,12 @@
     printf("Database not configured correctly");
     exit();
   }
-  $row = $updates->fetch_array(MYSQLI_ASSOC);
+  $project = $updates->fetch_array(MYSQLI_ASSOC);
   ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50741180-3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-50741180-3');
-    </script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>tride Group Development</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/stylish-portfolio.css" rel="stylesheet">
-    <link href="../css/img-map.css" rel="stylesheet">
-    <link href="../css/custom.css" rel="stylesheet">
-    <link href="../img/icons/favicon.png" rel="shortcut icon">
-    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+<?php include(VIEWS."/partials/head.php") ?>
+<body>
     <!-- Static navbar -->
     <?php include "navigation.php" ?>
     <div id="top"></div>
@@ -126,7 +101,7 @@
     </section>
     <!-- Footer -->
     <div class="ft-wkr"></div>
-    <?php include "footer.php" ?>
+    <?php include(VIEWS."/partials/footer.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>

@@ -1,0 +1,11 @@
+<img src="../fl2.png" width="800" height="950" border="0" usemap="#map" />
+
+<map name="map">
+<area shape="poly" coords="451,54,752,53,775,143,774,239,731,239,729,345,440,345,438,228,455,227"  nohref="nohref" />
+<area shape="poly" coords="438,350,438,570,785,575,765,446,728,446,729,351"  nohref="nohref" />
+<area shape="poly" coords="441,573,439,668,511,671,513,722,525,722,525,899,493,899,493,948,588,934,588,900,787,901,786,580"  nohref="nohref" />
+<area shape="poly" coords="301,672,300,900,520,896,521,727,509,727,508,674"  nohref="nohref" />
+<area shape="poly" coords="357,578,90,578,90,591,41,593,25,696,85,698,82,902,296,898,298,670,355,668"  nohref="nohref" />
+<area shape="poly" coords="358,346,359,570,87,572,88,444,46,445,19,348"  nohref="nohref" />
+<area shape="poly" coords="310,228,308,18,201,6,202,57,18,53,18,344,357,342,359,230"  nohref="nohref" />
+</map>

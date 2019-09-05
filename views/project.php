@@ -1,88 +1,47 @@
 <?php
-  include 'database.php';
-  include 'texts.php';
-  
-  $database = new mysqli($host, $user, $password, $db);
-  if ($database->connect_errno)
-  {
-    printf ("Failed to connect to MySQL: %s\n" , $database->connect_error);
-    exit();
-  }
-  if(!isset($_GET["ID"])){
-    header("Location: projects.php");
-  }
-  $database->set_charset("utf8");
-  $query = "SELECT ID, description" . $lang . ", image, floor FROM floors where projectID = " .intval($_GET["ID"]);
-  if(!($floors_ = $database->query($query))){
-    printf("Database not configured correctly");
-    exit();
-  }
-  $floors = array();
-  while ($row = $floors_->fetch_array(MYSQLI_ASSOC)){
-    $floors[$row["floor"]] = $row;
-  }
-  $floors_->close();
-  
-  
-  $query = "SELECT * FROM projects where ID = " . intval($_GET["ID"]);
-  if(!($updates = $database->query($query))){
-    printf("Database not configured correctly");
-    exit();
-  }
-  $row = $updates->fetch_array();
-  
-  ?>
+    include(LOCALE."/exportTranslator.php");
+    include_once(MANAGERS."/ProjectsManager.php");
+    use manager\ProjectsManager;
+
+    if(!isset($_GET["ID"]))
+       header("Location: projects");
+
+    $ID = intval($_GET["ID"]);
+
+    $floors = ProjectsManager::getFloorsWithProjectId($ID, $lang);
+    $project = ProjectsManager::getProjectWithId($ID);
+
+    if($floors == null || $project == null){
+        require(VIEWS."/errors/404.shtml");
+        exit();
+    }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50741180-3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-50741180-3');
-    </script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>tride Group - პროექტის სათაური</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/stylish-portfolio.css" rel="stylesheet">
-    <link href="../css/custom.css" rel="stylesheet">
-    <link href="../css/img-map.css" rel="stylesheet">
-    <link href="../img/icons/favicon.png" rel="shortcut icon">
-    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="../css/img-map.css" rel="stylesheet" type="text/css">
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->	
-  </head>
-  <body>
+<?php include(VIEWS."/partials/head.php") ?>
+<body>
     <!-- Static navbar -->
-    <?php include "navigation.php" ?>
+    <?php include(VIEWS."/partials/navbar.php") ?>
     <div id="top"></div>
     <!-- About -->
     <section id="about" class="about">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="text-center"><?=$row["name" . $lang]?></h2>
+            <h2 class="text-center"><?=$project["name" . $lang]?></h2>
             <hr class="small">
             <div class="row">
               <div class="col-md-12 about-content">
                 <div class="col-md-5">
                   <div id="wrap">
                     <span class="floor_num">№ </span>
-                    <img src="<?=$row["picture"]?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" />
-                    <?=$row["map"]?>
+                    <img src="<?=BASE_URL.$project["picture"]?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" />
+                    <?=$project["map"]?>
                     <span class="small small-info"><?= $translator->translate("კონკრეტული სართულის სქემის სანახავად დააჭირეთ შესაბამის სართულს ფოტოზე.")?></span>
                   </div>
                 </div>
                 <div class="col-md-7 about-project">
-                  <?=$row["descriptionLarge" . $lang]?>
+                  <?=$project["descriptionLarge" . $lang]?>
                 </div>
               </div>
             </div>
@@ -114,7 +73,7 @@
       </div>
     </div>
     <div class="ft-wkr"></div>
-    <?php include "footer.php" ?>
+    <?php include(VIEWS."/partials/footer.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>
