@@ -40,7 +40,13 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="<?= BASE_URL ?>js/jquery.js"></script>
+    <script src="<?= BASE_URL ?>js/bootstrap.min.js"></script>
+    <script src="<?= BASE_URL ?>js/gmap.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvkK_S9xUxn4AkfIl3GswOmFjaJz49sqw&callback=initMap"></script>
+    <script src="<?= BASE_URL ?>js/gmap.js"></script>
+    <script src="<?= BASE_URL ?>js/custom.js"></script>
+    <script src="<?= BASE_URL ?>js/typed.js"></script>
     <script type="application/ld+json">
         {
             "@context":"http://schema.org",
