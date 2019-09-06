@@ -58,6 +58,7 @@ class Router
     function resolve()
     {
         $requestParams = $this->request->getRequestParams();
+        //TODO might need to check key existence before addressing
         $methodHandlers = $this->routeHandlers[ strtolower($requestParams["request_method"]) ];
         $route = $this->formatRoute( $requestParams["request_uri"] );
 

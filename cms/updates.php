@@ -1,21 +1,18 @@
 <?php
-  include '../cms/session.php'; 
-  include '../database.php';
-  include '../texts.php';
+    include(LOCALE."/exportTranslator.php");
 
-  $database = new mysqli($host, $user, $password, $db);
-  if ($database->connect_errno)
-  {
-    printf ("Failed to connect to MySQL: %s\n" , $database->connect_error);
-    exit();
-  }
-  $database->set_charset("utf8mb4");
+    include_once(CLASSES."/middleware/Authenticated.php");
+    include_once(CLASSES."/managers/NewsManager.php");
+    use middleware\Authenticated;
+    use manager\NewsManager;
 
-  $query = "SELECT * FROM news ORDER BY pubdate DESC";
-  if(!($updates = $database->query($query))){
-    printf("Database not configured correctly");
-    exit();
-  }
+    if(!Authenticated::isAuthenticated()) exit();
+
+    $news = NewsManager::getAllNews();
+    if($news == null){
+        require(VIEWS."/errors/500.shtml");
+        exit();
+    }
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +47,7 @@
               </div>
                 
               <?php
-                while($row = $updates->fetch_array()){ ?>
+                foreach($news as $row){ ?>
               <div class="col-md-12 about-content" id="<?=$row['ID']?>">
                 <div class="col-sm-3 col-md-3">
                   <img class="img-responsive news-thumb" src="../<?=$row["image"]?>" alt="<?= $row["header".$lang] ?>">

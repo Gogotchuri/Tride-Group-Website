@@ -50,15 +50,49 @@
 
     //admin
     $router->get("/admin", function (){
-       require(ROOT."/cms/sign-in.php");
+       require(CMS."/sign-in.php");
     });
 
     $router->post("/admin", function (){
-       require(ROOT."/cms/sign-in.php");
+       require(CMS."/sign-in.php");
     });
 
     $router->get("/admin/gallery", function (){
-        require(ROOT."/cms/gallery.php");
+        require(CMS."/gallery.php");
     });
 
-    //TODO finish routing admin
+    $router->get("sign-out", function (){
+        require(CMS."/sign-out.php");
+    });
+
+    ##### For sake of backwards compatibility #####
+    //methods TODO think about refactoring
+    $router->get("method_list.php", function(){
+        require(CMS."/method_list.php");
+    });
+    $router->post("method_list.php", function(){
+        require(CMS."/method_list.php");
+    });
+
+    $router->get("uploadAlbum.php", function(){
+        require(CMS."/uploadAlbum.php");
+    });
+    $router->post("uploadAlbum.php", function(){
+        require(CMS."/uploadAlbum.php");
+    });
+
+    $router->get("uploadNews.php", function(){
+        require(CMS."/uploadNews.php");
+    });
+    $router->post("uploadNews.php", function(){
+        require(CMS."/uploadNews.php");
+    });
+
+    $router->get("method_list.php", function(){
+        require(CMS."/method_list.php");
+    });
+    $router->post("method_list.php", function(){
+        require(CMS."/method_list.php");
+    });
+
+    ###################################################

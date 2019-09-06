@@ -2,6 +2,7 @@
     include_once("Translator.php");
     use locale\Translator;
 
+    $lang = "KA";
     //Set language
     if(isset($_GET["lang"]))
         $tmp = $_GET["lang"];
@@ -12,8 +13,6 @@
 
     if($tmp === "EN" || $tmp === "RU")
         $lang = $tmp;
-    else
-        $lang = "KA";
 
     setcookie("lang", $lang);
 

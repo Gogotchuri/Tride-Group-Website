@@ -48,5 +48,18 @@ class GalleryManager
         return $albums;
     }
 
+    public static function getAlbumsWhere(string $condition){
+        self::getDAO();
+        if(self::$DAO == null) return null;
+        $albums_raw = self::$DAO->executeQuery("SELECT * FROM album WHERE ".$condition." order by ID");
+        if(!$albums_raw) return null;
+        $albums = [];
+        while($row = $albums_raw->fetch_array()){
+            $albums[] = $row;
+        }
+        $albums_raw->close();
+        return $albums;
+    }
+
 
 }
