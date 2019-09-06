@@ -1,7 +1,7 @@
 <?php
     include_once ("config.php");
-    include_once (HTTP."\Request.php");
-    include_once (HTTP."\Router.php");
+    include_once (HTTP."/Request.php");
+    include_once (HTTP."/Router.php");
 
     use http\Request;
     use http\Router;

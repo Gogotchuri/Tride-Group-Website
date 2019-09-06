@@ -1,6 +1,6 @@
 <?php
-  include 'database.php';
-  include 'texts.php';
+  include '../classes/database/database.php';
+  include '../texts.php';
   
   $database = new mysqli($host, $user, $password, $db);
   if ($database->connect_errno)
