@@ -1035,6 +1035,7 @@ h2.header-y{
 /* About */
 #about{
     padding: 30px 0px;
+    min-height: 90vh;
 }
 .about-nav {
     background-color: transparent;
@@ -1065,3 +1066,69 @@ h2.header-y{
     }
 }
 /* /About */
+
+/* Contact */
+.contact-us{
+    overflow-x: hidden;
+}
+h2.contact-us-header{
+    margin-top: 45px;
+    margin-bottom: 35px;
+}
+.contact-us-form > div > input{
+    border: none;
+    border-bottom: 1px solid #131f2d;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.contact-us-info{
+    font-size: 16px;
+    font-weight: bold;
+}
+@media (min-width: 768px) {
+    .map{
+        height: 620px;
+    }
+
+    h2.contact-us-header{
+        margin-top: 65px;
+        margin-bottom: 50px;
+        margin-left: 20px;
+    }
+    .contact-us-info{
+        margin-left: 20px;
+    }
+    .contact-us-form{
+        margin-left: 20px;
+        max-width: 450px;
+    }
+
+    .contact-us-form > div > input{
+        margin-bottom: 35px;
+    }
+    .contact-us-form > button{
+        float: right;
+    }
+}
+@media (min-width: 1920px) {
+    .map{
+        height: 940px;
+    }
+    h2.contact-us-header{
+        margin-top: 75px;
+        margin-bottom: 60px;
+        margin-left: 180px;
+    }
+    .contact-us-form{
+        margin-left: 180px;
+        width: 550px;
+    }
+    .contact-us-info{
+        margin-left: 180px;
+    }
+    .contact-us-form > div > input{
+        margin-bottom: 35px;
+    }
+}
+/* /Contact */
