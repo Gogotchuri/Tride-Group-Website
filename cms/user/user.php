@@ -1,5 +1,7 @@
-<?php 
-session_start();
+<?php
+if(!isset($_SESSION)) {
+    session_start();
+}
 class User {
 
     Private static $_ADMIN_MAIL = 'tsitsi@tridegroup.ge';
@@ -13,10 +15,10 @@ class User {
             $_SESSION['user']['admin'] = True;
             $_SESSION['user']['username'] = "Admin";
             
-            header('Location: gallery');
+            header('Location: admin/gallery');
             die();
         }else{
-            header('Location: sign-in');
+            header('Location: admin');
             die();
         }
 
@@ -24,7 +26,7 @@ class User {
 
     public static function logout(){
         session_destroy();
-        header("Location: sign-in");
+        header("Location: admin");
         die();
     }
 }

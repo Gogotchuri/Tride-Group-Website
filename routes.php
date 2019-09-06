@@ -32,6 +32,10 @@
         require(VIEWS."/project.php");
     });
 
+    $router->get("/floor", function (){
+        require(VIEWS."/floor.php");
+    });
+
     $router->get("/gallery", function (){
         require(VIEWS."/gallery.php");
     });
@@ -49,12 +53,12 @@
        require(ROOT."/cms/sign-in.php");
     });
 
-    $router->get("/cms/gallery", function (){
-        require(ROOT."/cms/gallery.php");
+    $router->post("/admin", function (){
+       require(ROOT."/cms/sign-in.php");
     });
 
-    $router->post("/admin", function (){
-        require(ROOT."/cms/sign-in.php");
+    $router->get("/admin/gallery", function (){
+        require(ROOT."/cms/gallery.php");
     });
 
     //TODO finish routing admin

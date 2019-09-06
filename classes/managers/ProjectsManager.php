@@ -31,13 +31,13 @@ class ProjectsManager
         if(self::$DAO == null) return null;
         $project_raw = self::$DAO->executeQuery("SELECT * FROM projects where ID = " . $id);
         if(!$project_raw) return null;
-        return $project_raw->fetch_array();
+        return $project_raw->fetch_array(MYSQLI_ASSOC);
     }
 
-    public static function getFloorsWithProjectId(int $id, String $lang){
+    public static function getFloorsWithProjectId(int $id){
         self::getDAO();
         if(self::$DAO == null) return null;
-        $floors_raw = self::$DAO->executeQuery("SELECT ID, description".$lang.", image, floor FROM floors where projectID = ".$id);
+        $floors_raw = self::$DAO->executeQuery("SELECT * FROM floors f where projectID = ".$id ." order by f.floor");
 
         if(!$floors_raw) return null;
         $floors = [];
@@ -48,5 +48,21 @@ class ProjectsManager
         $floors_raw->close();
 
         return $floors;
+    }
+
+    public static function getApartmentsWithProjectAndFloorId(int $project_id, int $floor_id){
+        self::getDAO();
+        if(self::$DAO == null) return null;
+        $apartments_raw = self::$DAO->executeQuery("SELECT * FROM appartments where projectID = " .$project_id. " and floor=" .$floor_id. ";");
+
+        if(!$apartments_raw) return null;
+        $apartments = [];
+        while ($row = $apartments_raw->fetch_array(MYSQLI_ASSOC)){
+            $apartments[$row["number"]] = $row;
+        }
+
+        $apartments_raw->close();
+
+        return $apartments;
     }
 }

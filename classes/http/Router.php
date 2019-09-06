@@ -60,12 +60,12 @@ class Router
         $requestParams = $this->request->getRequestParams();
         $methodHandlers = $this->routeHandlers[ strtolower($requestParams["request_method"]) ];
         $route = $this->formatRoute( $requestParams["request_uri"] );
-        $lambda = $methodHandlers[$route];
-        if(is_null($lambda))
-        {
+
+        if($methodHandlers == null || !array_key_exists($route, $methodHandlers)){
             $this->defaultRequestHandler();
             return;
         }
+        $lambda = $methodHandlers[$route];
 
         echo call_user_func_array($lambda, array($this->request));
     }

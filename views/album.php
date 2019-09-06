@@ -12,11 +12,11 @@
     }
 
     $root = $album["images"];
-    $root = ROOT."/".$root;
+    $real_root = ROOT."/".$root;
     try{
-        $imgs = scandir($root);
+        $imgs = scandir($real_root);
         for($i=0;$i<count($imgs);$i++) {
-            $imgs[$i] = $root . $imgs[$i];
+            $imgs[$i] = BASE_URL."/".$root . $imgs[$i];
         }
     }catch(\ErrorException $e){
         $imgs = [];

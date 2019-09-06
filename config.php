@@ -19,4 +19,5 @@
     defined("MANAGERS") or define("MANAGERS", realpath(dirname(__FILE__)."/classes/managers"));
     defined("HTTP") or define("HTTP", realpath(dirname(__FILE__)."/classes/http"));
     defined("BASE_URL") or define("BASE_URL", $base_url);
+    defined("CMS") or define("CMS", realpath(dirname(__FILE__)."/cms"));
 

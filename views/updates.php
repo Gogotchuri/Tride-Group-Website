@@ -1,19 +1,14 @@
 <?php
-  include 'database.php';
-  include 'texts.php';
-  
-  $database = new mysqli($host, $user, $password, $db);
-  if ($database->connect_errno)
-  {
-    printf ("Failed to connect to MySQL: %s\n" , $database->connect_error);
-    exit();
-  }
-  $database->set_charset("utf8mb4");
-  $query = "SELECT * FROM news ORDER BY pubdate DESC";
-  if(!($updates = $database->query($query))){
-    printf("Database not configured correctly");
-    exit();
-  }
+    include(LOCALE."/exportTranslator.php");
+    include_once(MANAGERS."/NewsManager.php");
+
+    use manager\NewsManager;
+
+    $news = NewsManager::getAllNews();
+    if($news == null){
+        require(VIEWS."/errors/500.shtml");
+        exit();
+    }
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +24,7 @@
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
         
-    <?php include "navigation.php" ?>
+    <?php include(VIEWS."/partials/navbar.php") ?>
     <div id="top"></div>
     <!-- About -->
     <section id="about" class="about">
@@ -40,7 +35,7 @@
             <hr class="small">
             <div class="row">
               <?php
-                while($row = $updates->fetch_array()){ ?>
+                foreach($news as $row){ ?>
               <div itemscope itemtype="http://schema.org/Article" class="col-md-12 about-content">
                 <div class="col-sm-5 col-md-5">
                   <img itemprop="image" class="img-responsive news-thumb" src="<?=$row["image"]?>" alt="<?= $row["header".$lang] ?>">

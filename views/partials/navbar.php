@@ -23,7 +23,7 @@
                         <li>
                             <a href="projects#current"><?=$translator->translate("მიმდინარე პროექტები")?></a>
                         </li>
-                        <li><a href="projectsp#complete"><?=$translator->translate("განხორციელებული პროექტები")?></a>
+                        <li><a href="projects#complete"><?=$translator->translate("განხორციელებული პროექტები")?></a>
                         </li><li><a href="projects#infra"><?=$translator->translate("ინფრასტრუქტურული პროექტები")?></a></li>
                         <li><a href="projects#plan"><?=$translator->translate("გენ-გეგმა")?></a></li>
                     </ul>
