@@ -2,9 +2,11 @@
     include_once ("config.php");
     include_once (HTTP."/Request.php");
     include_once (HTTP."/Router.php");
+    include_once(HTTP . "/controllers/MailingController.php");
 
     use http\Request;
     use http\Router;
+    use controller\MailingController;
 
     $router = new Router(new Request());
 
@@ -48,7 +50,20 @@
         require(VIEWS."/updates.php");
     });
 
-    //admin
+    $router->post("/contact", function(Request $request){
+        MailingController::contactMessage($request);
+    });
+
+    $router->post("/request-call", function(Request $request){
+        MailingController::requestCall($request);
+    });
+
+    $router->post("/schedule-meeting", function(Request $request){
+        MailingController::scheduleMeeting($request);
+    });
+
+    ##################### Admin ##############################
+
     $router->get("/admin", function (){
        require(CMS."/sign-in.php");
     });

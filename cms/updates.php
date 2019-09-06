@@ -1,7 +1,7 @@
 <?php
     include(LOCALE."/exportTranslator.php");
 
-    include_once(CLASSES."/middleware/Authenticated.php");
+    include_once(CLASSES . "/http/middleware/Authenticated.php");
     include_once(CLASSES."/managers/NewsManager.php");
     use middleware\Authenticated;
     use manager\NewsManager;

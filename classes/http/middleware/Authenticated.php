@@ -1,7 +1,7 @@
 <?php
 
 namespace middleware;
-require_once (CMS."/user/user.php");
+require_once(CMS . "/user/user.php");
 use User;
 
 class Authenticated
