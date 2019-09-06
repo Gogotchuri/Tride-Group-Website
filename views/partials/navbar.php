@@ -10,10 +10,10 @@
     </div>
 
     <!-- Inner links -->
-    <a href="projects.php#current" class="link"><?=$translator->translate("მიმდინარე პროექტები")?></a>
-    <a href="projects.php#complete" class="link"><?=$translator->translate("განხორციელებული პროექტები")?></a>
-    <a href="projects.php#infra" class="link"><?=$translator->translate("ინფრასტრუქტურული პროექტები")?></a>
-    <a href="projects.php#plan" class="link"><?=$translator->translate("გენ-გეგმა")?></a>
+    <a href="/updates" class="link"><?=$translator->translate("სიახლეები")?></a>
+    <a href="/gallery" class="link"><?=$translator->translate("გალერეა")?></a>
+    <a href="/about-us" class="link"><?=$translator->translate("ჩვენს შესახებ")?></a>
+    <a href="/contact" class="link"><?=$translator->translate("კონტაქტი")?></a>
 
     <!-- Language list only for mobile -->
     <ul class="mobile-lang socials-side">

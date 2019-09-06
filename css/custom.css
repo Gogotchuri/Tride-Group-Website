@@ -722,6 +722,7 @@ nav{
 }
 .openMenu > .hideWithOverlay{
     opacity: 0;
+    display: none;
     transition: all 1.2s ease-in-out;
 }
 /* /Added class on toggle */
@@ -734,7 +735,7 @@ nav{
     height: 100px;
 }
 .mobile-lang > li{
-    margin: 0 10px;
+    margin: 0 5px;
     display: inline-block;
 }
 .mobile-lang > li > a{
