@@ -11,10 +11,9 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="text-center"><?=$translator->translate("ჩვენს შესახებ")?></h2>
-            <hr class="small">
+            <h2 class="header-y"><?=$translator->translate("ჩვენს შესახებ")?></h2>
             <div class="row">
-              <div class="col-md-3 about-nav">
+              <div class="col-md-4 about-nav">
                 <ul class="nav nav-pills nav-stacked">
                   <li class="active"><a href="#" onclick="$('#about_cont').empty().load(tridegroup);"><?=$translator->translate("ტრიდე ჯგუფი")?></a></li>
                   <li><a href="#" onclick="$('#about_cont').empty().load(contactinfo);"><?=$translator->translate("საკონტაქტო ინფორმაცია")?></a></li>
@@ -24,14 +23,8 @@
                   <li><a href="#" onclick="$('#about_cont').empty().load(FAQ);"><?=$translator->translate("ხშირად დასმული შეკითხვები")?></a></li>
                   <li><a href="#" onclick="$('#about_cont').empty().load(suggestions);"><?=$translator->translate("რჩევები მყიდველს")?></a></li>
                 </ul>
-                <br>
-                <ul class="soc-share">
-                  <li><a target="_blank" class="fb_share btn btn-md social btn-fb" href="#"><i class="fa fa-facebook-square"></i> Share</a></li>
-                  <li><a target="_blank" class="tw_share btn btn-md social btn-twt" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
-                  <li><a target="_blank" class="gg_share btn btn-md social btn-ggl" href="#"><i class="fa fa-google-plus"></i> +1</a></li>
-                </ul>
               </div>
-              <div class="col-md-9 about-content" id="about_cont">
+              <div class="col-md-8 about-content" id="about_cont">
               </div>
             </div>
             <!-- /.row (nested) -->
@@ -42,9 +35,6 @@
       </div>
       <!-- /.container -->
     </section>
-    <!-- Footer -->
-    <div class="ft-wkr"></div>
-    <?php include(VIEWS."/partials/footer.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>
