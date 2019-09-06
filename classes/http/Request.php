@@ -24,9 +24,10 @@ class Request
     public function getData()
     {
         $method = $this->requestParams["request_method"];
-        if ($method === "POST")
+        $method = strtolower($method);
+        if ($method === "post")
         {
-            $body = array();
+            $body = [];
             foreach($_POST as $key => $value)
             {
                 $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
