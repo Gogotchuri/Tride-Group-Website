@@ -1020,6 +1020,14 @@ h2.header-y{
 .header-y{
     text-decoration: underline #ffb300;
 }
+h3.header-y{
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: underline #ffb300;
+    margin-bottom: 30px;
+    margin-top: 0;
+    text-align: center;
+}
 @media (min-width: 1280px) {
     h2.header-y{
         font-size: 40px;
@@ -1070,6 +1078,7 @@ h2.header-y{
 /* Contact */
 .contact-us{
     overflow-x: hidden;
+    background-color: #f2f2f2;
 }
 h2.contact-us-header{
     margin-top: 45px;
@@ -1081,10 +1090,80 @@ h2.contact-us-header{
     width: 100%;
     font-size: 20px;
     font-weight: bold;
+    background-color: transparent;
+    margin-bottom: 30px;
+}
+.contact-us-form > div > input:focus{
+    outline: none;
+}
+.contact-us-form > div > textarea{
+    font-size: 20px;
+    background-color: transparent;
+}
+.contact-us-form > div > textarea:focus{
+    border: 1px solid #ffb300;
 }
 .contact-us-info{
     font-size: 16px;
     font-weight: bold;
+    border-bottom: 3px solid #ffb300;
+    line-height: 2;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 45px;
+    margin-bottom: 30px;
+}
+.contact-us-form{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 90px;
+}
+.contact-us-form>button>img{
+    height: 16px;
+    margin-top: -4px;
+    margin-left: 4px;
+}
+.contact-us-form>button{
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline #ffb300;
+}
+.contact-us-call{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 25px 40px ;
+    min-height: 300px;
+    margin-bottom: 40px;
+    position: relative;
+}
+.contact-us-call>div>input{
+    margin-bottom: 30px;
+    font-size: 16px;
+    padding: 5px 0;
+    border: none;
+    border-bottom: 1px solid #1a2b3e;
+    width: 100%;
+}
+.contact-us-call>button{
+    position: absolute;
+    border-radius: 10px;
+    background-color: #ffb300;
+    color: #ffffff;
+    border: none;
+    text-underline: none;
+    padding: 8px 13px;
+    bottom: 25px;
+    right: 40px;
+}
+.contact-us-call>button>img{
+    margin-left: 5px;
+    margin-top: -5px;
 }
 @media (min-width: 768px) {
     .map{
@@ -1098,6 +1177,8 @@ h2.contact-us-header{
     }
     .contact-us-info{
         margin-left: 20px;
+        max-width: 450px;
+        margin-bottom: 50px;
     }
     .contact-us-form{
         margin-left: 20px;
@@ -1108,6 +1189,14 @@ h2.contact-us-header{
         margin-bottom: 35px;
     }
     .contact-us-form > button{
+        float: right;
+    }
+    .contact-us-call{
+        margin-left: 20px;
+        max-width: 460px;
+        text-align: left;
+    }
+    .contact-us-call>button{
         float: right;
     }
 }
@@ -1126,9 +1215,16 @@ h2.contact-us-header{
     }
     .contact-us-info{
         margin-left: 180px;
+        width: 550px;
+        padding-bottom: 20px;
+        margin-bottom: 50px;
     }
     .contact-us-form > div > input{
         margin-bottom: 35px;
+    }
+    .contact-us-call{
+        margin-left: 180px;
+        max-width: 560px;
     }
 }
 /* /Contact */

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.154" height="20.808" viewBox="0 0 19.154 20.808">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:4px}
+        </style>
+    </defs>
+    <g id="arrow-left" transform="rotate(180 11.076 11.49)">
+        <path id="Line_2" d="M15 0H0" class="cls-1" data-name="Line 2" transform="translate(5.153 12.155)"/>
+        <path id="Path_3" d="M12.576 20.152L5 12.576 12.576 5" class="cls-1" data-name="Path 3" transform="translate(-.001)"/>
+    </g>
+</svg>

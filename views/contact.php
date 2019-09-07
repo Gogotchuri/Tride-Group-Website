@@ -50,7 +50,38 @@
                                     <textarea name="comment" <?= $translator->translate("შეტყობინება")?> required></textarea>
                                 </div>
                                 <span id="mail-status"><?= $translator->translate("ყველა ველის შევსება აუცილებელია")?>!</span>
-                                <button type="submit" ><?= $translator->translate("გაგზავნა")?></button>
+                                <button type="submit" ><?= $translator->translate("გაგზავნა")?><img src="../img/icons/arrow-left.svg"></button>
+                            </form>
+                            <?php
+                        }
+                        ?>
+                        <?php
+                        //if "email" variable is filled out, send email
+                        if (isset($_REQUEST['email']))  {
+
+                            //Email information
+                            $admin_email = "tamta@tridegroup.ge";
+                            $name = $_REQUEST['name'];
+                            $phone = $_REQUEST['phone'];
+
+                            //send email
+                            mail($admin_email, "$name", "From:" . $phone);
+                            //Email response
+                            //echo "The message has been sent!";
+                            echo "<meta http-equiv='refresh' content='0'>";
+                        }
+                        //if "email" variable is not filled out, display the form
+                        else  {
+                            ?>
+                            <form method="post" class="contact-us-call">
+                                <h3 class="header-y"><?= $translator->translate("შეუკვეთე ზარი")?></h3>
+                                <div>
+                                    <input type="text" name="name" placeholder="<?= $translator->translate("სახელი")?>" required>
+                                </div>
+                                <div>
+                                    <input type="tel" name="phone" placeholder="<?= $translator->translate("ტელეფონი")?>" required>
+                                </div>
+                                <button type="submit" ><?= $translator->translate("შეუკვეთე ზარი")?><img src="../img/icons/arrow-right-circle.svg"></button>
                             </form>
                             <?php
                         }
