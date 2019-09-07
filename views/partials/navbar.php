@@ -10,6 +10,7 @@
     </div>
 
     <!-- Inner links -->
+    <a href="/projects" class="link"><?=$translator->translate("პროექტები")?></a>
     <a href="/updates" class="link"><?=$translator->translate("სიახლეები")?></a>
     <a href="/gallery" class="link"><?=$translator->translate("გალერეა")?></a>
     <a href="/about-us" class="link"><?=$translator->translate("ჩვენს შესახებ")?></a>
@@ -44,14 +45,14 @@
 
         <!-- Buttons for modals Desktop only-->
         <div class="modalsDesk">
-            <button class="plancall"><img src="img/icons/planCall.svg" alt="call"><?=$translator->translate("შეუკვეთე ზარი")?></button>
-            <button class="showroom"><img src="img/icons/showroom.svg" alt="showroom"><?=$translator->translate("დაჯავშნე შოურუმი")?></button>
+            <button class="plancall" id="planModalD"><img src="img/icons/planCall.svg" alt="call"><?=$translator->translate("შეუკვეთე ზარი")?></button>
+            <button class="showroom" id="showModalD"><img src="img/icons/showroom.svg" alt="showroom"><?=$translator->translate("დაჯავშნე შოურუმი")?></button>
         </div>
 
         <!-- Buttons for modals Mobile only -->
         <div class="modalsMob">
-            <button class="plancall"><img src="img/icons/planCall.svg" alt="call"></button>
-            <button class="showroom"><img src="img/icons/showroom.svg" alt="showroom"></button>
+            <button class="plancall" id="planModalM"><img src="img/icons/planCall.svg" alt="call"></button>
+            <button class="showroom" id="showModalM"><img src="img/icons/showroom.svg" alt="showroom"></button>
         </div>
 
         <!-- Language Dropdown For Desktop -->
@@ -74,10 +75,97 @@
 
 </nav>
 
+<div id="showRoomModal" class="modal">
+    <div class="modal-content">
+        <span class="closeRoom close">&times;</span>
+        <p>showRoom..</p>
+    </div>
+</div>
+<div id="planCallModal"  class="modal">
+    <div class="modal-content">
+        <span class="closePlan close">&times;</span>
+        <?php
+        //if "email" variable is filled out, send email
+        if (isset($_REQUEST['email']))  {
+
+            //Email information
+            $admin_email = "tamta@tridegroup.ge";
+            $name = $_REQUEST['name'];
+            $phone = $_REQUEST['phone'];
+
+            //send email
+            mail($admin_email, "$name", "From:" . $phone);
+            //Email response
+            //echo "The message has been sent!";
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+        //if "email" variable is not filled out, display the form
+        else  {
+            ?>
+            <form method="post" class="contact-us-call">
+                <h3 class="header-y"><?= $translator->translate("შეუკვეთე ზარი")?></h3>
+                <div>
+                    <input type="text" name="name" placeholder="<?= $translator->translate("სახელი")?>" required>
+                </div>
+                <div>
+                    <input type="tel" name="phone" placeholder="<?= $translator->translate("ტელეფონი")?>" required>
+                </div>
+                <button type="submit" ><?= $translator->translate("შეუკვეთე ზარი")?><img src="../img/icons/arrow-right-circle.svg"></button>
+            </form>
+            <?php
+        }
+        ?>
+    </div>
+</div>
+
 <script>
     // Toggle Navigation menu
     function toggleNav() {
         document.getElementById("mainMenu").classList.toggle("openMenu");
         document.getElementById("burger").classList.toggle("openMenu");
     }
+    // Get modals
+    var showroom = document.getElementById("showRoomModal");
+    var plancall = document.getElementById("planCallModal");
+
+    // Buttons for modal
+    var showRoomBtn1 = document.getElementById("showModalD");
+    var showRoomBtn2 = document.getElementById("showModalM");
+    var planCallBtn1 = document.getElementById("planModalD");
+    var planCallBtn2 = document.getElementById("planModalM");
+
+    // Close Btns
+    var spanShowRoom = document.getElementsByClassName("closeRoom")[0];
+    var spanPlanCall = document.getElementsByClassName("closePlan")[0];
+
+    // Close
+    spanShowRoom.onclick = function () {
+        showroom.style.display = "none";
+    }
+    spanPlanCall.onclick = function () {
+        plancall.style.display = "none";
+    }
+
+    // Open
+    showRoomBtn1.onclick = function () {
+        showroom.style.display = "block";
+    }
+    showRoomBtn2.onclick = function () {
+        showroom.style.display = "block";
+    }
+    planCallBtn1.onclick = function () {
+        plancall.style.display = "block";
+    }
+    planCallBtn2.onclick = function () {
+        plancall.style.display = "block";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == showroom || event.target == plancall) {
+            showroom.style.display = "none";
+            plancall.style.display = "none";
+        }
+    }
+
 </script>

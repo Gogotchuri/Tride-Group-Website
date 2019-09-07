@@ -1008,6 +1008,61 @@ nav{
 }
 /* /Navigation */
 
+/* Modals */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close {
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    z-index: 3;
+    right: 15px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-content > .contact-us-call{
+    padding: 0;
+    min-height: 240px;
+}
+.modal-content > .contact-us-call > button{
+    right: 30px;
+}
+@media (min-width: 768px){
+    .modal-content > .contact-us-call{
+        max-width: 100%;
+        margin: auto;
+    }
+}
+/* /Modals*/
+
 /* Headers */
 h2.header-y{
     font-size: 30px;
@@ -1035,6 +1090,9 @@ h3.header-y{
         text-decoration: underline #ffb300;
         margin-bottom: 80px;
         margin-top: 0;
+        text-align: left;
+    }
+    h3.header-y{
         text-align: left;
     }
 }
