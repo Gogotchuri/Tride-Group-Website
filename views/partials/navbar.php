@@ -134,7 +134,6 @@
     var callIsOpen = false;
 
     // Close
-<<<<<<< HEAD
     spanShowRoom.onclick = function () {
         showIsOpen = false;
         callIsOpen = false;
@@ -143,17 +142,10 @@
     spanPlanCall.onclick = function () {
         showIsOpen = false;
         callIsOpen = false;
-=======
-    spanShowRoom.onclick =  () => {
-        showroom.style.display = "none";
-    };
-    spanPlanCall.onclick = () => {
->>>>>>> e9d3a3930304a1fa634605421a3c9720341834a1
         plancall.style.display = "none";
     };
 
     // Open
-<<<<<<< HEAD
     showRoomBtn1.onclick = function () {
         if (callIsOpen) {
             plancall.style.display = "none";
@@ -185,18 +177,6 @@
         }
     }
     planCallBtn2.onclick = function () {
-=======
-    showRoomBtn1.onclick = () => {
-        showroom.style.display = "block";
-    };
-    showRoomBtn2.onclick = () => {
-        showroom.style.display = "block";
-    };
-    planCallBtn1.onclick = () => {
-        plancall.style.display = "block";
-    };
-    planCallBtn2.onclick = () => {
->>>>>>> e9d3a3930304a1fa634605421a3c9720341834a1
         plancall.style.display = "block";
     };
 
@@ -204,15 +184,10 @@
     myDate.valueAsDate = new Date();
 
     // When the user clicks anywhere outside of the modal, close it
-<<<<<<< HEAD
     window.onclick = function(event) {
         if (event.target == showroom || event.target == plancall) {
             showIsOpen = false;
             callIsOpen = false;
-=======
-    window.onclick = event => {
-        if (event.target === showroom || event.target === plancall) {
->>>>>>> e9d3a3930304a1fa634605421a3c9720341834a1
             showroom.style.display = "none";
             plancall.style.display = "none";
         }
