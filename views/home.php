@@ -1,5 +1,4 @@
 <?php
-    include(ROOT.'/database.php');
     include(LOCALE."/exportTranslator.php");
 ?>
 <!DOCTYPE html>

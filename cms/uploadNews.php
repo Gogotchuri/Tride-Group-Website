@@ -1,15 +1,13 @@
-<?php 
-    
-    include '../database.php';
-
-    $database = new mysqli($host, $user, $password, $db);
-    if ($database->connect_errno)
-    {
-        printf ("Failed to connect to MySQL: %s\n" , $database->connect_error);
+<?php
+    include_once(CLASSES."/database/DatabaseAccessObject.php");
+    use http\DatabaseAccessObject;
+    $dao = DatabaseAccessObject::getInstance();
+    if($dao == null) {
+        printf("Failed to connect to MySQL: %s\n");
         exit();
     }
 
-    $database->set_charset("utf8mb4");
+    $database = $dao->getDatabase();
 
 
     // Check if image file is a actual image or fake image
@@ -42,7 +40,8 @@
 
             $defaultImageName = "1";
 
-            $target_dir = "../img/updates/" . $id;
+            $relative_target_dir = "/img/updates/" . $id;;
+            $target_dir = ROOT.$relative_target_dir;
 
             $path_parts = pathinfo($_FILES["image"]["name"]);
 
@@ -54,7 +53,7 @@
 
             $image = $target_dir . "/" . $defaultImageName . "." . $extension;
 
-            $imageSource = substr($target_dir . "/" . $defaultImageName . "." . $extension,3);
+            $imageSource = $relative_target_dir."/".$defaultImageName.".".$extension;
 
             move_uploaded_file($_FILES['image']["tmp_name"], $image);
 
@@ -71,14 +70,14 @@
         $Query = "UPDATE news SET htmlKA='$htmlKA',htmlEN='$htmlEN',htmlRU='$htmlRU',image='$imageSource',pubdate='$pubdate',headerKA='$headerKA',headerEN='$headerEN',headerRU='$headerRU' WHERE ID=$id";    
 
         if($database->query($Query)){
-            header('Location: updates.php');
+            header('Location: updates');
             die();
         }else{
             echo "Failed on updating data base";
         }
     
     }else{
-        header('Location: updates.php');
+        header('Location: updates');
     }
 
 

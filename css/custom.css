@@ -1285,4 +1285,6 @@ h2.contact-us-header{
         max-width: 560px;
     }
 }
+
+.modal-backdrop{z-index: 0}
 /* /Contact */

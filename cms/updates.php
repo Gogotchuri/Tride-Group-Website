@@ -92,7 +92,7 @@
                       <h4 class="modal-title">სიახლის რედაქტირება</h4>
                     </div>
                     <div class="modal-body">
-                      <form id="newsForm" action="uploadNews.php" method="POST" enctype="multipart/form-data">
+                      <form id="newsForm" action="/admin/uploadNews" method="POST" enctype="multipart/form-data">
                         <!-- Form სიახლის დამატება/რედაქტირება -->
                         <input type="hidden" name="ID" value="-1">
                         <div class="form-group">
@@ -144,10 +144,10 @@
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src ="scripts/updates.js"></script>
-    <script src="../js/jquery.charReplacer.js"></script>
+    <script src="<?php BASE_URL?>/js/jquery.js"></script>
+    <script src="<?php BASE_URL?>/js/bootstrap.min.js"></script>
+    <script src="<?php BASE_URL?>/cms/scripts/updates.js"></script>
+    <script src="<?php BASE_URL?>/js/jquery.charReplacer.js"></script>
     <script>
         $(function () {    
             $("textarea.form-control").charReplacer({ replaceChar: '\n', replaceWith: '<br>' }); //  replaces & with and;array   

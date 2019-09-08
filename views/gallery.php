@@ -28,7 +28,7 @@
               <div class="col-lg-4 col-md-4 col-xs-6">
                 <div class="portfolio-item">
                   <a href="<?="album?ID=".$row["ID"]?>">
-                    <img class="img-portfolio img-responsive" src="<?=$row["defaultImage"]?> " alt="პანორამა 3">
+                    <img class="img-portfolio img-responsive" src="<?=$row["defaultImage"]?> " alt="gallery image">
                     <div class="gallery-descr"><span><?=$row["name" . $lang]?></span></div>
                   </a>
                 </div>

@@ -1,14 +1,13 @@
 <?php
-    include '../database.php';
-
-    $database = new mysqli($host, $user, $password, $db);
-    if ($database->connect_errno)
-    {
-        printf ("Failed to connect to MySQL: %s\n" , $database->connect_error);
+    include_once(CLASSES."/database/DatabaseAccessObject.php");
+    use http\DatabaseAccessObject;
+    $dao = DatabaseAccessObject::getInstance();
+    if($dao == null) {
+        printf("Failed to connect to MySQL: %s\n");
         exit();
     }
 
-    $database->set_charset("utf8mb4");
+    $database = $dao->getDatabase();
 
     if(isset($_POST)) {
         $nameKA = $_POST['headerKA'];
@@ -25,9 +24,9 @@
         }else{
             $id = (int)$_POST['ID'];
         }
-        
-        $target_dir = "../img/gallery/" . $id;
 
+        $relative_target_dir = "/img/gallery/" . $id;
+        $target_dir = ROOT.$relative_target_dir;
         $defaultImageName = "1";
 
         $imageSource = "";
@@ -44,7 +43,7 @@
                 mkdir($target_dir);
             }
             $default_image = $target_dir . "/" . $defaultImageName . "." . $extension;
-            $imageSource = substr($target_dir . "/" . $defaultImageName . "." . $extension,3);
+            $imageSource =  $relative_target_dir. "/".$defaultImageName . "." . $extension;
             move_uploaded_file($_FILES['image']["tmp_name"], $default_image);
             $filesInDir = 1;
         }else{
@@ -79,20 +78,20 @@
             }
         }
 
-        $target_dir_path = substr($target_dir,3) . "/";
+        $target_dir_path = $relative_target_dir . "/";
         
         if($default_image_empty){
-            $Query = "UPDATE album SET nameKA='$nameKA',nameEN='$nameEN',nameRU='$nameRU',images='$target_dir_path',link='album.php?ID=$id' WHERE ID = $id";    
+            $Query = "UPDATE album SET nameKA='$nameKA',nameEN='$nameEN',nameRU='$nameRU',images='$target_dir_path',link='album?ID=$id' WHERE ID = $id";
         }else{
-            $Query = "UPDATE album SET nameKA='$nameKA',nameEN='$nameEN',nameRU='$nameRU',images='$target_dir_path',defaultImage='$imageSource',link='album.php?ID=$id' WHERE ID = $id";    
+            $Query = "UPDATE album SET nameKA='$nameKA',nameEN='$nameEN',nameRU='$nameRU',images='$target_dir_path',defaultImage='$imageSource',link='album?ID=$id' WHERE ID = $id";
         }
 
         if($database->query($Query)){
-            header('Location: gallery.php');
+            header('Location: /admin/gallery');
         }
 
     }else{
-        header('Location: gallery.php');
+        header('Location: /admin/gallery');
     }
 
 ?>

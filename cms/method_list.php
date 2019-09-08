@@ -25,7 +25,7 @@
                 
                    if(GalleryManager::deleteAlbum($albumID)){
                         $aResult['result'] = True;
-                        $dir = '../img/gallery/' . $albumID;
+                        $dir = ROOT.'/img/gallery/' . $albumID;
                         if (is_dir($dir)){
                             array_map('unlink', glob("$dir/*.*"));
                             rmdir($dir);
@@ -73,7 +73,7 @@
                     $aResult['error'] = 'Error in arguments!';
                 }else {
                     $newsID = $_POST['arguments'][0];
-                    $dir = '../img/updates/' . $newsID;
+                    $dir = ROOT.'/img/updates/' . $newsID;
                     if (is_dir($dir)){
                         array_map('unlink', glob("$dir/*.*"));
                         rmdir($dir);
