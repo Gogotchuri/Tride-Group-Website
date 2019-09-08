@@ -29,4 +29,20 @@ class NewsManager
         return $news;
     }
 
+    public static function getNewsById(int $id){
+        self::getDAO();
+        if(self::$DAO == null) return null;
+        $news_raw = self::$DAO->executeQuery("SELECT * FROM news where ID = ".$id);
+        if($news_raw == null) return null;
+        $news = $news_raw->fetch_array();
+        return $news;
+    }
+
+    public static function deleteNews(int $id){
+        self::getDAO();
+        if(self::$DAO == null) return null;
+        $status = self::$DAO->executeQuery("DELETE FROM `news` WHERE ID='$id'");
+        if(!$status) return false;
+        return true;
+    }
 }

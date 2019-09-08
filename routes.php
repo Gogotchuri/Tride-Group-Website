@@ -76,38 +76,31 @@
         require(CMS."/gallery.php");
     });
 
-    $router->get("sign-out", function (){
+    $router->get("/sign-out", function (){
         require(CMS."/sign-out.php");
     });
 
     ##### For sake of backwards compatibility #####
     //methods TODO think about refactoring
-    $router->get("method_list.php", function(){
+    $router->get("/admin/methods", function(){
         require(CMS."/method_list.php");
     });
-    $router->post("method_list.php", function(){
+    $router->post("/admin/methods", function(){
         require(CMS."/method_list.php");
     });
 
-    $router->get("uploadAlbum.php", function(){
+    $router->get("/admin/uploadAlbum.php", function(){
         require(CMS."/uploadAlbum.php");
     });
-    $router->post("uploadAlbum.php", function(){
+    $router->post("/admin/uploadAlbum.php", function(){
         require(CMS."/uploadAlbum.php");
     });
 
-    $router->get("uploadNews.php", function(){
+    $router->get("/admin/uploadNews.php", function(){
         require(CMS."/uploadNews.php");
     });
-    $router->post("uploadNews.php", function(){
+    $router->post("/admin/uploadNews.php", function(){
         require(CMS."/uploadNews.php");
-    });
-
-    $router->get("method_list.php", function(){
-        require(CMS."/method_list.php");
-    });
-    $router->post("method_list.php", function(){
-        require(CMS."/method_list.php");
     });
 
     ###################################################

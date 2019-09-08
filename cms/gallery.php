@@ -1,7 +1,7 @@
 <?php
     include(LOCALE."/exportTranslator.php");
 
-    include_once(CLASSES . "/http/middleware/Authenticated.php");
+    include_once(HTTP."/middleware/Authenticated.php");
     include_once(CLASSES."/managers/GalleryManager.php");
     use middleware\Authenticated;
     use manager\GalleryManager;
@@ -25,12 +25,7 @@
     <meta HTTP-EQUIV="Pragma" content="no-cache"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CMS - გალერეა</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/stylish-portfolio.css" rel="stylesheet">
-    <link href="../css/custom.css" rel="stylesheet">
-    <link href="../img/icons/favicon.png" rel="shortcut icon">
-    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="style.css" rel="stylesheet">
+    <?php include(CMS."/partials/style_include.php") ?>
   </head>
   <body>
     <style> 
@@ -209,8 +204,8 @@
     </script>
     <!-- <script src="scripts/gallery.js"></script>
      -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="scripts/gallery.js"></script>
+    <script src="<?=BASE_URL?>js/jquery.js"></script>
+    <script src="<?=BASE_URL?>js/bootstrap.min.js"></script>
+    <script src="<?=BASE_URL?>cms/scripts/gallery.js"></script>
   </body>
 </html>
