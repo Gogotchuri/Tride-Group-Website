@@ -1,29 +1,21 @@
 <?php
-  include '../cms/session.php'; 
-  include '../database.php';
-  include '../texts.php';
+    include(LOCALE."/exportTranslator.php");
 
-  $database = new mysqli($host, $user, $password, $db);
-  if ($database->connect_errno)
-  {
-    printf ("Failed to connect to MySQL: %s\n" , $database->connect_error);
-    exit();
-  }
-  $database->set_charset("utf8mb4");
-  $query = "SELECT * FROM album WHERE ID<>1 order by ID"; //instagram thumbnail excluded with "WHERE ID<>1"
-  if(!($updates = $database->query($query))){
-    printf("Database not configured correctly");
-    exit();
-  }
-  $query = "SELECT * FROM videos order by ID";
-  if(!($videos = $database->query($query))){
-    printf("Database not configured correctly");
-    exit();
-  }
+    include_once(HTTP."/middleware/Authenticated.php");
+    include_once(CLASSES."/managers/GalleryManager.php");
+    use middleware\Authenticated;
+    use manager\GalleryManager;
 
-  function addNew($row){
-    echo "<script> alert('hello') </script>";
-  }
+    if(!Authenticated::isAuthenticated()) exit();
+
+    $albums = GalleryManager::getAlbumsWhere("ID<>1");
+    $videos = GalleryManager::getAllVideos();
+
+
+    if($albums == null || $videos == null){
+        require(VIEWS."/errors/500.shtml");
+        exit();
+    }
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,12 +25,7 @@
     <meta HTTP-EQUIV="Pragma" content="no-cache"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CMS - გალერეა</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/stylish-portfolio.css" rel="stylesheet">
-    <link href="../css/custom.css" rel="stylesheet">
-    <link href="../img/icons/favicon.png" rel="shortcut icon">
-    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="style.css" rel="stylesheet">
+    <?php include(CMS."/partials/style_include.php") ?>
   </head>
   <body>
     <style> 
@@ -68,7 +55,7 @@
               </div>
                 
               <?php
-                while($row = $updates->fetch_array()){ ?>
+                foreach($albums as $row){ ?>
                   <div class="col-md-12 about-content" id="<?=$row['ID']?>">
                     <div class="col-sm-3 col-md-3">
                       <a href="../<?=$row["link"]?>"><img class="img-responsive news-thumb" src="../<?=$row["defaultImage"]?>"></a>
@@ -173,7 +160,7 @@
                     <div class="modal-body">
                         <div id="URLs">
                       <?php
-                        while($row = $videos->fetch_array()){ ?>
+                        foreach($videos as $row){ ?>
                         <div class="input-group" id = "URL_<?=$row['ID']?>">
                           <input type="text" class="form-control" value="<?= $row["URL"] ?>">
                           <span class="input-group-btn">
@@ -194,7 +181,7 @@
               </div><!-- /.modal -->               
 
               <?php
-                while($row = $videos->fetch_array()){ ?>
+                foreach($videos as $row){ ?>
                   <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="portfolio-item">
                       <a href="#">
@@ -217,8 +204,8 @@
     </script>
     <!-- <script src="scripts/gallery.js"></script>
      -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="scripts/gallery.js"></script>
+    <script src="<?=BASE_URL?>js/jquery.js"></script>
+    <script src="<?=BASE_URL?>js/bootstrap.min.js"></script>
+    <script src="<?=BASE_URL?>cms/scripts/gallery.js"></script>
   </body>
 </html>

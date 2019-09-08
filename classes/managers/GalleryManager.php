@@ -48,5 +48,42 @@ class GalleryManager
         return $albums;
     }
 
+    public static function getAlbumsWhere(string $condition){
+        self::getDAO();
+        if(self::$DAO == null) return null;
+        $albums_raw = self::$DAO->executeQuery("SELECT * FROM album WHERE ".$condition." order by ID");
+        if(!$albums_raw) return null;
+        $albums = [];
+        while($row = $albums_raw->fetch_array()){
+            $albums[] = $row;
+        }
+        $albums_raw->close();
+        return $albums;
+    }
+
+    public static function deleteAlbum(int $id) : bool{
+        self::getDAO();
+        if(self::$DAO == null) return null;
+        $status = self::$DAO->executeQuery("DELETE FROM `album` WHERE ID='$id'");
+        if(!$status) return false;
+        return true;
+    }
+
+    public static function deleteVideos() : bool{
+        self::getDAO();
+        if(self::$DAO == null) return null;
+        $status = self::$DAO->executeQuery("DELETE FROM `videos`");
+        if(!$status) return false;
+        return true;
+    }
+
+    public static function storeVideo(string $url): bool {
+        self::getDAO();
+        if(self::$DAO == null) return null;
+        $status = self::$DAO->executeQuery("INSERT INTO `videos` (URL) VALUES ('$url')");
+        if(!$status) return false;
+        return true;
+    }
+
 
 }

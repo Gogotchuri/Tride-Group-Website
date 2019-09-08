@@ -1,18 +1,13 @@
 <?php
-    include '../database.php';
+    include_once(MANAGERS."/GalleryManager.php");
+    include_once(MANAGERS."/NewsManager.php");
 
-    $database = new mysqli($host, $user, $password, $db);
-    if ($database->connect_errno)
-    {
-        printf ("Failed to connect to MySQL: %s\n" , $database->connect_error);
-        exit();
-    }
+    use manager\GalleryManager;
+    use manager\NewsManager;
 
-    $database->set_charset("utf8mb4");
-    
     header('Content-Type: application/json');
 
-    $aResult = array();
+    $aResult = [];
 
     if( !isset($_POST['name']) ) { $aResult['error'] = 'No function name!'; }
 
@@ -27,10 +22,9 @@
                }
                else {
                    $albumID = $_POST['arguments'][0];
-                   $query = "DELETE FROM `album` WHERE ID='$albumID'";
                 
-                   if($database->query($query) === TRUE){
-                    $aResult['result'] = True;
+                   if(GalleryManager::deleteAlbum($albumID)){
+                        $aResult['result'] = True;
                         $dir = '../img/gallery/' . $albumID;
                         if (is_dir($dir)){
                             array_map('unlink', glob("$dir/*.*"));
@@ -46,12 +40,9 @@
                     $aResult['error'] = 'Error in arguments!';
                 }else {
                     $alb_id = (int)$_POST['arguments'][0];
-                    $selectQuery = "SELECT * FROM album WHERE ID = '$alb_id'";
-                    if($news = $database->query($selectQuery)){
-
-                        $arr = $news->fetch_array();
-                        $path = '../' . $arr['images'];
-
+                    $album = GalleryManager::getAlbumById($alb_id);
+                    if($album){
+                        $path = ROOT."/". $album['images'];
                         $images = array_values(scandir($path));
                         unset($images[0]);
                         unset($images[1]);
@@ -82,14 +73,13 @@
                     $aResult['error'] = 'Error in arguments!';
                 }else {
                     $newsID = $_POST['arguments'][0];
-                    $query = "DELETE FROM `news` WHERE ID='$newsID'";
                     $dir = '../img/updates/' . $newsID;
                     if (is_dir($dir)){
                         array_map('unlink', glob("$dir/*.*"));
                         rmdir($dir);
                     }
-                    if($database->query($query) === TRUE){
-                     $aResult['result'] = True;
+                    if(NewsManager::deleteNews($newsID)){
+                        $aResult['result'] = True;
                     }else{
                         $aResult['result'] = False;
                     }
@@ -100,15 +90,13 @@
                    $aResult['error'] = 'Error in arguments!';
                }else{
                    $urlArr = $_POST['arguments'];
-                   $delQuery = "DELETE FROM `videos`";
-                   if($database->query($delQuery) === TRUE && $urlArr[0] != 'empty'){
-                        forEach($urlArr as $val){
-                            $query = "INSERT INTO `videos` (URL) VALUES('$val')";
-                            $database->query($query);
-                        }
+                   if(GalleryManager::deleteVideos() && $urlArr[0] != 'empty'){
+                        forEach($urlArr as $url)
+                            GalleryManager::storeVideo($url);
+
                         $aResult['result'] = True;
                    }else{
-                    $aResult['error'] = "Couldn't update videos";
+                        $aResult['error'] = "Couldn't update videos";
                    }
                }
                break;
@@ -117,14 +105,12 @@
                    $aResult['error'] = 'Error in arguments!';
                }
                $news_id = (int)$_POST['arguments'][0];
-               $selectQuery = "SELECT * FROM news WHERE ID = '$news_id'";
-               if($news = $database->query($selectQuery)){
-                   $aResult['response'] = json_encode($news->fetch_array());
-               };
+               $news = NewsManager::getNewsById($news_id);
+               if($news) $aResult['response'] = json_encode($news);
                $aResult['result'] = True;
                break;
             default:
-               $aResult['error'] = 'Not found function '.$_POST['functionname'].'!';
+               $aResult['error'] = 'Not found function '.$_POST['name'].'!';
                break;
         }
 

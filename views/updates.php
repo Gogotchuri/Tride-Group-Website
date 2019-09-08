@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
     include(LOCALE."/exportTranslator.php");
     include_once(MANAGERS."/NewsManager.php");
 
@@ -10,26 +9,9 @@
         require(VIEWS."/errors/500.shtml");
         exit();
     }
-=======
-  include '../classes/database/database.php';
-  include '../texts.php';
-  
-  $database = new mysqli($host, $user, $password, $db);
-  if ($database->connect_errno)
-  {
-    printf ("Failed to connect to MySQL: %s\n" , $database->connect_error);
-    exit();
-  }
-  $database->set_charset("utf8mb4");
-  $query = "SELECT * FROM news ORDER BY pubdate DESC";
-  if(!($updates = $database->query($query))){
-    printf("Database not configured correctly");
-    exit();
-  }
->>>>>>> 58c19a8fdc0260fc063322427839945f58fcc8b7
-  ?>
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= $lang ?>">
 <?php include(VIEWS."/partials/head.php") ?>
 <body>
       <!-- fb embed video post -->
@@ -76,7 +58,7 @@
       <!-- /.container -->
     </section>
     <!-- Footer -->
-    <?php include("footer.php") ?>
+    <?php include(VIEWS."/partials/footer.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>

@@ -2,9 +2,11 @@
     include_once ("config.php");
     include_once (HTTP."/Request.php");
     include_once (HTTP."/Router.php");
+    include_once(HTTP . "/controllers/MailingController.php");
 
     use http\Request;
     use http\Router;
+    use controller\MailingController;
 
     $router = new Router(new Request());
 
@@ -48,17 +50,57 @@
         require(VIEWS."/updates.php");
     });
 
-    //admin
+    $router->post("/contact", function(Request $request){
+        MailingController::contactMessage($request);
+    });
+
+    $router->post("/request-call", function(Request $request){
+        MailingController::requestCall($request);
+    });
+
+    $router->post("/schedule-meeting", function(Request $request){
+        MailingController::scheduleMeeting($request);
+    });
+
+    ##################### Admin ##############################
+
     $router->get("/admin", function (){
-       require(ROOT."/cms/sign-in.php");
+       require(CMS."/sign-in.php");
     });
 
     $router->post("/admin", function (){
-       require(ROOT."/cms/sign-in.php");
+       require(CMS."/sign-in.php");
     });
 
     $router->get("/admin/gallery", function (){
-        require(ROOT."/cms/gallery.php");
+        require(CMS."/gallery.php");
     });
 
-    //TODO finish routing admin
+    $router->get("/sign-out", function (){
+        require(CMS."/sign-out.php");
+    });
+
+    ##### For sake of backwards compatibility #####
+    //methods TODO think about refactoring
+    $router->get("/admin/methods", function(){
+        require(CMS."/method_list.php");
+    });
+    $router->post("/admin/methods", function(){
+        require(CMS."/method_list.php");
+    });
+
+    $router->get("/admin/uploadAlbum.php", function(){
+        require(CMS."/uploadAlbum.php");
+    });
+    $router->post("/admin/uploadAlbum.php", function(){
+        require(CMS."/uploadAlbum.php");
+    });
+
+    $router->get("/admin/uploadNews.php", function(){
+        require(CMS."/uploadNews.php");
+    });
+    $router->post("/admin/uploadNews.php", function(){
+        require(CMS."/uploadNews.php");
+    });
+
+    ###################################################
