@@ -46,10 +46,10 @@
                         $images = array_values(scandir($path));
                         unset($images[0]);
                         unset($images[1]);
+
+                        $album['imagePathes'] = $images;
                         
-                        $arr['imagePathes'] = $images;
-                        
-                        $aResult['response'] = json_encode($arr);
+                        $aResult['response'] = json_encode($album);
                     };
                     $aResult['result'] = True;
                 }

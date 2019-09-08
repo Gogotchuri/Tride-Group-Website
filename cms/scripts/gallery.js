@@ -134,8 +134,7 @@ function setEdit(id){
         editForm.elements.headerRU.value = resp['nameRU'];
         editForm.elements.image.parentNode.children[3].src = '../' + resp['defaultImage'];
 
-        images = Object.values(resp['imagePathes']);
-
+        let images = Object.values(resp['imagePathes']);
         images.forEach((imgName)=>{
             let img = document.createElement('img');
             img.classList.add("form-img");
