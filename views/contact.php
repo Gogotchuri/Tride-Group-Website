@@ -20,72 +20,30 @@
                             <br>
                             <?=$translator->translate("ელ-ფოსტა")?> : info@tridegroup.ge
                         </p>
-                        <?php
-                        //if "email" variable is filled out, send email
-                        if (isset($_REQUEST['email']))  {
-
-                            //Email information
-                            $admin_email = "tamta@tridegroup.ge";
-                            $email = $_REQUEST['email'];
-                            $subject = $_REQUEST['subject'];
-                            $comment = $_REQUEST['comment'];
-
-                            //send email
-                            mail($admin_email, "$subject", $comment, "From:" . $email);
-                            //Email response
-                            //echo "The message has been sent!";
-                            echo "<meta http-equiv='refresh' content='0'>";
-                        }
-                        //if "email" variable is not filled out, display the form
-                        else  {
-                            ?>
-                            <form method="post" class="contact-us-form">
+                            <div class="contact-us-form">
                                 <div>
-                                    <input type="text" name="subject" placeholder="<?= $translator->translate("სახელი")?>" required>
+                                    <input type="text" id="contact_name" placeholder="<?= $translator->translate("სახელი")?>" required>
                                 </div>
                                 <div>
-                                    <input type="email" name="email" placeholder="<?= $translator->translate("ელ-ფოსტა")?>" required>
+                                    <input type="email" id="contact_email" placeholder="<?= $translator->translate("ელ-ფოსტა")?>" required>
                                 </div>
                                 <div>
-                                    <textarea name="comment" <?= $translator->translate("შეტყობინება")?> required></textarea>
+                                    <textarea name="comment" id="contact_message" minlength="10" placeholder="<?= $translator->translate("შეტყობინება")?>" required></textarea>
                                 </div>
                                 <span id="mail-status"><?= $translator->translate("ყველა ველის შევსება აუცილებელია")?>!</span>
-                                <button type="submit" ><?= $translator->translate("გაგზავნა")?><img src="../img/icons/arrow-left.svg"></button>
-                            </form>
-                            <?php
-                        }
-                        ?>
-                        <?php
-                        //if "email" variable is filled out, send email
-                        if (isset($_REQUEST['email']))  {
+                                <button onclick="sendContact()" ><?= $translator->translate("გაგზავნა")?><img src="../img/icons/arrow-left.svg"></button>
+                            </div>
 
-                            //Email information
-                            $admin_email = "tamta@tridegroup.ge";
-                            $name = $_REQUEST['name'];
-                            $phone = $_REQUEST['phone'];
-
-                            //send email
-                            mail($admin_email, "$name", "From:" . $phone);
-                            //Email response
-                            //echo "The message has been sent!";
-                            echo "<meta http-equiv='refresh' content='0'>";
-                        }
-                        //if "email" variable is not filled out, display the form
-                        else  {
-                            ?>
-                            <form method="post" class="contact-us-call">
+                            <div class="contact-us-call">
                                 <h3 class="header-y"><?= $translator->translate("შეუკვეთე ზარი")?></h3>
                                 <div>
-                                    <input type="text" name="name" placeholder="<?= $translator->translate("სახელი")?>" required>
+                                    <input id="contact_call_name" placeholder="<?= $translator->translate("სახელი")?>" required>
                                 </div>
                                 <div>
-                                    <input type="tel" name="phone" placeholder="<?= $translator->translate("ტელეფონი")?>" required>
+                                    <input type="tel" id="contact_call_phone_number" placeholder="<?= $translator->translate("ტელეფონი")?>" required>
                                 </div>
-                                <button type="submit" ><?= $translator->translate("შეუკვეთე ზარი")?><img src="../img/icons/arrow-right-circle.svg"></button>
-                            </form>
-                            <?php
-                        }
-                        ?>
+                                <button onclick="requestCall('contact_call_name','contact_call_phone_number')" ><?= $translator->translate("შეუკვეთე ზარი")?><img src="../img/icons/arrow-right-circle.svg"></button>
+                            </div>
                     </div>
                     <div class="col-md-7">
                         <div id="mapcont" class="map">
@@ -96,11 +54,45 @@
             </div>
         </div>
     </section>
-
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/custom.js"></script>
+<!--    TODO fix maps-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvkK_S9xUxn4AkfIl3GswOmFjaJz49sqw&callback=initMap"></script>
-    <script src="../js/gmap.js"></script>
+    <script src="<?= BASE_URL ?>js/gmap.js"></script>
+    <script>
+        function sendContact() {
+            //TODO translate
+            let name = document.getElementById("contact_name").value;
+            let email = document.getElementById("contact_email").value;
+            let message = document.getElementById("contact_message").value;
+            if(email === ''|| name === '' ||message.length < 10){
+                let message = '<?= $translator->translate("გთხოვთ შეიყვანოთ სახელი, მეილი და შეტყობინება სწორად.") ?>';
+                window.alert(message);
+                return;
+            }
+
+            jQuery.ajax({
+                type: "POST",
+                url: '/contact',
+                dataType: 'json',
+                accept: "application/json",
+                data: {
+                    name : name,
+                    email : email,
+                    text : message
+                },
+
+                success : data => {
+                    if(data['success']){
+                        window.alert('<?= $translator->translate("შეტყობინება წარმატებით გაიგზავნა!")?>');
+                    }else{
+                        window.alert('<?= $translator->translate("შეტყობინება ვერ გაიგზავნა... სცადეთ მოგვიანებით.")?>');
+                    }
+                },
+                error: () => {
+                    window.alert('<?= $translator->translate("შეტყობინება ვერ გაიგზავნა... სცადეთ მოგვიანებით.")?>');
+                }
+            });
+
+        }
+    </script>
   </body>
 </html>

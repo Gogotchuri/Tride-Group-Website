@@ -23,7 +23,7 @@ class MailingController
         $data = $request->getData();
         $name = $data["name"];
         $phone_number = $data["phone_number"];
-        $date_time = $data["date"]; //TODO might require formatting
+        $date_time = $data["date"]; //TODO might require formatting and explicit error status handling
         $message_body = "სახელი : " . $name ."; მობილური: " . $phone_number ."; თარიღი: " .$date_time;
         return self::sendMail(self::TO_EMAIL, "შემოვიდა შოურუმის დაჯავნის მოთხოვნა!", $message_body);
 
@@ -43,7 +43,11 @@ class MailingController
                                      string $from=self::FROM_EMAIL) :string {
         $sent_successfully = mail($to, $subject, $message_body, ["From" => $from]);
         $status = $sent_successfully ? "success" : "failed";
-        return '{"status" : "'.$status.'"}';
+        $resp = [
+            "status" => $status,
+            "success" => $sent_successfully
+        ];
+        return json_encode($resp);
     }
 
 

@@ -73,3 +73,4 @@ $(".fb_share").click(function() {
 }), $(".tw_share").click(function() {
     $(this).attr("href", "https://twitter.com/intent/tweet?url=" + currentURL)
 });
+

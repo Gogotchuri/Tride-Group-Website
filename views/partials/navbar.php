@@ -96,16 +96,16 @@
 <div id="planCallModal"  class="modal">
     <div class="modal-content">
         <span class="closePlan close">&times;</span>
-            <form method="post" class="contact-us-call" action="/request-call">
+            <div class="contact-us-call">
                 <h3 class="header-y"><?= $translator->translate("შეუკვეთე ზარი")?></h3>
                 <div>
-                    <input type="text" name="name" placeholder="<?= $translator->translate("სახელი")?>" required>
+                    <input type="text" id="call_name" placeholder="<?= $translator->translate("სახელი")?>" required>
                 </div>
                 <div>
-                    <input type="tel" name="phone_number" placeholder="<?= $translator->translate("ტელეფონი")?>" required>
+                    <input type="tel" id="call_phone_number" placeholder="<?= $translator->translate("ტელეფონი")?>" required>
                 </div>
-                <button type="submit" ><?= $translator->translate("შეუკვეთე ზარი")?><img src="../img/icons/arrow-right-circle.svg"></button>
-            </form>
+                <button onclick="requestCall()"><?= $translator->translate("შეუკვეთე ზარი")?><img src="../img/icons/arrow-right-circle.svg"></button>
+            </div>
     </div>
 </div>
 
@@ -116,24 +116,25 @@
         document.getElementById("burger").classList.toggle("openMenu");
     }
     // Get modals
-    var showroom = document.getElementById("showRoomModal");
-    var plancall = document.getElementById("planCallModal");
+    const showroom = document.getElementById("showRoomModal");
+    const plancall = document.getElementById("planCallModal");
 
     // Buttons for modal
-    var showRoomBtn1 = document.getElementById("showModalD");
-    var showRoomBtn2 = document.getElementById("showModalM");
-    var planCallBtn1 = document.getElementById("planModalD");
-    var planCallBtn2 = document.getElementById("planModalM");
+    const showRoomBtn1 = document.getElementById("showModalD");
+    const showRoomBtn2 = document.getElementById("showModalM");
+    const planCallBtn1 = document.getElementById("planModalD");
+    const planCallBtn2 = document.getElementById("planModalM");
 
     // Close Btns
-    var spanShowRoom = document.getElementsByClassName("closeRoom")[0];
-    var spanPlanCall = document.getElementsByClassName("closePlan")[0];
+    const spanShowRoom = document.getElementsByClassName("closeRoom")[0];
+    const spanPlanCall = document.getElementsByClassName("closePlan")[0];
 
     // Booleans
     var showIsOpen = false;
     var callIsOpen = false;
 
     // Close
+<<<<<<< HEAD
     spanShowRoom.onclick = function () {
         showIsOpen = false;
         callIsOpen = false;
@@ -142,10 +143,17 @@
     spanPlanCall.onclick = function () {
         showIsOpen = false;
         callIsOpen = false;
+=======
+    spanShowRoom.onclick =  () => {
+        showroom.style.display = "none";
+    };
+    spanPlanCall.onclick = () => {
+>>>>>>> e9d3a3930304a1fa634605421a3c9720341834a1
         plancall.style.display = "none";
-    }
+    };
 
     // Open
+<<<<<<< HEAD
     showRoomBtn1.onclick = function () {
         if (callIsOpen) {
             plancall.style.display = "none";
@@ -177,20 +185,107 @@
         }
     }
     planCallBtn2.onclick = function () {
+=======
+    showRoomBtn1.onclick = () => {
+        showroom.style.display = "block";
+    };
+    showRoomBtn2.onclick = () => {
+        showroom.style.display = "block";
+    };
+    planCallBtn1.onclick = () => {
         plancall.style.display = "block";
-    }
+    };
+    planCallBtn2.onclick = () => {
+>>>>>>> e9d3a3930304a1fa634605421a3c9720341834a1
+        plancall.style.display = "block";
+    };
 
     var myDate = document.getElementById("dateN");
     myDate.valueAsDate = new Date();
 
     // When the user clicks anywhere outside of the modal, close it
+<<<<<<< HEAD
     window.onclick = function(event) {
         if (event.target == showroom || event.target == plancall) {
             showIsOpen = false;
             callIsOpen = false;
+=======
+    window.onclick = event => {
+        if (event.target === showroom || event.target === plancall) {
+>>>>>>> e9d3a3930304a1fa634605421a3c9720341834a1
             showroom.style.display = "none";
             plancall.style.display = "none";
         }
+    };
+
+    function requestCall(name_id="call_name", number_id="call_phone_number") {
+        let name = document.getElementById(name_id).value;
+        let number = document.getElementById(number_id).value;
+        if(number.length < 9 || name === '' || isNaN(number)){
+            let message = '<?= $translator->translate("გთხოვთ შეიყვანოთ სახელი და ტელეფონის ნომერი სწორად.") ?>';
+            window.alert(message);
+            return;
+        }
+
+        jQuery.ajax({
+            type: "POST",
+            url: '/request-call',
+            dataType: 'json',
+            accept: "application/json",
+            data: {
+                name : name,
+                phone_number : number
+            },
+
+            success : data => {
+                console.log(data);
+                if(data['success']){
+                    window.alert('<?= $translator->translate("ზარი წარმატებით იქნა მოთხოვნილი!")?>');
+                }else{
+                    window.alert('<?= $translator->translate("ზარის მოთხოვნა ვერ მოხერხდა... სცადეთ მოგვიანებით.")?>');
+                }
+            },
+            error: () => {
+                window.alert('<?= $translator->translate("ზარის მოთხოვნა ვერ მოხერხდა... სცადეთ მოგვიანებით.")?>');
+            }
+        });
+
     }
 
+    //TODO test me
+    function bookShowroom() {
+        let name = document.getElementById("showroom_name").value;
+        let number = document.getElementById("showroom_phone_number").value;
+        let date = document.getElementById("showroom_date").value;
+        if(number.length < 9 || name === '' || isNaN(number) || date == null){
+            let message = "<?= $translator->translate('გთხოვთ შეიყვანოთ სახელი და ტელეფონის ნომერი სწორად.') ?>";
+            window.alert(message);
+            return;
+        }
+
+        jQuery.ajax({
+            type: "POST",
+            url: '/schedule-meeting',
+            dataType: 'json',
+            accept: "application/json",
+            data: {
+                name : name,
+                phone_number : number,
+                date: date
+            },
+
+            success : data => {
+                console.log(data);
+                if(data['success']){
+                    window.alert("<?= $translator->translate('შოურუმი წარმატებით იქნა დაჯავშნილი!')?>");
+                }else{
+                    window.alert("<?= $translator->translate('შოურუმი ვერ დაიჯავშნა... სცადეთ მოგვიანებით.')?>");
+                }
+            },
+            error: () => {
+                window.alert("<?= $translator->translate('შოურუმი ვერ დაიჯავშნა... სცადეთ მოგვიანებით.')?>");
+            }
+        });
+
+    }
 </script>
