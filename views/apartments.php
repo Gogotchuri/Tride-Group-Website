@@ -49,7 +49,7 @@
               <div class="col-md-3 about-nav">
                 <div class="form-group select-floor">
                   <label><?= $translator->translate("შერჩეულია სართული")?>:</label>
-                  <select class="form-control" id="floors">
+                  <select class="form-control" id="floor">
                     <?php for($i=0;$i<count($floors);++$i){
                         if($floor_ids[$i] != $floor_id){?>
                     <option value="<?=$floor_ids[$i]?>"><?=$floor_ids[$i]?></option>
@@ -66,33 +66,37 @@
                   <li><a target="_blank" class="fb_share btn btn-md social btn-fb" href="#"><i class="fa fa-facebook-square"></i> Share</a></li>
                   <li><a target="_blank" class="tw_share btn btn-md social btn-twt" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
                 </ul>
-                  <form>
-                      <input type="text" class="js-range-slider" name="floor" value=""
+                  <div>
+<!--                      TODO translate-->
+                      <label for="floor">სართული</label>
+                      <input type="text" class="js-range-slider" name="floors" id="floors" value=""
                              data-type="double"
                              data-min="0"
-                             data-max="1000"
-                             data-from="200"
-                             data-to="500"
+                             data-max="23"
+                             data-from="10"
+                             data-to="15"
                              data-grid="true"
                       />
-                      <input type="text" class="js-range-slider" name="area" value=""
+                      <label for="">ფართობი</label>
+                      <input type="text" class="js-range-slider" name="area" id="area" value=""
+                             data-type="double"
+                             data-min="30"
+                             data-max="150"
+                             data-from="40"
+                             data-to="120"
+                             data-grid="true"
+                      />
+                      <label for="">საძინებლები</label>
+                      <input type="text" class="js-range-slider" name="bedrooms" id="bedrooms" value=""
                              data-type="double"
                              data-min="0"
-                             data-max="1000"
-                             data-from="200"
-                             data-to="500"
+                             data-max="4"
+                             data-from="2"
+                             data-to="3"
                              data-grid="true"
                       />
-                      <input type="text" class="js-range-slider" name="rooms" value=""
-                             data-type="double"
-                             data-min="0"
-                             data-max="1000"
-                             data-from="200"
-                             data-to="500"გი
-                             data-grid="true"
-                      />
-                      <button><?= $translator->translate("ძებნა")?></button>
-                  </form>
+                      <button onclick="fetchApartments()"><?= $translator->translate("ძებნა")?></button>
+                  </div>
               </div>
             </div>
             <!-- /.row (nested) -->
@@ -100,20 +104,16 @@
           <!-- /.col-lg-8 -->
         </div>
         <!-- /.row -->
+          <div id="apartments">
+          </div>
       </div>
       <!-- /.container -->
     </section>
     <div class="ft-wkr"></div>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/custom.js"></script>
-    <script type="text/javascript" src="../js/jquery.rwdImageMaps.js"></script>
-    <script type="text/javascript" src="../js/jquery.maphilight.js"></script>
+    <script type="text/javascript" src="<?=BASE_URL?>js/jquery.rwdImageMaps.js"></script>
+    <script type="text/javascript" src="<?=BASE_URL?>js/jquery.maphilight.js"></script>
     <!--Plugin CSS file with desired skin-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
-
-    <!--jQuery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!--Plugin JavaScript file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
@@ -125,11 +125,11 @@
           $("#floor_render").attr('src', apps[ID].image);
         }
       }
-      $("#floors").on("change", function(e){
+      $("#floor").on("change", function(e){
         changeFloor($(e.target).val());
       });
       function changeFloor(floor){
-        location = "floor?projectID=<?=$_GET["projectID"]?>&ID=" + floor;
+        location = "/apartments?projectID=<?=$_GET["projectID"]?>&ID=" + floor;
       }
       $("area").on("click", function(e){
         var ID = $(e.target).prop("id");
@@ -144,7 +144,59 @@
           to: 500,
           grid: true
       });
-      $(".js-range-slider").ionRangeSlider();
+
+      //Update apartments div here
+      function updateApartments(apartments) {
+          let apartmentsDiv = document.getElementById("apartments");
+          const base_url = '<?=BASE_URL?>';
+          apartmentsDiv.innerHTML = "";
+          apartments.forEach(ap => {
+              ap.available = ap.available ? "თავისუფალი" : "გაყიდული";
+              ap.image = base_url+"/"+ap.image;
+              apartmentsDiv.innerHTML += '<div> ' +
+                  '<p>ფართობი: '+ap.area+'</p>' +
+                  '<p>საძინებელი: '+ap.bedrooms+'</p>' +
+                  '<p>სართული: '+ap.floor+'</p>' +
+                  '<p>სტატუსი: '+ ap.available +'</p>' +
+                  '<img style="width: 30%" src="'+ap.image +'">' +
+                  + '</div>';
+          })
+      }
+
+      function fetchApartments(){
+          const area = $("#area").data("ionRangeSlider").result;
+          const floors = $("#floors").data("ionRangeSlider").result;
+          const bedrooms = $("#bedrooms").data("ionRangeSlider").result;
+          let area_from = area.from;
+          let area_to = area.to;
+          let floors_from = floors.from;
+          let floors_to = floors.to;
+          let bedrooms_from = bedrooms.from;
+          let bedrooms_to = bedrooms.to;
+
+          jQuery.ajax({
+              type: "POST",
+              url: '/get-apartments',
+              dataType: 'json',
+              accept: "application/json",
+              data: {
+                  area_from,
+                  area_to,
+                  floors_from,
+                  floors_to,
+                  bedrooms_from,
+                  bedrooms_to
+              },
+
+              success : apartments => {
+                  console.log(apartments);
+                  updateApartments(apartments);
+              },
+              error: () => {
+                  console.error("error!");
+              }
+          });
+      }
     </script>
     <script type="text/javascript" src="../js/map-resizer.js"></script>
   </body>

@@ -2,8 +2,10 @@
     include_once ("config.php");
     include_once (HTTP."/Request.php");
     include_once (HTTP."/Router.php");
-    include_once(HTTP . "/controllers/MailingController.php");
+    include_once(HTTP."/controllers/MailingController.php");
+    include_once(HTTP."/controllers/ApartmentController.php");
 
+    use controller\ApartmentController;
     use http\Request;
     use http\Router;
     use controller\MailingController;
@@ -34,8 +36,8 @@
         require(VIEWS."/project.php");
     });
 
-    $router->get("/floor", function (){
-        require(VIEWS."/floor.php");
+    $router->get("/apartments", function (){
+        require(VIEWS . "/apartments.php");
     });
 
     $router->get("/gallery", function (){
@@ -50,16 +52,22 @@
         require(VIEWS."/updates.php");
     });
 
+    ######################### API ###########################
     $router->post("/contact", function(Request $request){
-        MailingController::contactMessage($request);
+        return MailingController::contactMessage($request);
     });
 
     $router->post("/request-call", function(Request $request){
-        MailingController::requestCall($request);
+        return MailingController::requestCall($request);
     });
 
     $router->post("/schedule-meeting", function(Request $request){
-        MailingController::scheduleMeeting($request);
+        return MailingController::scheduleMeeting($request);
+    });
+
+    //get apartments with json
+    $router->post("/get-apartments", function(Request $request){
+        return ApartmentController::getApartments($request);
     });
 
     ##################### Admin ##############################

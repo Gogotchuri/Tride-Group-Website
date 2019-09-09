@@ -78,19 +78,19 @@
 <div id="showRoomModal" class="modalo">
     <div class="modalo-content">
         <span class="closeRoom close">&times;</span>
-        <form method="post" class="contact-us-call contact-us-showroom" action="/request-call">
+        <div class="contact-us-call contact-us-showroom">
             <h3 class="header-y"><?= $translator->translate("დაჯავშნე შოურუმი")?></h3>
             <div>
-                <input type="text" name="name" placeholder="<?= $translator->translate("სახელი")?>" required>
+                <input type="text" id="showroom_name" placeholder="<?= $translator->translate("სახელი")?>" required>
             </div>
             <div>
-                <input type="tel" name="phone_number" placeholder="<?= $translator->translate("ტელეფონი")?>" required>
+                <input type="tel" id="showroom_phone_number" placeholder="<?= $translator->translate("ტელეფონი")?>" required>
             </div>
             <div>
-                <input type="date" name="date" id="dateN">
+                <input type="date" name="date" id="showroom_date">
             </div>
-            <button type="submit" ><?= $translator->translate("შეუკვეთე ზარი")?><img src="../img/icons/arrow-right-circle.svg"></button>
-        </form>
+            <button onclick="bookShowroom()" ><?= $translator->translate("შეუკვეთე ზარი")?><img src="../img/icons/arrow-right-circle.svg"></button>
+        </div>
     </div>
 </div>
 <div id="planCallModal"  class="modalo">
@@ -138,7 +138,8 @@
         showIsOpen = false;
         callIsOpen = false;
         showroom.style.display = "none";
-    }
+    };
+
     spanPlanCall.onclick = function () {
         showIsOpen = false;
         callIsOpen = false;
@@ -155,7 +156,8 @@
             showroom.style.display = "block";
             showIsOpen = !showIsOpen;
         }
-    }
+    };
+
     showRoomBtn2.onclick = function () {
         if (showIsOpen) {
             showroom.style.display = "none";
@@ -165,7 +167,8 @@
             showroom.style.display = "block";
             showIsOpen = !showIsOpen;
         }
-    }
+    };
+
     planCallBtn1.onclick = function () {
         if (showIsOpen) {
             showroom.style.display = "none";
@@ -175,17 +178,18 @@
             plancall.style.display = "block";
             callIsOpen = !callIsOpen;
         }
-    }
+    };
+
     planCallBtn2.onclick = function () {
         plancall.style.display = "block";
     };
 
-    var myDate = document.getElementById("dateN");
+    var myDate = document.getElementById("showroom_date");
     myDate.valueAsDate = new Date();
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        if (event.target == showroom || event.target == plancall) {
+        if (event.target === showroom || event.target === plancall) {
             showIsOpen = false;
             callIsOpen = false;
             showroom.style.display = "none";

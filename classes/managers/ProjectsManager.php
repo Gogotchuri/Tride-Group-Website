@@ -65,4 +65,20 @@ class ProjectsManager
 
         return $apartments;
     }
+
+    public static function getApartmentsWhere(string $condition){
+        self::getDAO();
+        if(self::$DAO == null) return null;
+        $apartments_raw = self::$DAO->executeQuery("SELECT * FROM appartments WHERE ".$condition." AND projectID = 9;");
+
+        if(!$apartments_raw) return null;
+        $apartments = [];
+        while ($row = $apartments_raw->fetch_array(MYSQLI_ASSOC)){
+            $apartments[] = $row;
+        }
+
+        $apartments_raw->close();
+
+        return $apartments;
+    }
 }

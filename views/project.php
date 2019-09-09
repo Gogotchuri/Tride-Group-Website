@@ -63,7 +63,7 @@
             <h4 class="modal-title" id="floorTitle"></h4>
           </div>
           <div class="modal-body">
-            <a id="goto" href="floor"><img id="floorImage" src="img/projects/panorama3/fl2.png" class="img-responsive modal-floor-img"></a>
+            <a id="goto" href="/apartments"><img id="floorImage" src="img/projects/panorama3/fl2.png" class="img-responsive modal-floor-img"></a>
           </div>
           <div class="modal-footer">
             <a class="btn btn-dark" data-dismiss="modal"><?= $translator->translate("უკან")?></a>
@@ -90,7 +90,7 @@
           $("#floorImage").attr("src", data[ID].image);
           $("#floorTitle").html(data[ID].description<?=$lang?>);
           $(".floor").modal("show");
-          $("#goto").attr("href", "floor?projectID=<?=$_GET["ID"]?>&ID="+ID);
+          $("#goto").attr("href", "/apartments?projectID=<?=$_GET["ID"]?>&ID="+ID);
         }
       }
     </script>
