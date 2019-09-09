@@ -75,14 +75,26 @@
 
 </nav>
 
-<div id="showRoomModal" class="modal">
-    <div class="modal-content">
+<div id="showRoomModal" class="modalo">
+    <div class="modalo-content">
         <span class="closeRoom close">&times;</span>
-        <p>showRoom..</p>
+        <form method="post" class="contact-us-call contact-us-showroom" action="/request-call">
+            <h3 class="header-y"><?= $translator->translate("დაჯავშნე შოურუმი")?></h3>
+            <div>
+                <input type="text" name="name" placeholder="<?= $translator->translate("სახელი")?>" required>
+            </div>
+            <div>
+                <input type="tel" name="phone_number" placeholder="<?= $translator->translate("ტელეფონი")?>" required>
+            </div>
+            <div>
+                <input type="date" name="date" id="dateN">
+            </div>
+            <button type="submit" ><?= $translator->translate("შეუკვეთე ზარი")?><img src="../img/icons/arrow-right-circle.svg"></button>
+        </form>
     </div>
 </div>
-<div id="planCallModal"  class="modal">
-    <div class="modal-content">
+<div id="planCallModal"  class="modalo">
+    <div class="modalo-content">
         <span class="closePlan close">&times;</span>
             <div class="contact-us-call">
                 <h3 class="header-y"><?= $translator->translate("შეუკვეთე ზარი")?></h3>
@@ -117,31 +129,65 @@
     const spanShowRoom = document.getElementsByClassName("closeRoom")[0];
     const spanPlanCall = document.getElementsByClassName("closePlan")[0];
 
+    // Booleans
+    var showIsOpen = false;
+    var callIsOpen = false;
+
     // Close
-    spanShowRoom.onclick =  () => {
+    spanShowRoom.onclick = function () {
+        showIsOpen = false;
+        callIsOpen = false;
         showroom.style.display = "none";
-    };
-    spanPlanCall.onclick = () => {
+    }
+    spanPlanCall.onclick = function () {
+        showIsOpen = false;
+        callIsOpen = false;
         plancall.style.display = "none";
     };
 
     // Open
-    showRoomBtn1.onclick = () => {
-        showroom.style.display = "block";
-    };
-    showRoomBtn2.onclick = () => {
-        showroom.style.display = "block";
-    };
-    planCallBtn1.onclick = () => {
-        plancall.style.display = "block";
-    };
-    planCallBtn2.onclick = () => {
+    showRoomBtn1.onclick = function () {
+        if (callIsOpen) {
+            plancall.style.display = "none";
+            callIsOpen = !callIsOpen;
+        }
+        if (!showIsOpen) {
+            showroom.style.display = "block";
+            showIsOpen = !showIsOpen;
+        }
+    }
+    showRoomBtn2.onclick = function () {
+        if (showIsOpen) {
+            showroom.style.display = "none";
+            showIsOpen = !showIsOpen;
+        }
+        if (!showIsOpen) {
+            showroom.style.display = "block";
+            showIsOpen = !showIsOpen;
+        }
+    }
+    planCallBtn1.onclick = function () {
+        if (showIsOpen) {
+            showroom.style.display = "none";
+            showIsOpen = !showIsOpen;
+        }
+        if (!callIsOpen) {
+            plancall.style.display = "block";
+            callIsOpen = !callIsOpen;
+        }
+    }
+    planCallBtn2.onclick = function () {
         plancall.style.display = "block";
     };
 
+    var myDate = document.getElementById("dateN");
+    myDate.valueAsDate = new Date();
+
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = event => {
-        if (event.target === showroom || event.target === plancall) {
+    window.onclick = function(event) {
+        if (event.target == showroom || event.target == plancall) {
+            showIsOpen = false;
+            callIsOpen = false;
             showroom.style.display = "none";
             plancall.style.display = "none";
         }

@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html lang="<?= $lang ?>">
 <?php include(VIEWS."/partials/head.php") ?>
+
 <body>
       <!-- fb embed video post -->
       <div id="fb-root"></div>
@@ -31,8 +32,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="text-center"><?= $translator->translate("სიახლეები") ?></h2>
-            <hr class="small">
+            <h2 class="text-center header-y"><?= $translator->translate("სიახლეები") ?></h2>
             <div class="row">
               <?php
                 foreach($news as $row){ ?>
@@ -57,8 +57,6 @@
       </div>
       <!-- /.container -->
     </section>
-    <!-- Footer -->
-    <?php include(VIEWS."/partials/footer.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>

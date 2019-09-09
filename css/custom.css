@@ -585,7 +585,7 @@ nav{
     background-color: #efefef;
     padding: 20px 0;
     position: relative;
-    z-index: 2;
+    z-index: 6;
     text-align: right;
 }
 .navContainer{
@@ -594,7 +594,7 @@ nav{
 .mainMenu{
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 5;
     height: 100%;
     top: 0;
     right: 0;
@@ -896,6 +896,9 @@ nav{
     .modalsDesk>button:first-of-type{
         margin-right: 40px;
     }
+    .modalsDesk>button:last-of-type{
+        margin-right: 0px;
+    }
     .modalsMob>button,
     .modalsDesk>button{
         border-radius: 10px;
@@ -978,8 +981,12 @@ nav{
         transition: all 0.3s ease-in-out;
         transform: rotate(180deg);
     }
+    .modalsMob>button:first-of-type,
+    .modalsDesk>button:first-of-type{
+        margin-right: 15px;
+    }
 }
-@media (min-width: 1300px){
+@media (min-width: 1310px){
 
     .navContainer{
         margin: 0 180px;
@@ -1005,15 +1012,20 @@ nav{
     .socials.hideOnMobile{
         margin-right: 110px;
     }
+
+    .modalsMob>button:first-of-type,
+    .modalsDesk>button:first-of-type{
+        margin-right: 10px;
+    }
 }
 /* /Navigation */
 
 /* Modals */
-.modal {
+.modalo {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 3; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    z-index: 5; /* Sit on top */
+    padding-top: 130px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -1023,7 +1035,7 @@ nav{
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.modal-content {
+.modalo-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -1031,6 +1043,7 @@ nav{
     width: 80%;
     max-width: 600px;
     position: relative;
+    border-radius: 8px;
 }
 
 .close {
@@ -1048,15 +1061,15 @@ nav{
     text-decoration: none;
     cursor: pointer;
 }
-.modal-content > .contact-us-call{
+.modalo-content > .contact-us-call{
     padding: 0;
     min-height: 240px;
 }
-.modal-content > .contact-us-call > button{
+.modalo-content > .contact-us-call > button{
     right: 30px;
 }
 @media (min-width: 768px){
-    .modal-content > .contact-us-call{
+    .modalo-content > .contact-us-call{
         max-width: 100%;
         margin: auto;
     }
@@ -1200,6 +1213,9 @@ h2.contact-us-header{
     margin-bottom: 40px;
     position: relative;
 }
+.contact-us-showroom{
+    min-height: 350px;
+}
 .contact-us-call>div>input{
     margin-bottom: 30px;
     font-size: 16px;
@@ -1224,6 +1240,9 @@ h2.contact-us-header{
     margin-top: -5px;
 }
 @media (min-width: 768px) {
+    .modalo-content>.contact-us-showroom{
+        min-height: 350px;
+    }
     .map{
         height: 620px;
     }
@@ -1254,6 +1273,7 @@ h2.contact-us-header{
         max-width: 460px;
         text-align: left;
     }
+
     .contact-us-call>button{
         float: right;
     }
@@ -1284,7 +1304,172 @@ h2.contact-us-header{
         margin-left: 180px;
         max-width: 560px;
     }
+
 }
 
-.modal-backdrop{z-index: 0}
+.modal-backdrop{z-index: 3}
 /* /Contact */
+
+/* Gallery */
+#gallery{
+    background: none;
+    background-color: #f2f2f2;
+    color: #1a2b3e;
+    min-height: 90vh;
+}
+.gallery > div > div > div > .header-y{
+    font-size: 26px;
+    margin-bottom: 0;
+}
+.gallery-link{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    width: 310px;
+    height: 230px;
+    max-width: 100%;
+    z-index: 2;
+    position: absolute;
+}
+.gallery-descr:after{
+    display: none;
+}
+.gallery img{
+    box-shadow: none;
+}
+.portfolio-item{
+    padding: 5px;
+}
+.gallery-descr{
+    margin: 0;
+    transform: translateY(-50%) translateX(-10px);
+    padding: 10px 40px;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: #1a2b3e;
+    z-index: 3;
+}
+.on-hov{
+    z-index: 1;
+    top: 0;
+}
+.header-y.videos{
+    margin-top:80px;
+    margin-left: 15px;
+}
+.portfolio-item{
+    margin-bottom:  60px;
+}
+.ekko-lightbox-nav-overlay{
+    text-align: center;
+}
+.ekko-lightbox-nav-overlay>a{
+    text-decoration: none;
+}
+.albummodal{
+    padding: 15px;
+}
+
+.gallery-descr.proj{
+    transform: translateY(-100%) translateX(-10px);;
+}
+
+div.thumb-descr{
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #131f2d;
+    z-index: 2;
+}
+@media (max-height: 576px) {
+    .gallery-link{
+        width: 100%;
+        max-width: 95%;
+    }
+    .on-hov{
+        display: none;
+    }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .on-hov{
+        height: 220px;
+    }
+}
+@media (min-width: 768px) {
+    .gallery > div > div > div >  .header-y{
+        font-size: 30px;
+        margin-bottom: 0;
+    }
+    .gallery-descr{
+        margin: 0;
+        transform: translateY(-50%) translateX(-10px);
+        padding: 10px 40px;
+        border-radius: 6px;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+        background-color: #1a2b3e;
+    }
+    .on-hov{
+        width: 280px;
+        height: 185px;
+        background-color: #ffb300;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        right: 0;
+        transform: translateY(12%);
+        transition: all 0.1s ease-in-out;
+        display: none;
+    }
+    .gallery-link:hover ~ .on-hov,
+    .gallery-descr:hover ~ .on-hov{
+        display: block;
+    }
+    .gallery-link{
+        width: 335px;
+        height: 220px;
+    }
+    .about-txt-infra{
+        padding: 40px 30px;
+        background-color: #ffffff;
+        margin-top: 40px;
+    }
+    .about-txt-infra>h3{
+        margin: 0;
+        text-decoration: underline #ffb300;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 995px) {
+    .gallery-link{
+        width: 285px;
+        height: 185px;
+    }
+}
+@media (min-width: 1200px) {
+    .gallery-link{
+        width: 350px;
+        height: 230px;
+    }
+}
+@media (min-width: 1280px) {
+    .gallery >div > div > div >  .header-y {
+        font-size: 34px;
+        margin-bottom: 0;
+    }
+    .on-hov{
+        height: 225px;
+    }
+}
+@media (min-width: 1920px) {
+    .on-hov{
+        height: 227px;
+    }
+}
+/* /Gallery */
+
+.about-content{
+    background-color: transparent;
+}

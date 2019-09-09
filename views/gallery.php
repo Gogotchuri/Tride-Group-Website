@@ -20,16 +20,18 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2><?=$translator->translate("ფოტო ალბომები")?></h2>
+            <h2 class="header-y"><?=$translator->translate("ფოტო ალბომები")?></h2>
             <hr class="small">
             <div class="row">
               <?php
                 foreach($albums as $row){ ?>
               <div class="col-lg-4 col-md-4 col-xs-6">
-                <div class="portfolio-item">
-                  <a href="<?="album?ID=".$row["ID"]?>">
-                    <img class="img-portfolio img-responsive" src="<?=$row["defaultImage"]?> " alt="gallery image">
+                <div class="portfolio-item" style="text-align: center">
+                  <a href="<?="album?ID=".$row["ID"]?>" class="sel">
+                      <div class="gallery-link" style="background-image: url(<?=$row["defaultImage"]?>)"></div>
+                      <div class="gallery-link" style="position: relative;margin: 0"></div>
                     <div class="gallery-descr"><span><?=$row["name" . $lang]?></span></div>
+                      <div class="on-hov"></div>
                   </a>
                 </div>
               </div>
@@ -37,7 +39,7 @@
             </div>
             <!-- /.row (nested) -->
             <div class="row">
-              <h2><?=$translator->translate("ვიდეოები")?></h2>
+              <h2 class="header-y videos"><?=$translator->translate("ვიდეოები")?></h2>
               <hr class="small">
                 
               <?php
@@ -59,8 +61,6 @@
       </div>
       <!-- /.container -->
     </section>
-    <!-- Footer -->
-    <?php include(VIEWS."/partials/footer.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>

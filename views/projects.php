@@ -28,16 +28,17 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 id="current"><?= $translator->translate("მიმდინარე პროექტები") ?></h2>
+            <h2 id="current" class="header-y"><?= $translator->translate("მიმდინარე პროექტები") ?></h2>
             <hr class="small">
             <div class="row">
               <?php
                 foreach($ongoing_projects as $project){ ?>
-                  <div class="col-lg-4 col-md-4 col-xs-6">
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="portfolio-item">
                       <a href="project?ID=<?=$project['ID']?>">
-                        <img class="img-portfolio img-responsive" src="<?=$project["thumb"]?>" alt="panorama3">
-                        <div class="gallery-descr"><span><?=$project["name".$lang]?></span></div>
+                          <div class="gallery-link" style="background-image: url(<?=$project["thumb"]?>)"></div>
+                          <div class="gallery-link" style="position: relative;margin: 0"></div>
+                          <div class="gallery-descr proj"><span><?=$project["name".$lang]?></span></div>
                       </a>
                       <div class="thumb-descr"><?=$project["description".$lang]?></div>
                     </div>
@@ -45,16 +46,17 @@
               <?php } ?>
             </div>
             <!-- /.row (nested) -->
-            <h2 id="complete"><?= $translator->translate("განხორციელებული პროექტები") ?></h2>
+            <h2 id="complete" class="header-y"><?= $translator->translate("განხორციელებული პროექტები") ?></h2>
             <hr class="small">
             <div class="row">
               <?php
                 foreach($finished_projects as $project){ ?>
-                  <div class="col-lg-4 col-md-4 col-xs-6">
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
                     <div class="portfolio-item">
                       <a href="project?ID=<?=$project['ID']?>">
-                        <img class="img-portfolio img-responsive" src="<?=$project["thumb"]?>" alt="panorama3">
-                        <div class="gallery-descr"><span><?=$project["name".$lang]?></span></div>
+                          <div class="gallery-link" style="background-image: url(<?=$project["thumb"]?>)"></div>
+                          <div class="gallery-link" style="position: relative;margin: 0"></div>
+                          <div class="gallery-descr proj"><span><?=$project["name".$lang]?></span></div>
                       </a>
                       <div class="thumb-descr"><?=$project["description".$lang]?></div>
                     </div>
@@ -73,14 +75,13 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="text-center" id="infra"><?= $translator->translate("ინფრასტრუქტურული პროექტები") ?></h2>
-            <hr class="small">
+            <h2 class="text-center header-y" id="infra"><?= $translator->translate("ინფრასტრუქტურული პროექტები") ?></h2>
             <div class="row">
-              <div class="col-md-12 about-content">
+              <div class="col-md-12 about-content-infra">
                 <div class="col-sm-6">
                   <img class="img-responsive news-thumb" src="../img/homepage/featured1.jpg" alt="">
                 </div>
-                <div class="col-md-6 about-txt">
+                <div class="col-md-6 about-txt-infra">
                   <h3><?= $translator->translate("საბავშვო ბაღი")?></h3>
                   <p><?= $translator->translate("თანამედროვე სტანდარტების საბავშვო ბაღი „ტრიდეს“ მორიგი ინფრასტრუქტურული პროექტია,რომელიც „დიღმის პარკში“ცხოვრებას კიდევ უფრო კომფორტულს ხდის. 150 ბავშვზე გათვლილი ბაღი ფუნქციონირებს 2016წლის 1 ოქტომბრიდან. მეტი ინფორმაციისთვის დაუკავშირდით ბაღის ადმინისტრაციას.")?>
                   <ul>
@@ -96,8 +97,8 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12 about-content">
-                <div class="col-md-6 about-txt">
+              <div class="col-md-12 about-content-infra">
+                <div class="col-md-6 about-txt-infra">
                   <h3><?= $translator->translate("ჰაუს მარკეტი")?></h3>
                   <p><?= $translator->translate("\"ტრიდე ჯგუფის\" მიზანი და აუცილებელი პირობა, მომხმარებლისათვის მაქსიმალური კომფორტისა და სასიამოვნო გარემოს შექმნაა. <br>სწორედ მომხმარებლისათვის დამატებითი კომფორტის შესაქმნელად , 2014 წლის დეკემბრიდან ჩვენივე კომპლექსის \"ბ\" კორპუსის პირველ სართულზე გაიხსნა ადგილობრივი ბრენდი - \"ჰაუს მარკეტი\". <br>სუპერმარკეტი 750 კვ.მ ზეა განლაგებული და წარმოდგენილია ათასობით დასახელების პროდუქტი. მომხმარებელს შეუძლია შეიძინოს, როგორც სასურსათო და საოჯახო, ასევე, საკონდიტრო ნაწარმი და მზა პროდუქტები. <br>მომხმარებელს ასევე შეუძლია ისარგებლოს მარკეტში მოქმედი კაფით.")?>
                   <ul>
@@ -126,10 +127,10 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="text-center" id="plan"><?= $translator->translate("გენერალური გეგმა") ?></h2>
+            <h2 class="text-center header-y" id="plan"><?= $translator->translate("გენერალური გეგმა") ?></h2>
             <hr class="small">
             <div class="row">
-              <div class="col-md-12 about-content">
+              <div class="col-md-12">
                 <img class="img-responsive news-thumb" src="img/projects/majorplan.jpg" alt="">
               </div>
             </div>
@@ -184,8 +185,6 @@
         </div>
       </div>
     </div>
-    <!-- Footer -->
-    <?php include(VIEWS."/partials/footer.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>
