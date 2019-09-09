@@ -1370,6 +1370,19 @@ h2.contact-us-header{
 .albummodal{
     padding: 15px;
 }
+
+.gallery-descr.proj{
+    transform: translateY(-100%) translateX(-10px);;
+}
+
+div.thumb-descr{
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #131f2d;
+    z-index: 2;
+}
 @media (max-height: 576px) {
     .gallery-link{
         width: 100%;
@@ -1416,6 +1429,16 @@ h2.contact-us-header{
     .gallery-link{
         width: 335px;
         height: 220px;
+    }
+    .about-txt-infra{
+        padding: 40px 30px;
+        background-color: #ffffff;
+        margin-top: 40px;
+    }
+    .about-txt-infra>h3{
+        margin: 0;
+        text-decoration: underline #ffb300;
+        font-weight: bold;
     }
 }
 

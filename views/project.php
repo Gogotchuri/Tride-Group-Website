@@ -28,7 +28,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="text-center"><?=$project["name" . $lang]?></h2>
+            <h2 class="header-y"><?=$project["name" . $lang]?></h2>
             <hr class="small">
             <div class="row">
               <div class="col-md-12 about-content">
@@ -73,7 +73,6 @@
       </div>
     </div>
     <div class="ft-wkr"></div>
-    <?php include(VIEWS."/partials/footer.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>
