@@ -35,14 +35,16 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center album">
-            <h2><?=$album["name" . $lang]?></h2>
+            <h2 class="header-y"><?=$album["name" . $lang]?></h2>
             <hr class="small">
             <div class="row">
               <?php for($i=2;$i<count($imgs);$i++){?>
               <div class="col-lg-4 col-md-4 col-xs-6">
                 <div class="portfolio-item">
                   <a href="<?=$imgs[$i]?>" data-toggle="lightbox" data-gallery="example-gallery">
-                  <img class="img-portfolio img-responsive" src="<?=$imgs[$i]?>">
+                      <div class="gallery-link" style="background-image: url(<?=$imgs[$i]?>)"></div>
+                      <div class="gallery-link" style="position: relative;margin: 0"></div>
+                      <div class="on-hov"></div>
                   </a>
                 </div>
               </div>
@@ -57,8 +59,6 @@
       <!-- /.container -->
     </section>
     <div class="ft-wkr"></div>
-    <!-- Footer -->
-    <?php include(VIEWS."/partials/footer.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>

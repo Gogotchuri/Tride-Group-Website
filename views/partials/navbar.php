@@ -75,8 +75,8 @@
 
 </nav>
 
-<div id="showRoomModal" class="modal">
-    <div class="modal-content">
+<div id="showRoomModal" class="modalo">
+    <div class="modalo-content">
         <span class="closeRoom close">&times;</span>
         <form method="post" class="contact-us-call contact-us-showroom" action="/request-call">
             <h3 class="header-y"><?= $translator->translate("დაჯავშნე შოურუმი")?></h3>
@@ -93,8 +93,8 @@
         </form>
     </div>
 </div>
-<div id="planCallModal"  class="modal">
-    <div class="modal-content">
+<div id="planCallModal"  class="modalo">
+    <div class="modalo-content">
         <span class="closePlan close">&times;</span>
             <div class="contact-us-call">
                 <h3 class="header-y"><?= $translator->translate("შეუკვეთე ზარი")?></h3>
