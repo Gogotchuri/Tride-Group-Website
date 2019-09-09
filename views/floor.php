@@ -33,7 +33,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="text-center"><?= $translator->translate("სართულის გეგმა")?></h2>
+            <h2 class="text-center header-y"><?= $translator->translate("სართულის გეგმა")?></h2>
             <hr class="small">
             <div class="row">
               <div class="col-md-9 about-content" id="about_cont">
@@ -66,6 +66,33 @@
                   <li><a target="_blank" class="fb_share btn btn-md social btn-fb" href="#"><i class="fa fa-facebook-square"></i> Share</a></li>
                   <li><a target="_blank" class="tw_share btn btn-md social btn-twt" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
                 </ul>
+                  <form>
+                      <input type="text" class="js-range-slider" name="floor" value=""
+                             data-type="double"
+                             data-min="0"
+                             data-max="1000"
+                             data-from="200"
+                             data-to="500"
+                             data-grid="true"
+                      />
+                      <input type="text" class="js-range-slider" name="area" value=""
+                             data-type="double"
+                             data-min="0"
+                             data-max="1000"
+                             data-from="200"
+                             data-to="500"
+                             data-grid="true"
+                      />
+                      <input type="text" class="js-range-slider" name="rooms" value=""
+                             data-type="double"
+                             data-min="0"
+                             data-max="1000"
+                             data-from="200"
+                             data-to="500"გი
+                             data-grid="true"
+                      />
+                      <button><?= $translator->translate("ძებნა")?></button>
+                  </form>
               </div>
             </div>
             <!-- /.row (nested) -->
@@ -76,14 +103,20 @@
       </div>
       <!-- /.container -->
     </section>
-    <!-- Footer -->
     <div class="ft-wkr"></div>
-    <?php include(VIEWS."/partials/footer.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>
     <script type="text/javascript" src="../js/jquery.rwdImageMaps.js"></script>
     <script type="text/javascript" src="../js/jquery.maphilight.js"></script>
+    <!--Plugin CSS file with desired skin-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
+
+    <!--jQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--Plugin JavaScript file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script>
       apps =<?= json_encode($apartments) ?>;
       function displayApp(ID){
@@ -103,6 +136,15 @@
         displayApp(ID);
       });
       displayApp(1);
+      $(".js-range-slider").ionRangeSlider({
+          type: "double",
+          min: 0,
+          max: 1000,
+          from: 200,
+          to: 500,
+          grid: true
+      });
+      $(".js-range-slider").ionRangeSlider();
     </script>
     <script type="text/javascript" src="../js/map-resizer.js"></script>
   </body>

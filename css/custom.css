@@ -1469,3 +1469,7 @@ div.thumb-descr{
     }
 }
 /* /Gallery */
+
+.about-content{
+    background-color: transparent;
+}
