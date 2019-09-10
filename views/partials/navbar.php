@@ -36,9 +36,12 @@
     <!-- Container for first visible content on navigation bar -->
     <div class="navContainer">
         <!-- Logo -->
-<!--        <div class="brand-logo">-->
-<!--            -->
-<!--        </div>-->
+        <div class="brand-logo brand-logo-Desk">
+            <img src="../../img/icons/3D_logo.png">
+        </div>
+        <div class="brand-logo brand-logo-mobile">
+            <img src="../../img/icons/3D_logo_m.png">
+        </div>
         
         <!-- Social icons only for desktop -->
         <ul class="socials hideOnMobile">
