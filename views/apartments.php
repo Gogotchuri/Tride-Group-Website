@@ -67,18 +67,18 @@
               </div>
               <div class="col-md-4 col-sm-12 about-nav">
                 <div class="appartment-header">
-                    aq shemoagde satauri
+                    <?=$project["name".$lang]?>
                 </div>
                   <div class="free-apps">
                       <p>
                           სართული
                           <br>
-                          <span> 15 </span>
+                          <span id="floor_num"> -- </span>
                       </p>
                       <p>
-                          თავისუფალი ბინები
+                          თავისუფალი ბინები სართულზე
                           <br>
-                          <span> 123</span>
+                          <span id="available_floors"> -- </span>
                       </p>
                   </div>
                   <div class="find-appartament">
@@ -137,14 +137,21 @@
     <!--Plugin JavaScript file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script>
+        const areas = $("map > area");
+        let curr_floor = 0;
       //Floor click listener
-      $("area").on("click", function(e){
+      areas.on("click", function(e){
         const ID = $(e.target).prop("id");
+        curr_floor = ID;
         fetchApartments(ID);
       });
 
-      $("map > area").on("mouseover", e => {
-          //document.getElementById("floor_num").innerHTML = $(e.target).prop("id");
+      areas.on("mouseover", e => {
+          document.getElementById("floor_num").innerHTML = $(e.target).prop("id");
+      });
+
+      areas.on("mouseleave", () => {
+          document.getElementById("floor_num").innerHTML = "" + curr_floor != 0 ? curr_floor : "--";
       });
 
       $(".js-range-slider").ionRangeSlider({
