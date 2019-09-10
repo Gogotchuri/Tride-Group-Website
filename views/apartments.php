@@ -34,7 +34,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="row">
-              <div class="col-md-8 col-sm-12 about-content" id="about_cont" style="background-color: transparent;position: relative">
+              <div class="col-md-7 col-sm-12 about-content" id="about_cont" style="background-color: transparent;position: relative">
                 <a href="javascript:history.back()" class="btn btn-yellow return"><img src="../img/icons/arrow-left-r.svg"></a><br>
                 <div class="col-md-12">
                   <div id="wrap">
@@ -65,7 +65,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 col-sm-12 about-nav">
+              <div class="col-md-5 col-sm-12 about-nav">
                 <div class="appartment-header">
                     <?=$project["name".$lang]?>
                 </div>

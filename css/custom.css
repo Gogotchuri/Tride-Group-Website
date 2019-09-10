@@ -885,7 +885,7 @@ nav{
         display: none;
     }
 }
-@media (min-width: 768px){
+@media (min-width: 785px){
     .modalsMob>button,
     .modalsDesk>button{
         border-radius: 10px;
@@ -945,7 +945,7 @@ nav{
         height: 65px;
     }
 }
-@media (min-width: 855px){
+@media (min-width: 890px){
     .modalsMob>button:first-of-type,
     .modalsDesk>button:first-of-type{
         margin-right: 40px;
@@ -1695,7 +1695,7 @@ a.header-y{
     .landing-photo-thumbnail {
         width: auto;
         padding: 20px 40px;
-        transform: translateX(-10px) translateY(50%);
+        transform: translateX(-10px) translateY(10%);z-index: 3;
     }
 
     .landing-photo {
@@ -1772,7 +1772,7 @@ a.header-y{
         max-width: 230px;
     }
     .gallery-landing{
-        height: 640px;
+        height: 620px;
     }
     .landing-photo{
         height: 640px;
@@ -2011,7 +2011,7 @@ a.header-y{
 }
 .free-apps{
     padding: 20px 40px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     border-radius: 8px;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.23);
@@ -2020,14 +2020,14 @@ a.header-y{
     flex-wrap: wrap;
 }
 .free-apps > p{
-    width: 65%;
+    width: 70%;
     display: inline-block;
     padding: 10px;
 }
 
 .free-apps > p:first-of-type{
     border-right: 1px solid #1a2b3e;
-    width: 35%;
+    width: 30%;
 }
 .free-apps > p > span{
     font-size: 50px;
@@ -2064,7 +2064,7 @@ a.header-y{
 }
 
 @media (min-width: 992px) {
-    .appartament-explore>img {
+    .appartament-explore>a>img {
         max-height: 225px!important;
     }
 }
