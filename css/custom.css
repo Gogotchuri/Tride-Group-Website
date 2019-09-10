@@ -1974,6 +1974,9 @@ a.header-y{
     height: 6px !important;
     transform: translateY(50%) !important;
 }
+.mapimage{
+    background-size: contain!important;
+}
 @media (min-width: 768px) {
 
 }

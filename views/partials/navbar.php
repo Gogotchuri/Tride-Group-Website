@@ -37,10 +37,14 @@
     <div class="navContainer">
         <!-- Logo -->
         <div class="brand-logo brand-logo-Desk">
+            <a href="home">
             <img src="../../img/icons/3D_logo.png">
+            </a>
         </div>
         <div class="brand-logo brand-logo-mobile">
+            <a href="home">
             <img src="../../img/icons/3D_logo_m.png">
+            </a>
         </div>
         
         <!-- Social icons only for desktop -->
