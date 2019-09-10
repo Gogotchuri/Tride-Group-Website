@@ -29,18 +29,16 @@
     <?php include(VIEWS."/partials/navbar.php") ?>
     <div id="top"></div>
     <!-- About -->
-    <section id="about" class="about">
+    <section id="about" class="about" style="padding-top: 40px">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="text-center header-y"><?= $translator->translate("სართულის გეგმა")?></h2>
-            <hr class="small">
             <div class="row">
-              <div class="col-md-8 col-sm-12 about-content" id="about_cont">
-                <a href="javascript:history.back()" class="btn btn-yellow"><i class="fa fa-angle-left"></i> <?= $translator->translate("უკან")?></a><br>
+              <div class="col-md-8 col-sm-12 about-content" id="about_cont" style="background-color: transparent;position: relative">
+                <a href="javascript:history.back()" class="btn btn-yellow return"><img src="../img/icons/arrow-left-r.svg"></a><br>
                 <div class="col-md-12">
                   <div id="wrap">
-                      <img src="<?=BASE_URL."/img/projects/new23/1.png"?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map">
+                      <img src="<?=BASE_URL."/img/projects/new23/1.png"?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" style="opacity: 0;">
                       <map name="panorama3map" id="panorama3map">
                           <area id="22" alt="სართული 22" title="სართული 22" coords="427,429,666,265,741,295,824,251,917,292,1092,204,1350,280,1419,246,1518,302,1611,373,1672,433,1740,509,1740,563,1591,470,1509,423,1468,401,1340,343,1090,245,951,311,875,348,746,323,520,448,483,472,417,509" shape="poly">
                           <area id="21" alt="სართული 21" title="სართული 21" coords="389,527,759,319,868,351,1097,239,1482,409,1736,561,1733,614,1510,490,1431,446,1086,314,864,417,751,390,389,578" shape="poly">
@@ -68,25 +66,21 @@
                 </div>
               </div>
               <div class="col-md-4 col-sm-12 about-nav">
-                <div class="form-group select-floor">
-                  <label><?= $translator->translate("შერჩეულია სართული")?>:</label>
-                  <select class="form-control" id="floor">
-                    <?php for($i=0;$i<count($floors);++$i){
-                        if($floor_ids[$i] != $floor_id){?>
-                    <option value="<?=$floor_ids[$i]?>"><?=$floor_ids[$i]?></option>
-                    <?php }else{ ?>
-                    <option selected value="<?=$floor_ids[$i]?>"><?=$floor_ids[$i]?></option>
-                    <?php } ?>
-                    <?php } ?>
-                  </select>
+                <div class="appartment-header">
+                    aq shemoagde satauri
                 </div>
-                <img id="floor_render" class="center img-responsive">
-                <ul id="floor_prop">
-                </ul>
-                <ul class="soc-share">
-                  <li><a target="_blank" class="fb_share btn btn-md social btn-fb" href="#"><i class="fa fa-facebook-square"></i> Share</a></li>
-                  <li><a target="_blank" class="tw_share btn btn-md social btn-twt" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
-                </ul>
+                  <div class="free-apps">
+                      <p>
+                          სართული
+                          <br>
+                          <span> 15 </span>
+                      </p>
+                      <p>
+                          თავისუფალი ბინები
+                          <br>
+                          <span> 123</span>
+                      </p>
+                  </div>
                   <div class="find-appartament">
                       <!--                      TODO translate-->
                       <h3>ძიება პარამეტრებით</h3>
@@ -125,12 +119,12 @@
               </div>
             </div>
             <!-- /.row (nested) -->
+              <div id="apartments">
+              </div>
           </div>
           <!-- /.col-lg-8 -->
         </div>
         <!-- /.row -->
-          <div id="apartments">
-          </div>
       </div>
       <!-- /.container -->
     </section>
@@ -170,13 +164,13 @@
           apartments.forEach(ap => {
               ap.available = ap.available ? "თავისუფალი" : "გაყიდული";
               ap.image = base_url+"/"+ap.image;
-              apartmentsDiv.innerHTML += '<div> ' +
-                  '<p>ფართობი: '+ap.area+'</p>' +
+              apartmentsDiv.innerHTML += '<div class='+'"'+'appartament-explore col-lg-4'+'"'+'> ' +
+                  '<img style="width: 30%" src="'+ap.image +'">' +
+                  '<div><p>ფართობი: '+ap.area+'</p>' +
                   '<p>საძინებელი: '+ap.bedrooms+'</p>' +
                   '<p>სართული: '+ap.floor+'</p>' +
-                  '<p>სტატუსი: '+ ap.available +'</p>' +
-                  '<img style="width: 30%" src="'+ap.image +'">' +
-                  + '</div>';
+                  '<p>სტატუსი: '+ ap.available +'</p>'
+                  + '</div></div>';
           })
       }
 
