@@ -71,21 +71,21 @@
                 </div>
                   <div class="free-apps">
                       <p>
-                          სართული
+                          <?= $translator->translate("სართული")?>
                           <br>
                           <span id="floor_num"> -- </span>
                       </p>
                       <p>
-                          თავისუფალი ბინები სართულზე
+                          <?= $translator->translate("თავისუფალი ბინები სართულზე")?>
                           <br>
                           <span id="available_floors"> -- </span>
                       </p>
                   </div>
                   <div class="find-appartament">
                       <!--                      TODO translate-->
-                      <h3>ძიება პარამეტრებით</h3>
+                      <h3><?= $translator->translate("ძიება პარამეტრებით")?> </h3>
                       <div class="find-parameters">
-                          <label for="floor">სართული</label>
+                          <label for="floor"><?= $translator->translate("სართული")?></label>
                           <input type="text" class="js-range-slider" name="floors" id="floors" value=""
                                  data-type="double"
                                  data-min="0"
@@ -94,7 +94,7 @@
                                  data-to="15"
                                  data-grid="true"
                           />
-                          <label for="">ფართობი</label>
+                          <label for="area"><?= $translator->translate("ფართობი")?></label>
                           <input type="text" class="js-range-slider" name="area" id="area" value=""
                                  data-type="double"
                                  data-min="30"
@@ -103,7 +103,7 @@
                                  data-to="120"
                                  data-grid="true"
                           />
-                          <label for="">საძინებლები</label>
+                          <label for="bedrooms"><?= $translator->translate("საძინებლები")?></label>
                           <input type="text" class="js-range-slider" name="bedrooms" id="bedrooms" value=""
                                  data-type="double"
                                  data-min="0"
@@ -169,14 +169,14 @@
           const base_url = '<?=BASE_URL?>';
           apartmentsDiv.innerHTML = "";
           apartments.forEach(ap => {
-              ap.available = ap.available ? "თავისუფალი" : "გაყიდული";
+              ap.available = ap.available ? "<?= $translator->translate("თავისუფალი")?>" : "<?= $translator->translate("გაყიდული")?>";
               ap.image = base_url+"/"+ap.image;
               apartmentsDiv.innerHTML += '<div class='+'"'+'appartament-explore col-lg-4'+'"'+'> ' +
                   '<img style="width: 30%" src="'+ap.image +'">' +
-                  '<div><p>ფართობი: '+ap.area+'</p>' +
-                  '<p>საძინებელი: '+ap.bedrooms+'</p>' +
-                  '<p>სართული: '+ap.floor+'</p>' +
-                  '<p>სტატუსი: '+ ap.available +'</p>'
+                  '<div><p><?= $translator->translate("ფართობი")?>: '+ap.area+'</p>' +
+                  '<p><?= $translator->translate("საძინებლები")?>: '+ap.bedrooms+'</p>' +
+                  '<p><?= $translator->translate("სართული")?>: '+ap.floor+'</p>' +
+                  '<p><?= $translator->translate("სტატუსი")?>: '+ ap.available +'</p>'
                   + '</div></div>';
           })
       }
