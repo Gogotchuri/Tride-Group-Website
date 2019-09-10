@@ -863,6 +863,28 @@ nav{
 .openMenu>.socials-side > li{
     margin: 0 10px;
 }
+.brand-logo{
+    display: inline-block;
+    float: left;
+}
+.brand-logo-Desk{
+    display: none;    
+}
+.brand-logo-mobile{
+    display: block;
+    margin-top: -10px;
+}
+.modalsMob > button > img{
+    margin-top: -15px;
+}
+@media (min-width: 1100px) {
+    .brand-logo-Desk{
+        display: block;
+    }
+    .brand-logo-mobile{
+        display: none;
+    }
+}
 @media (min-width: 768px){
     .modalsMob>button,
     .modalsDesk>button{
