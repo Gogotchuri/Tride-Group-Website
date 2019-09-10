@@ -14,21 +14,8 @@
     $project_desc = $main_project["description".$lang];
     //News
     $news = NewsManager::getAllNews();
-
-    for($i = 0; $i < count($news) && $i < 2; $i++){
-        $row = $news[$i];
-        $news_title = $row["header".$lang];
-        $news_thumbnail = BASE_URL."/".$row["image"];
-        $news_description = substr($row["html".$lang], 0, 40); //cut to fit
-    }
-
     //gallery
     $albums = GalleryManager::getAllAlbums();
-    for($i = 1; $i < count($albums) && $i < 4; $i++) {
-        $album_thumbnail = BASE_URL . "/" . $albums[$i]["defaultImage"];
-        $album_link = BASE_URL."/album?ID=".$albums[$i]["ID"];
-    }
-
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +28,7 @@
 <section id="landing" class="landing">
     <div class="row">
         <div class="main-landing col-xs-12 col-sm-12 col-md-8">
-            <a href="project?ID=9">
+            <a href="/project?ID=9">
                 <div class="landing-photo" style="background-image: url(<?=$project_thumbnail?>)">
                     <div class="landing-photo-thumbnail">
                         <span><?=$project_name?></span>
@@ -53,12 +40,11 @@
         <div class="gallery-landing col-xs-12 col-sm-12 col-md-4">
             <div class="row" style="justify-content: space-around">
                 <?php for($i = 1; $i < count($albums) && $i < 5; $i++) {
-                    $album_thumbnail = BASE_URL . "/" . $albums[$i]["defaultImage"];
-                    $album_link = BASE_URL."/album?ID=".$albums[$i]["ID"]; ?>
+                    $album_thumbnail = BASE_URL . $albums[$i]["defaultImage"];
+                    $album_link = BASE_URL."album?ID=".$albums[$i]["ID"]; ?>
                     <div class="col-md-12 col-xs-3 col-sm-3" style="padding-left: 2px;padding-right: 2px;">
-                        <a href="gallery">
+                        <a href="<?=$album_link?>">
                             <div class="landing-gallery-photo" style="background-image: url(<?=$album_thumbnail?>)">
-
                             </div>
                         </a>
                     </div>
@@ -72,21 +58,23 @@
                 $row = $news[$i];
                 $news_title = $row["header".$lang];
                 $news_thumbnail = BASE_URL.$row["image"];
-                $news_description = substr($row["html".$lang], 0, 150); //cut to fit ?>
+                $news_description = substr($row["html".$lang], 0, 50)."..."; //cut to fit ?>
                  <div class="col-xs-12 col-sm-12 col-md-5" style="padding: 0" >
-                    <a href="updates">
                         <div class="row">
-                            <div class="landing-news-photo col-sm-12 col-xs-12 col-md-5" style="background-image: url(<?=$news_thumbnail?>)"></div>
+                            <a href="/updates">
+                                <div class="landing-news-photo col-sm-12 col-xs-12 col-md-5" style="background-image: url(<?=$news_thumbnail?>)"></div>
+                            </a>
                             <div class="landing-newsbot col-sm-12 col-xs-12 col-md-7">
-                            <span class="landing-news-title"><?=$news_title?></span>
-                            <div class="landing-news-body"><?=$news_description?></div>
+                                <a href="/updates">
+                                    <span class="landing-news-title"><?=$news_title?></span>
+                                </a>
+                                <div class="landing-news-body"><?=$news_description?></div>
                             </div>
                         </div>
-                    </a>
                  </div>
             <?php } ?>
                 <div class="col-xs-12 col-sm-12 col-md-2" style="position: relative; height: 120px">
-                    <a href="updates" class="header-y">
+                    <a href="/updates" class="header-y">
                         <?= $translator->translate("ყველა სიახლე") ?><img src="../img/icons/arrow-left.svg" style="margin-left: 10px">
                     </a>
                 </div>
@@ -94,5 +82,6 @@
         </div>
     </div>
 </section>
+<?php include(VIEWS."/partials/footer.php"); ?>
 </body>
 </html>

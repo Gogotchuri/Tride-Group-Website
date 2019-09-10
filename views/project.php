@@ -32,6 +32,7 @@
               <div class="col-md-12 col-xs-12 col-sm-12 about-content">
                 <div class="col-md-5">
                   <div id="wrap">
+<<<<<<<
                     <img src="<?=BASE_URL.$project["thumb"]?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" />
                   </div>
                 </div>
