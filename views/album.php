@@ -42,7 +42,7 @@
               <div class="col-lg-4 col-md-4 col-xs-6">
                 <div class="portfolio-item">
                   <a href="<?=$imgs[$i]?>" data-toggle="lightbox" data-gallery="example-gallery">
-                      <div class="gallery-link" style="background-image: url(<?=$imgs[$i]?>)"></div>
+                      <div class="gallery-link" style="background-image: url(<?=$imgs[$i]?>);left: 5px"></div>
                       <div class="gallery-link" style="position: relative;margin: 0"></div>
                       <div class="on-hov"></div>
                   </a>

@@ -28,7 +28,7 @@
               <div class="col-lg-4 col-md-4 col-xs-6">
                 <div class="portfolio-item" style="text-align: center">
                   <a href="<?="album?ID=".$row["ID"]?>" class="sel">
-                      <div class="gallery-link" style="background-image: url(<?=$row["defaultImage"]?>)"></div>
+                      <div class="gallery-link" style="background-image: url(<?=$row["defaultImage"]?>);left: 5px"></div>
                       <div class="gallery-link" style="position: relative;margin: 0"></div>
                     <div class="gallery-descr"><span><?=$row["name" . $lang]?></span></div>
                       <div class="on-hov"></div>

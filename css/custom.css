@@ -1471,7 +1471,7 @@ div.thumb-descr{
 }
 /* /Gallery */
 
-.about-content{
+.about-contento{
     background-color: transparent;
 }
 .news-content{
@@ -1540,7 +1540,7 @@ div.thumb-descr{
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
     background-color: #1a2b3e;
 
-    color: #c1c1c1;
+    color: white;
     font-size: 14px;
 
     transform: translateY(200%);
@@ -1618,7 +1618,7 @@ a.header-y{
 }
 @media (min-width: 992px) {
     .landing {
-        padding: 20px;
+        padding: 30px;
     }
 
     .landing-photo-thumbnail {
@@ -1689,7 +1689,12 @@ a.header-y{
     }
 }
 @media (min-width: 1388px) {
-
+    .landing {
+        padding: 100px;
+        padding-top: 15px;
+        padding-bottom: 18px;
+        overflow: hidden;
+    }
     .landing-news-photo{
         height: 140px;
         width: 230px;
@@ -1708,6 +1713,16 @@ a.header-y{
     }
     .landing-newsbot{
         height: 140px;
+    }
+
+    .gallery-landing > div > .hui:last-of-type > a > div{
+        margin-bottom: 0;
+        margin-top: 30px;
+    }
+
+    .gallery-landing > div > .hui:first-of-type > a > div{
+        margin-top: 0;
+        margin-bottom: 30px;
     }
 }
 @media (min-width: 1920px) {
@@ -1755,7 +1770,7 @@ a.header-y{
 .about-project > div > p{
     margin-bottom: 40px;
 }
-.about-content{
+.about-contento{
     padding: 0;
     text-align: center;
 }
@@ -1814,6 +1829,10 @@ a.header-y{
         margin-bottom: 0;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.11);
         font-size: 24px;
+    }
+    .about-content-infra{
+        padding: 0px;
+
     }
 }
 /* /Project Page */

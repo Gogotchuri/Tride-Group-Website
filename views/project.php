@@ -29,10 +29,9 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="row">
-              <div class="col-md-12 col-xs-12 col-sm-12 about-content">
+              <div class="col-md-12 col-xs-12 col-sm-12 about-contento">
                 <div class="col-md-5">
                   <div id="wrap">
-<<<<<<<
                     <img src="<?=BASE_URL.$project["thumb"]?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" />
                   </div>
                 </div>
@@ -56,7 +55,7 @@
     <!-- modal კონკრეტული სართულის სქემა -->
     <div class="modal fade floor" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
       <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
+        <div class="modal-contento">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="floorTitle"></h4>
