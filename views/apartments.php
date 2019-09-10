@@ -36,7 +36,7 @@
             <h2 class="text-center header-y"><?= $translator->translate("სართულის გეგმა")?></h2>
             <hr class="small">
             <div class="row">
-              <div class="col-md-9 about-content" id="about_cont">
+              <div class="col-md-8 col-sm-12 about-content" id="about_cont">
                 <a href="javascript:history.back()" class="btn btn-yellow"><i class="fa fa-angle-left"></i> <?= $translator->translate("უკან")?></a><br>
                 <div class="col-md-12">
                   <div id="wrap">
@@ -46,7 +46,41 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 about-nav">
+              <div class="col-md-4 col-sm-12 about-nav">
+                  <div class="find-appartament">
+                      <!--                      TODO translate-->
+                      <h3>ძიება პარამეტრებით</h3>
+                      <div class="find-parameters">
+                          <label for="floor">სართული</label>
+                          <input type="text" class="js-range-slider" name="floors" id="floors" value=""
+                                 data-type="double"
+                                 data-min="0"
+                                 data-max="23"
+                                 data-from="10"
+                                 data-to="15"
+                                 data-grid="true"
+                          />
+                          <label for="">ფართობი</label>
+                          <input type="text" class="js-range-slider" name="area" id="area" value=""
+                                 data-type="double"
+                                 data-min="30"
+                                 data-max="150"
+                                 data-from="40"
+                                 data-to="120"
+                                 data-grid="true"
+                          />
+                          <label for="">საძინებლები</label>
+                          <input type="text" class="js-range-slider" name="bedrooms" id="bedrooms" value=""
+                                 data-type="double"
+                                 data-min="0"
+                                 data-max="4"
+                                 data-from="2"
+                                 data-to="3"
+                                 data-grid="true"
+                          />
+                          <button onclick="fetchApartments()"><?= $translator->translate("ძებნა")?></button>
+                      </div>
+                  </div>
                 <div class="form-group select-floor">
                   <label><?= $translator->translate("შერჩეულია სართული")?>:</label>
                   <select class="form-control" id="floor">
@@ -66,37 +100,7 @@
                   <li><a target="_blank" class="fb_share btn btn-md social btn-fb" href="#"><i class="fa fa-facebook-square"></i> Share</a></li>
                   <li><a target="_blank" class="tw_share btn btn-md social btn-twt" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
                 </ul>
-                  <div>
-<!--                      TODO translate-->
-                      <label for="floor">სართული</label>
-                      <input type="text" class="js-range-slider" name="floors" id="floors" value=""
-                             data-type="double"
-                             data-min="0"
-                             data-max="23"
-                             data-from="10"
-                             data-to="15"
-                             data-grid="true"
-                      />
-                      <label for="">ფართობი</label>
-                      <input type="text" class="js-range-slider" name="area" id="area" value=""
-                             data-type="double"
-                             data-min="30"
-                             data-max="150"
-                             data-from="40"
-                             data-to="120"
-                             data-grid="true"
-                      />
-                      <label for="">საძინებლები</label>
-                      <input type="text" class="js-range-slider" name="bedrooms" id="bedrooms" value=""
-                             data-type="double"
-                             data-min="0"
-                             data-max="4"
-                             data-from="2"
-                             data-to="3"
-                             data-grid="true"
-                      />
-                      <button onclick="fetchApartments()"><?= $translator->translate("ძებნა")?></button>
-                  </div>
+
               </div>
             </div>
             <!-- /.row (nested) -->
