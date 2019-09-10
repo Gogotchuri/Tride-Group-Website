@@ -2053,7 +2053,8 @@ a.header-y{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    border-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     background-color: #ffffff;
     padding: 15px;
 }
