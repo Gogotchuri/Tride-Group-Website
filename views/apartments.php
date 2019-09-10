@@ -2,8 +2,8 @@
     include(LOCALE."/exportTranslator.php");
     include_once(MANAGERS."/ProjectsManager.php");
     use manager\ProjectsManager;
-  
-    if(!(isset($_GET["ID"]) && isset($_GET["projectID"]))) header("Location: projects");
+
+    if(!isset($_GET["ID"]) || !isset($_GET["projectID"]) || intval($_GET["projectID"]) !== 9) header("Location: projects");
     $floor_id = intval($_GET["ID"]);
     $project_id = intval($_GET["projectID"]);
 

@@ -37,8 +37,11 @@
                 </div>
                 <div class="col-md-7 col-xs-12 col-sm-12 about-project">
                     <h2 class="about-project-header"><?=$project["name" . $lang]?></h2>
-                    <div><?=$project["descriptionLarge" . $lang]?><!--                  TODO  -->
-                        <a href=""><?= $translator->translate("ბინის არჩევა") ?></a>
+                    <div>
+                        <?=(strlen($project["descriptionLarge" . $lang]) < 10)? $project["descriptionLargeKA"] : $project["descriptionLarge" . $lang]?>
+                        <?php if($project["status"]){?>
+                            <a href="/apartments?ID=2&projectID=9"><?= $translator->translate("ბინის არჩევა") ?></a>
+                        <?php }?>
                     </div>
                 </div>
               </div>
