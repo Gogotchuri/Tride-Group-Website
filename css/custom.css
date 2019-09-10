@@ -23,6 +23,38 @@ footer a:hover {
 }
 
 @font-face {
+    font-family: 'FiraGO';
+    src: url(../fonts/FiraGo/hinted-FiraGO-Regular.woff2) format('woff2'),
+    url(../fonts/FiraGo/hinted-FiraGO-Regular.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FiraGO';
+    src: url(../fonts/FiraGo/hinted-FiraGO-Regular.woff2) format('woff2'),
+    url(../fonts/FiraGo/hinted-FiraGO-Regular.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FiraGO';
+    src: url(../fonts/FiraGo/hinted-FiraGO-Medium.woff2) format('woff2'),
+    url(../fonts/FiraGo/hinted-FiraGO-Medium.woff) format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FiraGO';
+    src: url(../fonts/FiraGo/hinted-FiraGO-Bold.woff2) format('woff2'),
+    url(../fonts/FiraGo/hinted-FiraGO-Bold.woff) format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
     font-family: BPGNinoMtavruli;
     src: url(../fonts/mtavr/BPGNinoMtavruli.woff) format('woff'), url(../fonts/mtavr/BPGNinoMtavruli.ttf) format('truetype'), url(../fonts/mtavr/BPGNinoMtavruli.svg#BPGNinoMtavruli) format('svg');
     font-weight: 400;
@@ -787,7 +819,6 @@ nav{
 .modalsDesk>button>img{
     height: 19px;
     width: 19px;
-    margin-top:-10px;
 }
 .modalsMob>button{
     margin-right: 20px;
@@ -906,7 +937,6 @@ nav{
         color: white;
         font-size: 20px;
         padding: 15px 25px;
-        padding-bottom: 6px;
         border: none;
         height: 65px;
     }
@@ -1068,6 +1098,25 @@ nav{
 }
 .modalo-content > .contact-us-call > button{
     right: 30px;
+}
+.modalo-content > .contact-us-call > button:hover,.contact-us-call > button:hover{
+    background-color: #ffa200;
+}
+.modalo-content > .contact-us-call > button:focus,.contact-us-call > button:focus{
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffa200;
+    border: none;
+}
+.contact-us-showroom > button{
+    background-color: #1a2b3e;
+}
+.contact-us-showroom > button:hover{
+    background-color: #131f2d;
+}
+.contact-us-showroom > button:focus{
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16);
+    background-color: #131f2d;
+    border: none;
 }
 @media (min-width: 768px){
     .modalo-content > .contact-us-call{
@@ -1836,3 +1885,75 @@ a.header-y{
     }
 }
 /* /Project Page */
+
+/* Appartament page */
+.find-appartament{
+
+}
+.find-appartament>h3{
+    background-color: #1a2b3e;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 22px 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-bottom: 0;
+}
+.find-appartament>.find-parameters{
+    font-size: 16px;
+    color: #000000;
+    padding: 30px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    text-align: center;
+}
+.find-parameters > button{
+    border-radius: 8px;
+    border: solid 3px #1a2b3e;
+    padding: 5px 40px;
+    background-color: white;
+    margin: auto;
+    margin-top: 10px    ;
+}
+.find-parameters > button:hover{
+    background-color: #1a2b3e;
+    color: white;
+}
+.irs--flat .irs-bar{
+    background-color: #ffb300!important;
+}
+.irs--flat .irs-handle>i:first-child{
+    background-color: #dbdbdb!important;
+    width: 8px!important;
+}
+.irs--flat .irs-from,
+.irs--flat .irs-to,
+.irs--flat .irs-single:before{
+    color: #272727!important;
+    background-color: transparent!important;
+    border-top-color: transparent!important;
+}
+.irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before{
+    border-top-color: transparent!important;
+}
+.irs-with-grid .irs-grid{
+    display: none!important;
+}
+.irs--flat .irs-line {
+    top: 25px !important;
+    height: 6px !important;
+    transform: translateY(50%) !important;
+    background-color: #e1e4e9 !important;
+    border-radius: 4px !important;
+}
+.irs--flat .irs-bar{
+    height: 6px !important;
+    transform: translateY(50%) !important;
+}
+@media (min-width: 768px) {
+
+}
+/* /Appartament page*/
