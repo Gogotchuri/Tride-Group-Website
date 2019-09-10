@@ -1977,6 +1977,85 @@ a.header-y{
 .mapimage{
     background-size: contain!important;
 }
+.ap-info{
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 30px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.appartment-header{
+    padding: 30px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    margin-bottom: 20px;
+}
+.ap-info>li{
+    display: inline-block;
+}
+.return{
+    width: 79px;
+    height: 79px;
+    background-color: #1a2b3e;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 3;
+    padding: 24px;
+}
+.free-apps{
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.23);
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+}
+.free-apps > p{
+    width: 65%;
+    display: inline-block;
+    padding: 10px;
+}
+
+.free-apps > p:first-of-type{
+    border-right: 1px solid #1a2b3e;
+    width: 35%;
+}
+.free-apps > p > span{
+    font-size: 50px;
+    color: #ffc336;
+}
+.return:hover{
+    background-color: #ffb300;
+}
+#apartments{
+    padding: 40px;
+}
+.appartament-explore>img{
+    width: 100% !important;
+    max-height: 225px!important;
+}
+.appartament-explore{
+    margin: 20px 0;
+}
+.appartament-explore>div{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 15px;
+}
+.appartament-explore>div>p{
+    width: 40%;
+    display: inline-block;
+    font-weight: bold;
+}
 @media (min-width: 768px) {
 
 }
