@@ -14,21 +14,8 @@
     $project_desc = $main_project["description".$lang];
     //News
     $news = NewsManager::getAllNews();
-
-    for($i = 0; $i < count($news) && $i < 2; $i++){
-        $row = $news[$i];
-        $news_title = $row["header".$lang];
-        $news_thumbnail = BASE_URL."/".$row["image"];
-        $news_description = substr($row["html".$lang], 0, 40); //cut to fit
-    }
-
     //gallery
     $albums = GalleryManager::getAllAlbums();
-    for($i = 1; $i < count($albums) && $i < 4; $i++) {
-        $album_thumbnail = BASE_URL . "/" . $albums[$i]["defaultImage"];
-        $album_link = BASE_URL."/album?ID=".$albums[$i]["ID"];
-    }
-
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,8 +40,8 @@
         <div class="gallery-landing col-xs-12 col-sm-12 col-md-4">
             <div class="row" style="justify-content: space-around">
                 <?php for($i = 1; $i < count($albums) && $i < 5; $i++) {
-                    $album_thumbnail = BASE_URL . "/" . $albums[$i]["defaultImage"];
-                    $album_link = BASE_URL."/album?ID=".$albums[$i]["ID"]; ?>
+                    $album_thumbnail = BASE_URL . $albums[$i]["defaultImage"];
+                    $album_link = BASE_URL."album?ID=".$albums[$i]["ID"]; ?>
                     <div class="col-md-12 col-xs-3 col-sm-3" style="padding-left: 2px;padding-right: 2px;">
                         <a href="<?=$album_link?>">
                             <div class="landing-gallery-photo" style="background-image: url(<?=$album_thumbnail?>)">

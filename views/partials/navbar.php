@@ -89,7 +89,7 @@
             <div>
                 <input type="date" name="date" id="showroom_date">
             </div>
-            <button onclick="bookShowroom()" ><?= $translator->translate("შეუკვეთე ზარი")?><img src="../img/icons/arrow-right-circle.svg"></button>
+            <button onclick="bookShowroom()" ><?= $translator->translate("დაჯავშნე შოურუმი")?><img src="../img/icons/arrow-right-circle.svg"></button>
         </div>
     </div>
 </div>
