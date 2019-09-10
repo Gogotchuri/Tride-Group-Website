@@ -1101,7 +1101,7 @@ h3.header-y{
         font-size: 40px;
         font-weight: bold;
         text-decoration: underline #ffb300;
-        margin-bottom: 80px;
+        margin-bottom: 60px;
         margin-top: 0;
         text-align: left;
     }
@@ -1713,3 +1713,106 @@ a.header-y{
 
 }
 /* /Landing */
+
+/* Project Page */
+.about-project>div{
+    font-size: 16px;
+    color: #000000;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.11);
+    background-color: #ffffff;
+    padding: 40px 20px;
+    position: relative;
+}
+.about-project > .about-project-header{
+    padding: 25px 100px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: #efefef;
+    font-weight: bold;
+    margin-bottom: 0;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.11);
+}
+.about-project > div > a{
+    border-radius: 8px;
+    border: solid 3px #ffc336;
+    padding: 15px 35px;
+    text-decoration: none;
+    margin: auto;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    margin-top: 20px;
+    color: #1e1e1e;
+}
+.about-project > div > a:hover{
+    color: #ffb300;
+}
+.about-project > div > p{
+    margin-bottom: 40px;
+}
+.about-content{
+    padding: 0;
+    text-align: center;
+}
+.about-project{
+    transform: translateY(200px)scale(1.2);
+}
+.about-project > .about-project-header{
+    padding: 20px 40px;
+    font-size: 18px;
+}
+.about-project>div>a{
+    padding: 10px;
+}
+
+.about-project>div>ul:last-of-type{
+    margin-bottom: 80px;
+}
+@media (min-width: 768px) {
+
+    .about-project > div > a{
+        border-radius: 8px;
+        border: solid 3px #ffc336;
+        padding: 15px 35px;
+        text-decoration: none;
+        margin: auto;
+
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%)translateY(-50%);
+        margin-top: 20px;
+        color: #1e1e1e;
+    }
+    .about-project{
+        transform: translateX(-40px);
+    }
+    .about-project>div{
+        font-size: 16px;
+        color: #000000;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.11);
+        background-color: #ffffff;
+        padding: 40px 20px;
+        position: relative;
+    }
+    .about-project>div>ul:last-of-type{
+        margin-bottom: 80px;
+    }
+    .about-project > .about-project-header{
+        padding: 25px 100px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        background-color: #efefef;
+        font-weight: bold;
+        margin-bottom: 0;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.11);
+        font-size: 24px;
+    }
+}
+/* /Project Page */

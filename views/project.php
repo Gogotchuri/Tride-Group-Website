@@ -24,24 +24,22 @@
     <?php include(VIEWS."/partials/navbar.php") ?>
     <div id="top"></div>
     <!-- About -->
-    <section id="about" class="about">
+    <section id="about" class="about" style="padding-top: 30px">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="header-y"><?=$project["name" . $lang]?></h2>
-            <hr class="small">
             <div class="row">
-              <div class="col-md-12 about-content">
+              <div class="col-md-12 col-xs-12 col-sm-12 about-content">
                 <div class="col-md-5">
                   <div id="wrap">
-                    <span class="floor_num">№ </span>
-                    <img src="<?=BASE_URL.$project["picture"]?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" />
-                    <?=$project["map"]?>
-                    <span class="small small-info"><?= $translator->translate("კონკრეტული სართულის სქემის სანახავად დააჭირეთ შესაბამის სართულს ფოტოზე.")?></span>
+                    <img src="<?=BASE_URL.$project["thumb"]?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" />
                   </div>
                 </div>
-                <div class="col-md-7 about-project">
-                  <?=$project["descriptionLarge" . $lang]?>
+                <div class="col-md-7 col-xs-12 col-sm-12 about-project">
+                    <h2 class="about-project-header"><?=$project["name" . $lang]?></h2>
+                    <div><?=$project["descriptionLarge" . $lang]?><!--                  TODO  -->
+                        <a href=""><?= $translator->translate("ბინის არჩევა") ?></a>
+                    </div>
                 </div>
               </div>
             </div>
@@ -72,7 +70,6 @@
         <!-- /.modal-content -->
       </div>
     </div>
-    <div class="ft-wkr"></div>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>

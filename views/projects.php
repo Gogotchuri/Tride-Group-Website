@@ -36,8 +36,8 @@
                   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="portfolio-item">
                       <a href="project?ID=<?=$project['ID']?>">
-                          <div class="gallery-link" style="background-image: url(<?=$project["thumb"]?>)"></div>
-                          <div class="gallery-link" style="position: relative;margin: 0"></div>
+                          <div class="gallery-link" style="background-image: url(<?=$project["thumb"]?>);opacity: 0"></div>
+                          <div class="gallery-link" style="position: relative;margin: 0;background-image: url(<?=$project["thumb"]?>)"></div>
                           <div class="gallery-descr proj"><span><?=$project["name".$lang]?></span></div>
                       </a>
                       <div class="thumb-descr"><?=$project["description".$lang]?></div>
@@ -54,8 +54,8 @@
                   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
                     <div class="portfolio-item">
                       <a href="project?ID=<?=$project['ID']?>">
-                          <div class="gallery-link" style="background-image: url(<?=$project["thumb"]?>)"></div>
-                          <div class="gallery-link" style="position: relative;margin: 0"></div>
+                          <div class="gallery-link" style="background-image: url(<?=$project["thumb"]?>);opacity: 0"></div>
+                          <div class="gallery-link" style="position: relative;margin: 0;background-image: url(<?=$project["thumb"]?>)"></div>
                           <div class="gallery-descr proj"><span><?=$project["name".$lang]?></span></div>
                       </a>
                       <div class="thumb-descr"><?=$project["description".$lang]?></div>

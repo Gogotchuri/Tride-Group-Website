@@ -71,6 +71,7 @@ class Translations{
         "ვიდეოები" => "Videos",
         "ძებნა" => "Search",
         "ყველა სიახლე" => "შესაცვლელია",
+        "ბინის არჩევა" => "შესაცვლელია",
 
         "გთხოვთ შეიყვანოთ სახელი და ტელეფონის ნომერი სწორად." => "Please, enter name and number correctly",
         "ზარი წარმატებით იქნა მოთხოვნილი!" => "Call has been successfully requested!",

@@ -31,8 +31,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>tride Group - <?= $translator->translate("სამშენებლო კომპანია")?></title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
     <link href="img/icons/favicon.png" rel="shortcut icon">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
