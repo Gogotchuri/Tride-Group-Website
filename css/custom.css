@@ -1976,6 +1976,7 @@ a.header-y{
 }
 .mapimage{
     background-size: contain!important;
+    background-repeat: no-repeat!important;
 }
 .ap-info{
     border-radius: 8px;
@@ -1993,6 +1994,8 @@ a.header-y{
     border-radius: 8px;
     background-color: #f8f8f8;
     margin-bottom: 20px;
+    font-size: 22px;
+    text-align: center;
 }
 .ap-info>li{
     display: inline-block;
@@ -2036,12 +2039,15 @@ a.header-y{
 #apartments{
     padding: 40px;
 }
-.appartament-explore>img{
+.appartament-explore>a>img{
     width: 100% !important;
-    max-height: 225px!important;
+    height: auto;
 }
 .appartament-explore{
     margin: 20px 0;
+}
+.appartament-explore>a{
+    width: 100%;
 }
 .appartament-explore>div{
     display: flex;
@@ -2056,7 +2062,10 @@ a.header-y{
     display: inline-block;
     font-weight: bold;
 }
-@media (min-width: 768px) {
 
+@media (min-width: 992px) {
+    .appartament-explore>img {
+        max-height: 225px!important;
+    }
 }
 /* /Appartament page*/

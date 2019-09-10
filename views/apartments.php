@@ -131,6 +131,7 @@
     <div class="ft-wkr"></div>
     <script type="text/javascript" src="<?=BASE_URL?>js/jquery.rwdImageMaps.js"></script>
     <script type="text/javascript" src="<?=BASE_URL?>js/jquery.maphilight.js"></script>
+    <script src="../js/ekko-lightbox.min.js"></script>
     <!--Plugin CSS file with desired skin-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
 
@@ -171,8 +172,9 @@
           apartments.forEach(ap => {
               ap.available = ap.available ? "<?= $translator->translate("თავისუფალი")?>" : "<?= $translator->translate("გაყიდული")?>";
               ap.image = base_url+"/"+ap.image;
-              apartmentsDiv.innerHTML += '<div class='+'"'+'appartament-explore col-lg-4'+'"'+'> ' +
-                  '<img style="width: 30%" src="'+ap.image +'">' +
+              apartmentsDiv.innerHTML += '<div class='+'"'+'appartament-explore col-lg-4 col-sm-12 col-xs-12'+'"'+'> ' +
+                      '<a href='+'"'+ap.image+'"'+ 'data-toggle='+'"'+'lightbox' + '"' + 'data-gallery='+'"'+'example-gallery'+'"'+'>'+
+                  '<img style="width: 30%" src="'+ap.image +'"></a>' +
                   '<div><p><?= $translator->translate("ფართობი")?>: '+ap.area+'</p>' +
                   '<p><?= $translator->translate("საძინებლები")?>: '+ap.bedrooms+'</p>' +
                   '<p><?= $translator->translate("სართული")?>: '+ap.floor+'</p>' +
@@ -234,6 +236,10 @@
           });
       }
 
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+          event.preventDefault();
+          $(this).ekkoLightbox();
+      });
     </script>
     <script type="text/javascript" src="../js/map-resizer.js"></script>
   </body>
