@@ -37,10 +37,10 @@
               <?php
                 foreach($news as $row){ ?>
               <div itemscope itemtype="http://schema.org/Article" class="col-md-12 about-content">
-                <div class="col-sm-5 col-md-5">
+                <div class="col-sm-5 col-md-5 col-xs-12">
                   <img itemprop="image" class="img-responsive news-thumb" src="<?=$row["image"]?>" alt="<?= $row["header".$lang] ?>">
                 </div>
-                <div class="col-md-7 about-txt">
+                <div class="col-md-7 about-txt col-xs-12 news-content">
                   <h4 itemprop="title"><?= $row["header".$lang] ?></h4>
                   <span class="news-date"><?= date_format(date_create($row["pubdate"]), "d/m/Y") ?></span>
                   <?= $row["html".$lang] ?>

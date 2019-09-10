@@ -1473,3 +1473,243 @@ div.thumb-descr{
 .about-content{
     background-color: transparent;
 }
+.news-content{
+    font-size: 14px;
+    color: #131f2d;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    padding: 25px;
+    margin-top: 35px;
+}
+.news-date{
+    font-size: 18px;
+    color: #ffa200;
+}
+.news-content>h4{
+    font-weight: bold;
+    font-size: 20px;
+    color: #131f2d;
+}
+/* Landing */
+.landing{
+    width: 100%;
+    min-height: 90vh;
+
+    background-color: #efefef;
+
+    flex-wrap: wrap;
+}
+.row{
+    margin:0
+}
+.main-landing{
+    height: 40vh;
+    padding: 0;
+
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin-bottom: 20px;
+}
+.main-landing>a{
+    width: 100%;
+    height: 100%;
+}
+.landing-photo{
+    width: 100%;
+    height: 40vh;
+    padding: 0;
+
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.landing-photo-thumbnail{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+
+    border-radius: 6px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: #1a2b3e;
+
+    color: #c1c1c1;
+    font-size: 14px;
+
+    transform: translateY(200%);
+}
+
+.landing-photo-thumbnail > span{
+    font-size: 18px;
+    display: block;
+    font-weight: bold;
+}
+
+.gallery-landing{
+    height: 12vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.landing-gallery-photo{
+    width: 80px;
+    height: 50px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.hide-on-mobile{
+    display: block;
+    height: 85px;
+    width: 100%;
+}
+
+.news-landing{
+    width: 100%;
+    min-height: 80vh;
+    padding: 5px;
+    text-align: center;
+}
+.landing-news-photo{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    max-width: 340px;
+    height: 180px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.landing-news-title{
+    font-size: 18px;
+    font-weight: bold;
+    color: #131f2d;
+}
+.landing-news-body{
+    font-size: 16px;
+    color: #434242;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 15px;
+}
+a.header-y{
+    font-size: 24px;
+    text-align: center;
+    color: #1a2b3e;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-decoration: underline #ffb300;
+
+}
+@media (min-width: 768px) {
+    .landing-gallery-photo {
+        width: 100px;
+        height: 50px;
+    }
+}
+@media (min-width: 992px) {
+    .landing {
+        padding: 20px;
+    }
+
+    .landing-photo-thumbnail {
+        width: auto;
+        padding: 20px 40px;
+        transform: translateX(-10px) translateY(50%);
+    }
+
+    .landing-photo {
+        height: 430px;
+    }
+
+    .gallery-landing {
+        height: 430px;
+    }
+
+    .gallery-landing > a {
+        height: 90px;
+    }
+
+    .gallery-landing > a:last-of-type {
+        margin-bottom: -22px;
+    }
+
+    .news-landing {
+        min-height: auto;
+        padding: 0;
+    }
+
+    .landing-gallery-photo {
+        width: 230px;
+        height: 90px;
+        margin: auto;
+        margin-bottom: 24px;
+    }
+
+    .landing-news-body {
+        width: 100%;
+    }
+
+    .landing-news-photo {
+        height: 120px;
+        width: 40%;
+        max-width: 190px;
+    }
+
+    .landing-newsbot {
+        width: 60%;
+        height: 120px;
+        -webkit-backdrop-filter: blur(30px);
+        backdrop-filter: blur(30px);
+        background-color: #ffffff;
+        padding: 5px;
+    }
+
+    a.header-y {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        text-decoration: none;
+        color: #1a2b3e;
+        text-decoration: underline #ffb300;
+
+    }
+    .hide-on-mobile{
+        height: 48px;
+    }
+}
+@media (min-width: 1388px) {
+
+    .landing-news-photo{
+        height: 140px;
+        width: 230px;
+        max-width: 230px;
+    }
+    .gallery-landing{
+        height: 640px;
+    }
+    .landing-photo{
+        height: 640px;
+    }
+    .landing-gallery-photo{
+        height: 130px;
+        width: 280px;
+        margin-bottom: 30px;
+    }
+    .landing-newsbot{
+        height: 140px;
+    }
+}
+@media (min-width: 1920px) {
+
+}
+/* /Landing */
