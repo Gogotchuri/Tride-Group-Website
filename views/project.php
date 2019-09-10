@@ -35,7 +35,7 @@
                 <div class="col-md-5">
                   <div id="wrap">
                     <span class="floor_num">№ </span>
-                    <img src="<?=BASE_URL.$project["picture"]?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" />
+                    <img src="<?=BASE_URL.$project["thumb"]?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" />
                     <?=$project["map"]?>
                     <span class="small small-info"><?= $translator->translate("კონკრეტული სართულის სქემის სანახავად დააჭირეთ შესაბამის სართულს ფოტოზე.")?></span>
                   </div>

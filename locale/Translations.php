@@ -74,8 +74,11 @@ class Translations{
 
         "გთხოვთ შეიყვანოთ სახელი და ტელეფონის ნომერი სწორად." => "Please, enter name and number correctly",
         "ზარი წარმატებით იქნა მოთხოვნილი!" => "Call has been successfully requested!",
-        "ზარის მოთხოვნა ვერ მოხერხდა... სცადეთ მოგვიანებით." => "Call couldn`t be requested. Please, try again later."
-    ];
+        "ზარის მოთხოვნა ვერ მოხერხდა... სცადეთ მოგვიანებით." => "Call couldn`t be requested. Please, try again later.",
+        "გთხოვთ შეიყვანოთ სახელი, მეილი და შეტყობინება სწორად." => "Please enter name, email and message correctly.",
+        "შეტყობინება წარმატებით გაიგზავნა!" => "Message has been sent successfully",
+        "შეტყობინება ვერ გაიგზავნა... სცადეთ მოგვიანებით." => "Message couldn`t be sent, try again later..."
+];
 
     public static $RU_TEXTS = [
         // ნავიგაცია
@@ -147,7 +150,10 @@ class Translations{
         "ზარი წარმატებით იქნა მოთხოვნილი!" => "звонок был успешно запрошен!",
         "ზარის მოთხოვნა ვერ მოხერხდა... სცადეთ მოგვიანებით." => "Вызов не может быть запрошен. Пожалуйста, попробуйте позже.",
         "დაჯავშნე შოურუმი" => "бронировать выставочный зал",
-        "შეუკვეთე ზარი" => "заказать звонок"
+        "შეუკვეთე ზარი" => "заказать звонок",
+        "გთხოვთ შეიყვანოთ სახელი, მეილი და შეტყობინება სწორად." => "Please enter name, email and message correctly.",
+        "შეტყობინება წარმატებით გაიგზავნა!" => "Message has been sent successfully",
+        "შეტყობინება ვერ გაიგზავნა... სცადეთ მოგვიანებით." => "Message couldn`t be sent, try again later..."
 
     ];
 }
