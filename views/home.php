@@ -51,11 +51,11 @@
             </a>
         </div>
         <div class="gallery-landing col-xs-12 col-sm-12 col-md-4">
-            <div class="row">
+            <div class="row" style="justify-content: space-around">
                 <?php for($i = 1; $i < count($albums) && $i < 5; $i++) {
                     $album_thumbnail = BASE_URL . "/" . $albums[$i]["defaultImage"];
                     $album_link = BASE_URL."/album?ID=".$albums[$i]["ID"]; ?>
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-xs-3 col-sm-3" style="padding-left: 2px;padding-right: 2px;">
                         <a href="gallery">
                             <div class="landing-gallery-photo" style="background-image: url(<?=$album_thumbnail?>)">
 
