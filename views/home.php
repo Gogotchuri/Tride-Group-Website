@@ -41,7 +41,7 @@
 <section id="landing" class="landing">
     <div class="row">
         <div class="main-landing col-xs-12 col-sm-12 col-md-8">
-            <a href="project?ID=9">
+            <a href="/project?ID=9">
                 <div class="landing-photo" style="background-image: url(<?=$project_thumbnail?>)">
                     <div class="landing-photo-thumbnail">
                         <span><?=$project_name?></span>
@@ -51,11 +51,11 @@
             </a>
         </div>
         <div class="gallery-landing col-xs-12 col-sm-12 col-md-4">
-            <div class="row">
+            <div class="row" style="justify-content: space-around">
                 <?php for($i = 1; $i < count($albums) && $i < 5; $i++) {
                     $album_thumbnail = BASE_URL . "/" . $albums[$i]["defaultImage"];
                     $album_link = BASE_URL."/album?ID=".$albums[$i]["ID"]; ?>
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-xs-3 col-sm-3" style="padding-left: 2px;padding-right: 2px;">
                         <a href="<?=$album_link?>">
                             <div class="landing-gallery-photo" style="background-image: url(<?=$album_thumbnail?>)">
                             </div>
@@ -87,7 +87,7 @@
                  </div>
             <?php } ?>
                 <div class="col-xs-12 col-sm-12 col-md-2" style="position: relative; height: 120px">
-                    <a href="updates" class="header-y">
+                    <a href="/updates" class="header-y">
                         <?= $translator->translate("ყველა სიახლე") ?><img src="../img/icons/arrow-left.svg" style="margin-left: 10px">
                     </a>
                 </div>
