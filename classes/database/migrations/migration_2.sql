@@ -1,6 +1,7 @@
 SET SQL_SAFE_UPDATES=0;
 
 UPDATE projects p SET p.`picture`='img/projects/new23/1.png' WHERE p.id = 9;
+
 UPDATE appartments a SET a.`area` = 84.4, a.`bedrooms` = 2, a.`image`="img/projects/new23/plans/1.jpg" where a.`number` = 1 AND a.`projectID`=9;
 UPDATE appartments a SET a.`area` = 86.1, a.`bedrooms` = 2, a.`image`="img/projects/new23/plans/2.jpg" where a.`number` = 2 AND a.`projectID`=9;
 UPDATE appartments a SET a.`area` = 67.6, a.`bedrooms` = 2, a.`image`="img/projects/new23/plans/3.jpg" where a.`number` = 3 AND a.`projectID`=9;
