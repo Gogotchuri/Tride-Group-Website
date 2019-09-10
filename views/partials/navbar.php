@@ -36,12 +36,14 @@
     <!-- Container for first visible content on navigation bar -->
     <div class="navContainer">
         <!-- Logo -->
-        <div class="brand-logo brand-logo-Desk">
-            <img src="../../img/icons/3D_logo.png">
-        </div>
-        <div class="brand-logo brand-logo-mobile">
-            <img src="../../img/icons/3D_logo_m.png">
-        </div>
+        <a href="<?=BASE_URL?>">
+            <div class="brand-logo brand-logo-Desk">
+                <img src="<?=BASE_URL?>img/icons/3D_logo.png" alt="logo">
+            </div>
+            <div class="brand-logo brand-logo-mobile">
+                <img src="<?=BASE_URL?>img/icons/3D_logo_m.png">
+            </div>
+        </a>
         
         <!-- Social icons only for desktop -->
         <ul class="socials hideOnMobile">
@@ -52,14 +54,14 @@
 
         <!-- Buttons for modals Desktop only-->
         <div class="modalsDesk">
-            <button class="plancall" id="planModalD"><img src="img/icons/planCall.svg" alt="call"><?=$translator->translate("შეუკვეთე ზარი")?></button>
-            <button class="showroom" id="showModalD"><img src="img/icons/showroom.svg" alt="showroom"><?=$translator->translate("დაჯავშნე შოურუმი")?></button>
+            <button class="plancall" id="planModalD"><img src="<?=BASE_URL?>img/icons/planCall.svg" alt="call"><?=$translator->translate("შეუკვეთე ზარი")?></button>
+            <button class="showroom" id="showModalD"><img src="<?=BASE_URL?>img/icons/showroom.svg" alt="showroom"><?=$translator->translate("დაჯავშნე შოურუმი")?></button>
         </div>
 
         <!-- Buttons for modals Mobile only -->
         <div class="modalsMob">
-            <button class="plancall" id="planModalM"><img src="img/icons/planCall.svg" alt="call"></button>
-            <button class="showroom" id="showModalM"><img src="img/icons/showroom.svg" alt="showroom"></button>
+            <button class="plancall" id="planModalM"><img src="<?=BASE_URL?>img/icons/planCall.svg" alt="call"></button>
+            <button class="showroom" id="showModalM"><img src="<?=BASE_URL?>img/icons/showroom.svg" alt="showroom"></button>
         </div>
 
         <!-- Language Dropdown For Desktop -->
