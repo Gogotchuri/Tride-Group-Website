@@ -47,6 +47,25 @@
                 </div>
               </div>
               <div class="col-md-4 col-sm-12 about-nav">
+                <div class="form-group select-floor">
+                  <label><?= $translator->translate("შერჩეულია სართული")?>:</label>
+                  <select class="form-control" id="floor">
+                    <?php for($i=0;$i<count($floors);++$i){
+                        if($floor_ids[$i] != $floor_id){?>
+                    <option value="<?=$floor_ids[$i]?>"><?=$floor_ids[$i]?></option>
+                    <?php }else{ ?>
+                    <option selected value="<?=$floor_ids[$i]?>"><?=$floor_ids[$i]?></option>
+                    <?php } ?>
+                    <?php } ?>
+                  </select>
+                </div>
+                <img id="floor_render" class="center img-responsive">
+                <ul id="floor_prop">
+                </ul>
+                <ul class="soc-share">
+                  <li><a target="_blank" class="fb_share btn btn-md social btn-fb" href="#"><i class="fa fa-facebook-square"></i> Share</a></li>
+                  <li><a target="_blank" class="tw_share btn btn-md social btn-twt" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
+                </ul>
                   <div class="find-appartament">
                       <!--                      TODO translate-->
                       <h3>ძიება პარამეტრებით</h3>
@@ -81,25 +100,6 @@
                           <button onclick="fetchApartments()"><?= $translator->translate("ძებნა")?></button>
                       </div>
                   </div>
-                <div class="form-group select-floor">
-                  <label><?= $translator->translate("შერჩეულია სართული")?>:</label>
-                  <select class="form-control" id="floor">
-                    <?php for($i=0;$i<count($floors);++$i){
-                        if($floor_ids[$i] != $floor_id){?>
-                    <option value="<?=$floor_ids[$i]?>"><?=$floor_ids[$i]?></option>
-                    <?php }else{ ?>
-                    <option selected value="<?=$floor_ids[$i]?>"><?=$floor_ids[$i]?></option>
-                    <?php } ?>
-                    <?php } ?>
-                  </select>
-                </div>
-                <img id="floor_render" class="center img-responsive">
-                <ul id="floor_prop">
-                </ul>
-                <ul class="soc-share">
-                  <li><a target="_blank" class="fb_share btn btn-md social btn-fb" href="#"><i class="fa fa-facebook-square"></i> Share</a></li>
-                  <li><a target="_blank" class="tw_share btn btn-md social btn-twt" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
-                </ul>
 
               </div>
             </div>

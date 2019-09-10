@@ -1758,7 +1758,7 @@ a.header-y{
     .landing-gallery-photo{
         height: 130px;
         width: 280px;
-        margin-bottom: 30px;
+        margin-top: 18px;
     }
     .landing-newsbot{
         height: 140px;
@@ -1766,12 +1766,11 @@ a.header-y{
 
     .gallery-landing > div > .hui:last-of-type > a > div{
         margin-bottom: 0;
-        margin-top: 30px;
     }
 
     .gallery-landing > div > .hui:first-of-type > a > div{
         margin-top: 0;
-        margin-bottom: 30px;
+        margin-bottom: 18px;
     }
 }
 @media (min-width: 1920px) {

@@ -35,7 +35,11 @@
 
     <!-- Container for first visible content on navigation bar -->
     <div class="navContainer">
-
+        <!-- Logo -->
+<!--        <div class="brand-logo">-->
+<!--            -->
+<!--        </div>-->
+        
         <!-- Social icons only for desktop -->
         <ul class="socials hideOnMobile">
             <li><a class="social-icon" href="https://www.facebook.com/trideGROUP" target="_blank" title="Facebook"><img src="img/icons/socials-b/facebook.svg" alt="facebook"></a></li>
