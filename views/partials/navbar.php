@@ -36,14 +36,16 @@
     <!-- Container for first visible content on navigation bar -->
     <div class="navContainer">
         <!-- Logo -->
-        <a href="<?=BASE_URL?>">
             <div class="brand-logo brand-logo-Desk">
-                <img src="<?=BASE_URL?>img/icons/3D_logo.png" alt="logo">
+                <a href="/">
+                    <img src="<?=BASE_URL?>img/icons/3D_logo.png" alt="logo">
+                </a>
             </div>
             <div class="brand-logo brand-logo-mobile">
-                <img src="<?=BASE_URL?>img/icons/3D_logo_m.png">
+                <a href="/">
+                    <img src="<?=BASE_URL?>img/icons/3D_logo_m.png">
+                </a>
             </div>
-        </a>
         
         <!-- Social icons only for desktop -->
         <ul class="socials hideOnMobile">
