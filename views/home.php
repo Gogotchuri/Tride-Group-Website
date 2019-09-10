@@ -9,7 +9,7 @@
     use manager\GalleryManager;
     //Project
     $main_project = ProjectsManager::getProjectWithId(9);
-    $project_thumbnail = BASE_URL."/".$main_project["thumb"];
+    $project_thumbnail = BASE_URL."/".$main_project["picture"];
     $project_name = $main_project["name".$lang];
     $project_desc = $main_project["description".$lang];
     //News

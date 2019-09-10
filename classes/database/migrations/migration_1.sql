@@ -1,5 +1,3 @@
-use tride;
-
 SET SQL_SAFE_UPDATES=0;
 
 ALTER TABLE appartments ADD area FLOAT4 DEFAULT 1;
