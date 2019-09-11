@@ -8,8 +8,7 @@ use http\Request;
 
 class MailingController
 {
-    //TODO validation and throttling
-    const TO_EMAIL = "hacker.coopera@gmail.com";
+    const TO_EMAIL = "info@tridegroup.ge";
     const FROM_EMAIL = "no-reply@tridegroup.ge";
     public static function requestCall(Request $request){
         $data = $request->getData();
@@ -23,7 +22,7 @@ class MailingController
         $data = $request->getData();
         $name = $data["name"];
         $phone_number = $data["phone_number"];
-        $date_time = $data["date"]; //TODO might require formatting and explicit error status handling
+        $date_time = $data["date"];
         $message_body = "სახელი : " . $name ."; მობილური: " . $phone_number ."; თარიღი: " .$date_time;
         return self::sendMail(self::TO_EMAIL, "შემოვიდა შოურუმის დაჯავნის მოთხოვნა!", $message_body);
 
