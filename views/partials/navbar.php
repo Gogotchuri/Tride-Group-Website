@@ -18,9 +18,9 @@
 
     <!-- Language list only for mobile -->
     <ul class="mobile-lang socials-side">
-        <li><a href="?lang=KA">KA</a></li>
-        <li><a href="?lang=EN">EN</a></li>
-        <li><a href="?lang=RU">RU</a></li>
+        <li><a onclick="setLanguage('KA')">KA</a></li>
+        <li><a onclick="setLanguage('EN')">EN</a></li>
+        <li><a onclick="setLanguage('RU')">RU</a></li>
     </ul>
 
     <!-- Social icons -->
@@ -75,14 +75,14 @@
         </div>
 
         <!-- Language Dropdown For Desktop -->
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div id="dropdown_wrap" class="dropdown">
+            <button onclick="changeDropdownState()" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
                 <?=$lang?>
             </button>
             <div id="dropdown-menu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="?lang=KA">KA</a>
-                <a class="dropdown-item" href="?lang=EN">EN</a>
-                <a class="dropdown-item" href="?lang=RU">RU</a>
+                <a onclick="setLanguage('KA')" class="dropdown-item">KA</a>
+                <a onclick="setLanguage('EN')" class="dropdown-item">EN</a>
+                <a onclick="setLanguage('RU')" class="dropdown-item">RU</a>
             </div>
         </div>
 
@@ -129,6 +129,25 @@
 </div>
 
 <script>
+    //Manually opening dropdown menu
+    function changeDropdownState() {
+        const dropdown = document.getElementById("dropdownMenuButton");
+        const dropdown_wrap = document.getElementById("dropdown_wrap");
+        if(dropdown.getAttribute("aria-expanded") === "true"){
+            dropdown.setAttribute("aria-expanded", "false");
+            dropdown_wrap.setAttribute("class", "dropdown");
+            console.log("close!");
+        }
+        else {
+            console.log("open!");
+            dropdown.setAttribute("aria-expanded", "true");
+            dropdown_wrap.setAttribute("class", "dropdown open");
+        }
+    }
+    function setLanguage(lang){
+        document.cookie = "lang="+lang;
+        location.reload();
+    }
     // Toggle Navigation menu
     function toggleNav() {
         document.getElementById("mainMenu").classList.toggle("openMenu");
