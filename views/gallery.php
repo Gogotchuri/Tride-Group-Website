@@ -25,7 +25,7 @@
             <div class="row">
               <?php
                 foreach($albums as $row){ ?>
-              <div class="col-lg-4 col-md-4 col-xs-6">
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="portfolio-item" style="text-align: center">
                   <a href="<?="album?ID=".$row["ID"]?>" class="sel">
                       <div class="gallery-link" style="background-image: url(<?=$row["defaultImage"]?>);left: 5px"></div>
