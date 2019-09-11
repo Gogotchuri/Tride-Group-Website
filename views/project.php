@@ -24,11 +24,11 @@
     <div id="top"></div>
     <!-- About -->
     <section id="about" class="about" style="padding-top: 30px">
-      <div class="container">
+      <div class="navContainer">
         <div class="row">
           <div class="col-lg-12">
             <div class="row">
-              <div class="col-md-12 col-xs-12 col-sm-12 about-content" style="background-color: transparent">
+              <div class="col-md-12 col-xs-12 col-sm-12 about-content about-content-project" style="background-color: transparent">
                 <div class="col-md-5">
                   <div id="wrap">
                     <img src="<?=BASE_URL.$project["picture"]?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" />

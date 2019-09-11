@@ -710,6 +710,7 @@ nav{
     transition: inherit;
     border-radius: 2px;
 }
+
 .burger-custom > div::before {
     content: "";
     position: absolute;
@@ -2146,6 +2147,15 @@ a.header-y{
 @media (min-width: 992px) {
     .appartament-explore>a>img {
         max-height: 225px!important;
+    }
+}
+@media (max-width: 500px) {
+    .about-content-project{
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    .about-project>div{
+        padding: 20px 10px;
     }
 }
 /* /Appartament page*/
