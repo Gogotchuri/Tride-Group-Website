@@ -33,7 +33,8 @@
         <div class="row">
           <div class="col-lg-12">
             <h2 class="text-center header-y"><?= $translator->translate("სიახლეები") ?></h2>
-            <div class="row">
+              <hr class="small">
+              <div class="row">
               <?php
                 foreach($news as $row){ ?>
               <div itemscope itemtype="http://schema.org/Article" class="col-md-12 about-content">

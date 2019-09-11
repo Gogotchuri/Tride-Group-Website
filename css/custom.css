@@ -1263,7 +1263,6 @@ h3.header-b{
 
 /* About */
 #about{
-    padding: 30px 0px;
     min-height: 90vh;
 }
 .about-nav {
@@ -1287,11 +1286,8 @@ h3.header-b{
     color: #1a2b3e;
 }
 @media (min-width: 768px) {
-    #about{
-        padding: 80px 0px;
-    }
     .about-nav{
-        padding: 0 10px;
+        padding-right: 10px;
     }
 }
 /* /About */
@@ -1548,7 +1544,8 @@ div.thumb-descr{
     }
 }
 @media (min-width: 768px) {
-    .gallery > div > div > div >  .header-y{
+    .gallery > div > div > div >  .header-y,
+    .about > div > div > div >  .header-y{
         font-size: 30px;
         margin-bottom: 0;
     }
@@ -1605,7 +1602,9 @@ div.thumb-descr{
     }
 }
 @media (min-width: 1280px) {
-    .gallery >div > div > div >  .header-y {
+    .gallery >div > div > div >  .header-y ,
+    .about >div > div > div >  .header-y
+    {
         font-size: 34px;
         margin-bottom: 0;
     }
