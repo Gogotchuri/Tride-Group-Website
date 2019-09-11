@@ -98,7 +98,7 @@
     <div class="modalo-content">
         <span class="closeRoom close">&times;</span>
         <div class="contact-us-call contact-us-showroom">
-            <h3 class="header-y"><?= $translator->translate("დაჯავშნე შოურუმი")?></h3>
+            <h3 class="header-b"><?= $translator->translate("დაჯავშნე შოურუმი")?></h3>
             <div>
                 <input type="text" id="showroom_name" placeholder="<?= $translator->translate("სახელი")?>" required>
             </div>
@@ -109,6 +109,7 @@
                 <input type="date" name="date" id="showroom_date">
             </div>
             <button onclick="bookShowroom()" ><?= $translator->translate("დაჯავშნე შოურუმი")?><img src="../img/icons/arrow-right-circle.svg"></button>
+            <div class="under-button"></div>
         </div>
     </div>
 </div>
@@ -124,6 +125,7 @@
                     <input type="tel" id="call_phone_number" placeholder="<?= $translator->translate("ტელეფონი")?>" required>
                 </div>
                 <button onclick="requestCall()"><?= $translator->translate("შეუკვეთე ზარი")?><img src="../img/icons/arrow-right-circle.svg"></button>
+                <div class="under-button"></div>
             </div>
     </div>
 </div>
