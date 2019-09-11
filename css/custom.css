@@ -621,7 +621,7 @@ nav{
     z-index: 6;
     text-align: right;
 }
-.navContainer{
+.navContainer, .container-my{
     margin: 0 20px;
 }
 .mainMenu{
@@ -631,7 +631,7 @@ nav{
     height: 100%;
     top: 0;
     right: 0;
-    background-color: #111;
+    background-color: #1a2b3e;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 120px;
@@ -723,7 +723,7 @@ nav{
     width: 100%!important;
 }
 .openMenu.burger-custom{
-    width: 40px!important;
+    width: 47px!important;
 }
 .openMenu.burger-custom > div::after{
     opacity: 0;
@@ -735,7 +735,7 @@ nav{
     transition: all 0.2s ease-in-out;
 }
 .openMenu.burger-custom > div{
-    width: 40px;
+    width: 47px;
     transform: rotate(45deg);
     transition: all 0.2s ease-in-out;
 }
@@ -917,7 +917,7 @@ nav{
     .openMenu{
         width: 550px!important;
     }
-    .navContainer{
+    .navContainer, .container-my{
         margin: 0 25px;
     }
     .mainMenu{
@@ -1054,7 +1054,7 @@ nav{
     }
 }
 @media (min-width: 1310px){
-    .navContainer{
+    .navContainer, .container-my{
         margin: 0 20px;
     }
     .burger-custom{
@@ -1093,7 +1093,7 @@ nav{
     }
 }
 @media (min-width: 1600px) {
-    .navContainer{
+    .navContainer, .container-my{
         margin: 0 180px;
     }
 }
@@ -1619,12 +1619,8 @@ div.thumb-descr{
 }
 /* Landing */
 .landing{
-    width: 100%;
-    min-height: 90vh;
 
-    background-color: #efefef;
 
-    flex-wrap: wrap;
 }
 .row{
     margin:0
@@ -1670,7 +1666,11 @@ div.thumb-descr{
 
     transform: translateY(200%);
 }
-
+@media (min-width: 518px) and (max-width: 992px){
+    .landing-photo-thumbnail{
+        transform: translateY(220%);
+    }
+}
 .landing-photo-thumbnail > span{
     font-size: 18px;
     display: block;
@@ -1735,6 +1735,9 @@ a.header-y{
     text-decoration: underline #ffb300;
 
 }
+.landing-gallery-photo{
+    margin: 0;
+}
 @media (min-width: 768px) {
     .landing-gallery-photo {
         width: 100px;
@@ -1743,7 +1746,7 @@ a.header-y{
 }
 @media (min-width: 992px) {
     .landing {
-        padding: 30px;
+        padding-top: 30px;
     }
 
     .landing-photo-thumbnail {
@@ -1755,7 +1758,6 @@ a.header-y{
     .landing-photo {
         height: 430px;
     }
-
     .gallery-landing {
         height: 430px;
     }
@@ -1765,7 +1767,7 @@ a.header-y{
     }
 
     .gallery-landing > a:last-of-type {
-        margin-bottom: -22px;
+        margin-bottom: -22px!important;
     }
 
     .news-landing {
@@ -1776,8 +1778,8 @@ a.header-y{
     .landing-gallery-photo {
         width: 230px;
         height: 90px;
-        margin: auto;
-        margin-bottom: 24px;
+        margin-bottom: 24px!important;
+        float: right;
     }
 
     .landing-news-body {
@@ -1786,13 +1788,12 @@ a.header-y{
 
     .landing-news-photo {
         height: 120px;
-        width: 40%;
+        width: 100%;
         max-width: 190px;
     }
 
     .landing-newsbot {
-        width: 60%;
-        height: 120px;
+        height: 100%;
         -webkit-backdrop-filter: blur(30px);
         backdrop-filter: blur(30px);
         background-color: #ffffff;
@@ -1823,7 +1824,8 @@ a.header-y{
     .landing-news-photo{
         height: 140px;
         width: 230px;
-        max-width: 230px;
+        max-width: 100%;
+        margin-bottom: 0;
     }
     .gallery-landing{
         height: 620px;
@@ -1834,19 +1836,19 @@ a.header-y{
     .landing-gallery-photo{
         height: 130px;
         width: 280px;
-        margin-top: 18px;
+        margin-top: 18px!important;
     }
     .landing-newsbot{
         height: 140px;
     }
 
     .gallery-landing > div > .hui:last-of-type > a > div{
-        margin-bottom: 0;
+        margin-bottom: 0!important;
     }
 
     .gallery-landing > div > .hui:first-of-type > a > div{
-        margin-top: 0;
-        margin-bottom: 18px;
+        margin-top: 0!important;
+        margin-bottom: 18px!important;
     }
 }
 @media (min-width: 1920px) {
