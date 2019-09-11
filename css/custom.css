@@ -1144,6 +1144,10 @@ nav{
     padding: 0;
     min-height: 240px;
 }
+.contact-us-call>.under-button{
+    height: 50px;
+    width: 100px;
+}
 .modalo-content > .contact-us-call > button{
     right: 30px;
 }
@@ -1156,20 +1160,37 @@ nav{
     border: none;
 }
 .contact-us-showroom > button{
-    background-color: #1a2b3e;
+    background-color: #1a2b3e!important;
 }
 .contact-us-showroom > button:hover{
-    background-color: #131f2d;
+    background-color: #131f2d!important;
 }
 .contact-us-showroom > button:focus{
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16);
-    background-color: #131f2d;
+    background-color: #131f2d!important;
     border: none;
 }
 @media (min-width: 768px){
     .modalo-content > .contact-us-call{
         max-width: 100%;
         margin: auto;
+    }
+}
+
+@media (max-width: 310px) {
+    .modalsMob{
+        display: none;
+    }
+}
+@media (max-width: 600px) {
+    .modalo-content{
+        width: 90%;
+        text-align: center;
+    }
+    .modalo-content > .contact-us-call > button{
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
     }
 }
 /* /Modals*/
@@ -1193,6 +1214,13 @@ h3.header-y{
     margin-bottom: 30px;
     margin-top: 0;
     text-align: center;
+}
+h3.header-b{
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: underline #1a2b3e;
+    margin-bottom: 30px;
+    margin-top: 0;
 }
 @media (min-width: 1280px) {
     h2.header-y{
