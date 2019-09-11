@@ -783,6 +783,10 @@ nav{
     opacity: 0;
     transition: all 1.5s ease-in-out
 }
+
+.mobile-lang > li{
+    cursor: pointer;
+}
 .openMenu>.socials-side{
     opacity: 1;
     transition: all 1.5s ease-in-out
