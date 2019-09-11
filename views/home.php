@@ -25,7 +25,7 @@
 <?php include(VIEWS."/partials/navbar.php"); ?>
 
 <!-- Landing -->
-<section id="landing" class="landing">
+<section id="landing" class="container-my landing">
     <div class="row">
         <div class="main-landing col-xs-12 col-sm-12 col-md-8">
             <a href="/project?ID=9">
@@ -38,13 +38,13 @@
             </a>
         </div>
         <div class="gallery-landing col-xs-12 col-sm-12 col-md-4">
-            <div class="row" style="justify-content: space-around">
+            <div class="row" style="justify-content: space-around;width: 100%">
                 <?php for($i = 1; $i < count($albums) && $i < 5; $i++) {
                     $album_thumbnail = BASE_URL . $albums[$i]["defaultImage"];
                     $album_link = BASE_URL."album?ID=".$albums[$i]["ID"]; ?>
-                    <div class="col-md-12 col-xs-3 col-sm-3 hui" style="padding-left: 2px;padding-right: 2px;">
+                    <div class="col-md-12 col-xs-3 col-sm-3 hui" style="padding:  0px;text-align: center">
                         <a href="<?=$album_link?>">
-                            <div class="landing-gallery-photo" style="background-image: url(<?=$album_thumbnail?>)">
+                            <div class="landing-gallery-photo" style="margin: auto;background-image: url(<?=$album_thumbnail?>)">
                             </div>
                         </a>
                     </div>
@@ -61,8 +61,8 @@
                 $news_description = substr($row["html".$lang], 0, 50)."..."; //cut to fit ?>
                  <div class="col-xs-12 col-sm-12 col-md-5" style="padding: 0" >
                         <div class="row">
-                            <a href="/updates">
-                                <div class="landing-news-photo col-sm-12 col-xs-12 col-md-5" style="background-image: url(<?=$news_thumbnail?>)"></div>
+                            <a href="/updates" class="col-sm-12 col-xs-12 col-md-5">
+                                <div class="landing-news-photo" style="background-image: url(<?=$news_thumbnail?>)"></div>
                             </a>
                             <div class="landing-newsbot col-sm-12 col-xs-12 col-md-7">
                                 <a href="/updates">
