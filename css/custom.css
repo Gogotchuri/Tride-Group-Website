@@ -2152,6 +2152,7 @@ a.header-y{
 @media (max-width: 500px) {
     .about-content-project{
         padding: 0;
+        margin-bottom: 10px;
     }
     .about-project>div{
         padding: 20px 10px;
