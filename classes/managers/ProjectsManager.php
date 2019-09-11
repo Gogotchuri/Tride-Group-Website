@@ -81,4 +81,32 @@ class ProjectsManager
 
         return $apartments;
     }
+
+    public static function getProjectApartments(int $projectID){
+        self::getDAO();
+        if(self::$DAO == null) return null;
+        $apartments_raw = self::$DAO->executeQuery("SELECT * FROM appartments WHERE projectID = ".$projectID.";");
+
+        if(!$apartments_raw) return null;
+        $apartments = [];
+        while ($row = $apartments_raw->fetch_array(MYSQLI_ASSOC)){
+            $apartments[] = $row;
+        }
+
+        $apartments_raw->close();
+
+        return $apartments;
+    }
+
+    public static function getAvailableApartmentCountOnTheFloors(int $projectID){
+        $apartments = self::getProjectApartments($projectID);
+        $available_count = [];
+        foreach($apartments as $apartment){
+            if(key_exists($apartment["floor"], $available_count))
+                $available_count[$apartment["floor"]]++;
+            else $available_count[$apartment["floor"]] = 1;
+        }
+
+        return $available_count;
+    }
 }

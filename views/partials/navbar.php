@@ -128,113 +128,8 @@
     </div>
 </div>
 
+<script type="text/javascript" src="<?=BASE_URL?>js/pages/navbar.js"></script>
 <script>
-    //Manually opening dropdown menu
-    function changeDropdownState() {
-        const dropdown = document.getElementById("dropdownMenuButton");
-        const dropdown_wrap = document.getElementById("dropdown_wrap");
-        if(dropdown.getAttribute("aria-expanded") === "true"){
-            dropdown.setAttribute("aria-expanded", "false");
-            dropdown_wrap.setAttribute("class", "dropdown");
-            console.log("close!");
-        }
-        else {
-            console.log("open!");
-            dropdown.setAttribute("aria-expanded", "true");
-            dropdown_wrap.setAttribute("class", "dropdown open");
-        }
-    }
-    function setLanguage(lang){
-        document.cookie = "lang="+lang;
-        location.reload();
-    }
-    // Toggle Navigation menu
-    function toggleNav() {
-        document.getElementById("mainMenu").classList.toggle("openMenu");
-        document.getElementById("burger").classList.toggle("openMenu");
-    }
-    // Get modals
-    const showroom = document.getElementById("showRoomModal");
-    const plancall = document.getElementById("planCallModal");
-
-    // Buttons for modal
-    const showRoomBtn1 = document.getElementById("showModalD");
-    const showRoomBtn2 = document.getElementById("showModalM");
-    const planCallBtn1 = document.getElementById("planModalD");
-    const planCallBtn2 = document.getElementById("planModalM");
-
-    // Close Btns
-    const spanShowRoom = document.getElementsByClassName("closeRoom")[0];
-    const spanPlanCall = document.getElementsByClassName("closePlan")[0];
-
-    // Booleans
-    var showIsOpen = false;
-    var callIsOpen = false;
-
-    // Close
-    spanShowRoom.onclick = function () {
-        showIsOpen = false;
-        callIsOpen = false;
-        showroom.style.display = "none";
-    };
-
-    spanPlanCall.onclick = function () {
-        showIsOpen = false;
-        callIsOpen = false;
-        plancall.style.display = "none";
-    };
-
-    // Open
-    showRoomBtn1.onclick = function () {
-        if (callIsOpen) {
-            plancall.style.display = "none";
-            callIsOpen = !callIsOpen;
-        }
-        if (!showIsOpen) {
-            showroom.style.display = "block";
-            showIsOpen = !showIsOpen;
-        }
-    };
-
-    showRoomBtn2.onclick = function () {
-        if (showIsOpen) {
-            showroom.style.display = "none";
-            showIsOpen = !showIsOpen;
-        }
-        if (!showIsOpen) {
-            showroom.style.display = "block";
-            showIsOpen = !showIsOpen;
-        }
-    };
-
-    planCallBtn1.onclick = function () {
-        if (showIsOpen) {
-            showroom.style.display = "none";
-            showIsOpen = !showIsOpen;
-        }
-        if (!callIsOpen) {
-            plancall.style.display = "block";
-            callIsOpen = !callIsOpen;
-        }
-    };
-
-    planCallBtn2.onclick = function () {
-        plancall.style.display = "block";
-    };
-
-    var myDate = document.getElementById("showroom_date");
-    myDate.valueAsDate = new Date();
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target === showroom || event.target === plancall) {
-            showIsOpen = false;
-            callIsOpen = false;
-            showroom.style.display = "none";
-            plancall.style.display = "none";
-        }
-    };
-
     function requestCall(name_id="call_name", number_id="call_phone_number") {
         let name = document.getElementById(name_id).value;
         let number = document.getElementById(number_id).value;
@@ -269,7 +164,6 @@
 
     }
 
-    //TODO test me
     function bookShowroom() {
         let name = document.getElementById("showroom_name").value;
         let number = document.getElementById("showroom_phone_number").value;

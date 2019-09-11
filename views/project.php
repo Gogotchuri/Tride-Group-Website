@@ -39,7 +39,7 @@
                     <div>
                         <?=(strlen($project["descriptionLarge" . $lang]) < 10)? $project["descriptionLargeKA"] : $project["descriptionLarge" . $lang]?>
                         <?php if($project["status"]){?>
-                            <a href="/apartments?ID=2&projectID=9"><?= $translator->translate("ბინის არჩევა") ?></a>
+                            <a href="/apartments?projectID=9"><?= $translator->translate("ბინის არჩევა") ?></a>
                         <?php }?>
                     </div>
                 </div>

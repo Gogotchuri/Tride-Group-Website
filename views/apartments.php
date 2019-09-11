@@ -3,23 +3,13 @@
     include_once(MANAGERS."/ProjectsManager.php");
     use manager\ProjectsManager;
 
-    if(!isset($_GET["ID"]) || !isset($_GET["projectID"]) || intval($_GET["projectID"]) !== 9) header("Location: projects");
-    $floor_id = intval($_GET["ID"]);
+    if(!isset($_GET["projectID"]) || intval($_GET["projectID"]) !== 9) header("Location: projects");
     $project_id = intval($_GET["projectID"]);
-
-    $floors = ProjectsManager::getFloorsWithProjectId($project_id);
-    if($floors == null ) header("Location: projects");
-
-    $floor_ids = [];
-    foreach($floors as $id => $value)
-        $floor_ids[] = $id;
-
-    $apartments = ProjectsManager::getApartmentsWithProjectAndFloorId($project_id, $floor_id);
-    if(!$apartments) header("Location: projects");
 
     $project = ProjectsManager::getProjectWithId($project_id);
     if(!$project) header("Location: projects");
 
+    $available_apartments = ProjectsManager::getAvailableApartmentCountOnTheFloors($project_id);
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,6 +128,7 @@
     <!--Plugin JavaScript file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script>
+        const availableApps = JSON.parse('<?=json_encode($available_apartments)?>');
         const areas = $("map > area");
         let curr_floor = 0;
       //Floor click listener
@@ -148,11 +139,15 @@
       });
 
       areas.on("mouseover", e => {
-          document.getElementById("floor_num").innerHTML = $(e.target).prop("id");
+          const id = $(e.target).prop("id");
+          document.getElementById("floor_num").innerHTML = id;
+          document.getElementById("available_floors").innerHTML = ""+availableApps[id];
       });
 
       areas.on("mouseleave", () => {
-          document.getElementById("floor_num").innerHTML = "" + curr_floor != 0 ? curr_floor : "--";
+          let floor_chosen = curr_floor != 0;
+          document.getElementById("floor_num").innerHTML = "" + ((floor_chosen) ? curr_floor : "--");
+          document.getElementById("available_floors").innerHTML = "" + (floor_chosen? availableApps[curr_floor] : "--");
       });
 
       $(".js-range-slider").ionRangeSlider({
