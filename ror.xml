@@ -46,8 +46,8 @@
 </item>
 <item>
      <link>http://tridegroup.ge/about.php</link>
-     <title>tride Group - ჩვენს შესახებ</title>
-     <description>tride Group - ჩვენს შესახებ</description>
+     <title>tride Group - ჩვენ შესახებ</title>
+     <description>tride Group - ჩვენ შესახებ</description>
      <ror:updatePeriod></ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
@@ -326,8 +326,8 @@
 </item>
 <item>
      <link>http://tridegroup.ge/about.php?lang=KA</link>
-     <title>tride Group - ჩვენს შესახებ</title>
-     <description>tride Group - ჩვენს შესახებ</description>
+     <title>tride Group - ჩვენ შესახებ</title>
+     <description>tride Group - ჩვენ შესახებ</description>
      <ror:updatePeriod></ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
