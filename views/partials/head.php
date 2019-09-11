@@ -27,9 +27,9 @@
     <meta name="identifier-URL" content="http://tridegroup.ge">
     <meta name="category" content="Building, Real estate">
 
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
     <title>tride Group - <?= $translator->translate("სამშენებლო კომპანია")?></title>
     <link href="css/stylish-portfolio.css" rel="stylesheet">
     <link href="../../css/bootstrap.min.css" rel="stylesheet">

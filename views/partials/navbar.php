@@ -46,16 +46,24 @@
                     <img src="<?=BASE_URL?>img/icons/3D_logo_m.png">
                 </a>
             </div>
-        
+
+        <?php if ($lang == "RU"){?>
         <!-- Social icons only for desktop -->
+        <ul class="socials hideOnMobile rus-socials">
+        <?php }else{?>
         <ul class="socials hideOnMobile">
+        <?php } ?>
             <li><a class="social-icon" href="https://www.facebook.com/trideGROUP" target="_blank" title="Facebook"><img src="img/icons/socials-b/facebook.svg" alt="facebook"></a></li>
             <li><a class="social-icon" href="https://www.instagram.com/tridedevelopment" target="_blank" title="Instagram"><img src="img/icons/socials-b/instagram.svg" alt="instagram"></a></li>
             <li><a class="social-icon" href="https://www.youtube.com/channel/UC4EmhoWfCIjmGmY2XhizRgg" target="_blank" title="Youtube"><img src="img/icons/socials-b/youtube.svg" alt="youtube"></a></li>
         </ul>
 
         <!-- Buttons for modals Desktop only-->
+            <?php if ($lang == "RU"){?>
+            <div class="modalsDesk modalsDesk-rus">
+            <?php }else{?>
         <div class="modalsDesk">
+            <?php } ?>
             <button class="plancall" id="planModalD"><img src="<?=BASE_URL?>img/icons/planCall.svg" alt="call"><?=$translator->translate("შეუკვეთე ზარი")?></button>
             <button class="showroom" id="showModalD"><img src="<?=BASE_URL?>img/icons/showroom.svg" alt="showroom"><?=$translator->translate("დაჯავშნე შოურუმი")?></button>
         </div>

@@ -659,10 +659,9 @@ nav{
 }
 /* Custom burger */
 .burger-custom{
-    width: 40px;
-    height: 40px;
+    width: 47px;
+    height: 47px;
     position: relative;
-    margin-top: 3px;
 }
 .burger-custom > div {
     position: absolute;
@@ -670,8 +669,8 @@ nav{
     right: 0;
     transform: translateY(-50%);
     background-color: #1a2b3e;
-    height: 8px;
-    width: 33px;
+    height: 10px;
+    width: 34px;
     transition: all 0.2s ease-in-out;
     border-radius: 2px;
 }
@@ -682,8 +681,8 @@ nav{
     right: 0;
     transform: translateY(+50%);
     background-color: #1a2b3e;
-    height: 8px;
-    width: 23px;
+    height: 10px;
+    width: 26px;
     transition: inherit;
     border-radius: 2px;
 }
@@ -694,8 +693,8 @@ nav{
     right: 0;
     transform: translateY(-160%);
     background-color: #1a2b3e;
-    height: 8px;
-    width: 40px;
+    height: 10px;
+    width: 47px;
     border-radius: 2px;
 }
 .openbtn {
@@ -712,7 +711,7 @@ nav{
 .openbtn:hover > .burger-custom > div,
 .openbtn:hover > .burger-custom > div::before,
 .openbtn:hover > .burger-custom > div::after {
-    width: 40px;
+    width: 47px;
 }
 .openMenu.burger-custom{
     margin-top: 0;
@@ -872,17 +871,25 @@ nav{
 }
 .brand-logo-mobile{
     display: block;
-    margin-top: -10px;
 }
 .modalsMob > button > img{
     margin-top: -15px;
 }
-@media (min-width: 1100px) {
+.brand-logo-mobile > a > img{
+    height: 47px;
+}
+@media (min-width: 1280px) {
     .brand-logo-Desk{
         display: block;
     }
     .brand-logo-mobile{
         display: none;
+    }
+}
+@media (min-width: 1030px) {
+    .socials.hideOnMobile{
+        display: inline-block;
+        margin-right: 15px;
     }
 }
 @media (min-width: 785px){
@@ -921,10 +928,6 @@ nav{
     .socials{
         display: block;
     }
-    .socials.hideOnMobile{
-        display: inline-block;
-        margin-right: 15px;
-    }
     .modalsMob{
         display: none;
     }
@@ -944,11 +947,18 @@ nav{
         border: none;
         height: 65px;
     }
+    .brand-logo-Desk > a > img,
+    .brand-logo-mobile > a > img{
+        height: 65px;
+    }
 }
 @media (min-width: 890px){
     .modalsMob>button:first-of-type,
     .modalsDesk>button:first-of-type{
         margin-right: 40px;
+    }
+    .modalsDesk-rus>button:first-of-type {
+        margin-right: 10px;
     }
     .modalsDesk>button:last-of-type{
         margin-right: 0px;
@@ -1040,9 +1050,8 @@ nav{
     }
 }
 @media (min-width: 1310px){
-
     .navContainer{
-        margin: 0 180px;
+        margin: 0 20px;
     }
     .burger-custom{
         margin-top: 10px;
@@ -1065,10 +1074,23 @@ nav{
     .socials.hideOnMobile{
         margin-right: 110px;
     }
+    .rus-socials{
+        margin-right: 30px;
+    }
 
     .modalsMob>button:first-of-type,
     .modalsDesk>button:first-of-type{
         margin-right: 10px;
+    }
+}
+@media (min-width: 1400px) {
+    .rus-socials{
+        margin-right: 110px;
+    }
+}
+@media (min-width: 1600px) {
+    .navContainer{
+        margin: 0 180px;
     }
 }
 /* /Navigation */
