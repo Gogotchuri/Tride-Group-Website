@@ -178,7 +178,7 @@
           apartments.forEach(ap => {
               ap.available = ap.available ? "<?= $translator->translate("თავისუფალი")?>" : "<?= $translator->translate("გაყიდული")?>";
               ap.image = base_url+"/"+ap.image;
-              apartmentsDiv.innerHTML += '<div class='+'"'+'appartament-explore col-lg-4 col-sm-12 col-xs-12'+'"'+'> ' +
+              apartmentsDiv.innerHTML += '<div class='+'"'+'appartament-explore col-lg-4 col-sm-6 col-xs-12'+'"'+'> ' +
                       '<a href='+'"'+ap.image+'"'+ 'data-toggle='+'"'+'lightbox' + '"' + 'data-gallery='+'"'+'example-gallery'+'"'+'>'+
                   '<img style="width: 30%" src="'+ap.image +'"></a>' +
                   '<div><p><?= $translator->translate("ფართობი")?>: '+ap.area+'</p>' +
