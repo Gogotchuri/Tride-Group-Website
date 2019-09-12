@@ -315,7 +315,7 @@
             }
 
             $(map).bind('alwaysOn.maphilight', function() {
-                // Check for areas with alwaysOn set. These are added to a *second* canvas,
+                // Check for buildingAreas with alwaysOn set. These are added to a *second* canvas,
                 // which will get around flickering during fading.
                 if (canvas_always) {
                     clear_canvas(canvas_always);

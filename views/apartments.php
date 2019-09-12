@@ -15,7 +15,7 @@
     $floor_maps = [];
     foreach ($floors as $num => $floor){
         $floor_images[$num] = $floor["image"];
-        $floor_maps[$num] = str_replace("\n", "", addslashes(addslashes($floor["map"])));
+        $floor_maps[$num] = $floor["map"];
     }
 
     $available_apartments = ProjectsManager::getAvailableApartmentCountOnTheFloors($project_id);
@@ -40,8 +40,25 @@
                       <img src="<?=BASE_URL."/img/projects/new23/1.png"?>" class="img-responsive mapimage" id="map_image" usemap="#image_map" style="opacity: 0;">
                       <?=$project["map"]?>
                   </div>
-                  <div id="floor-wrap" style="display: none">
-                      <img id="floor_image" src="/img/projects/new23/fl5.png" class="img-responsive mapimage">
+                  <div id="floor-wrap" class="hidden-floor">
+                      <img id="floor_image" src="/img/projects/new23/floor3-15.png" class="img-responsive mapimage" usemap="#floor_map" style="opacity: 0;">
+                      <map name="floor_map" id="floor_map">
+                          <area id="a1"  alt="ბინა 1" title="ბინა 1" coords="426,197,751,201,755,361,737,365,780,633,426,629" shape="poly">
+                          <area id="a2"  alt="ბინა 2" title="ბინა 2" coords="76,201,426,197,423,633,337,633,337,608,312,608,305,619,80,619,101,411,98,211" shape="poly">
+                          <area id="a3"  alt="ბინა 3" title="ბინა 3" coords="80,619,308,619,316,636,333,633,337,740,380,740,383,1029,109,1033,105,911,98,915" shape="poly">
+                          <area id="a4"  alt="ბინა 4" title="ბინა 4" coords="109,1029,383,1026,383,1304,144,1304,144,1311,87,1311,94,1151,105,1144" shape="poly">
+                          <area id="a5"  alt="ბინა 5" title="ბინა 5" coords="80,1311,162,1311,169,1304,383,1304,383,1422,780,1426,758,1586,715,1586,715,1694,55,1697,80,1686" shape="poly">
+                          <area id="a6"  alt="ბინა 6" title="ბინა 6" coords="740,1029,608,1029,605,1126,458,1129,458,1311,783,1315" shape="poly">
+                          <area id="a7"  alt="ბინა 7" title="ბინა 7" coords="455,736,783,744,744,1029,612,1026,608,897,458,901" shape="poly">
+                          <area id="a8"  alt="ბინა 8" title="ბინა 8" coords="676,1715,676,1951,976,1958,973,1715" shape="poly">
+                          <area id="a9"  alt="ბინა 9" title="ბინა 9" coords="312,1711,676,1715,676,1958,640,1954,644,2051,608,2047,608,2083,316,2083" shape="poly">
+                          <area id="a10" alt="ბინა 10" title="ბინა 10" coords="316,2086,608,2079,612,2051,876,2051,880,2194,944,2194,944,2351,319,2315,301,2311,301,2301,316,2304" shape="poly">
+                          <area id="a11" alt="ბინა 11" title="ბინა 11" coords="944,2190,1083,2186,1076,1647,1372,1690,1362,2358,1105,2354,948,2351" shape="poly">
+                          <area id="a12" alt="ბინა 12" title="ბინა 12" coords="1369,1690,1662,1647,1665,2190,1790,2190,1794,2351,1515,2358,1372,2354" shape="poly">
+                          <area id="a13" alt="ბინა 13" title="ბინა 13" coords="1790,2190,1865,2186,1865,2047,2136,2051,2129,1951,2322,1951,2326,2072,2376,2083,2376,2251,2383,2254,2386,2283,2336,2294,2333,2290,1787,2351" shape="poly">
+                          <area id="a14" alt="ბინა 14" title="ბინა 14" coords="2054,1669,2479,1647,2483,2083,2376,2083,2326,2076,2322,1929,2319,1951,2133,1958,2054,1954" shape="poly">
+                          <area id="a15" alt="ბინა 15" title="ბინა 15" coords="1758,1715,1901,1715,1901,1647,2058,1676,2054,1961,1758,1958" shape="poly">
+                      </map>
                   </div>
                 </div>
               </div>
@@ -49,7 +66,7 @@
                 <div class="appartment-header">
                     <?=$project["name".$lang]?>
                 </div>
-                  <div class="free-apps">
+                  <div id="free-apps" class="free-apps">
                       <p>
                           <?= $translator->translate("სართული")?>
                           <br>
@@ -59,6 +76,14 @@
                           <?= $translator->translate("თავისუფალი ბინები სართულზე")?>
                           <br>
                           <span id="available_floors"> -- </span>
+                      </p>
+                  </div>
+                  <div id="app-preview" class="free-apps" style="display: none">
+                      <p>
+                          blalbalbalbal
+                      </p>
+                      <p>
+                          ballblalblllblbb
                       </p>
                   </div>
                   <div class="find-appartament">
@@ -116,46 +141,51 @@
 
     <!--Plugin JavaScript file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+    <script type="text/javascript" src="../js/map-resizer.js"></script>
     <script>
+        let floor_apartments = null;
         const availableApps = JSON.parse('<?=json_encode($available_apartments)?>');
         const floor_images = JSON.parse('<?=json_encode($floor_images)?>');
-        const areas = $("map > area");
+        const buildingAreas = $("#building-wrap area");
+        const floorAreas = $("#floor-wrap area");
         let curr_floor = 0;
 
         const buildingWrap = document.getElementById("building-wrap");
         const floorWrap = document.getElementById("floor-wrap");
 
+        setTimeout(() => {
+            floorWrap.style["display"] = "none";
+            floorWrap.classList = [];
+        }, 1);
+
         function showBuilding(){
             floorWrap.style["display"] = "none";
             buildingWrap.style["display"] = "block";
             document.getElementById("back-button").style["display"] = "none";
-            console.log("showing building!");
-
         }
 
         function showFloorPlan(ID) {
             buildingWrap.style["display"] = "none";
             floorWrap.style["display"] = "block";
-            document.getElementById("floor_image").setAttribute("src", floor_images[ID]);
+            //document.getElementById("floor_image").setAttribute("src", floor_images[ID]);
             document.getElementById("back-button").style["display"] = "";
-            console.log("showing flooR");
         }
 
         //Floor click listener
-      areas.on("click", function(e){
+      buildingAreas.on("click", function(e){
         const ID = $(e.target).prop("id");
         curr_floor = ID;
         showFloorPlan(ID);
         fetchApartments(ID);
       });
 
-      areas.on("mouseover", e => {
+      buildingAreas.on("mouseover", e => {
           const id = $(e.target).prop("id");
           document.getElementById("floor_num").innerHTML = id;
           document.getElementById("available_floors").innerHTML = ""+availableApps[id];
       });
 
-      areas.on("mouseleave", () => {
+      buildingAreas.on("mouseleave", () => {
           let floor_chosen = curr_floor != 0;
           document.getElementById("floor_num").innerHTML = "" + ((floor_chosen) ? curr_floor : "--");
           document.getElementById("available_floors").innerHTML = "" + (floor_chosen? availableApps[curr_floor] : "--");
@@ -211,7 +241,7 @@
               accept: "application/json",
               data: { area_from, area_to, floors_from, floors_to, bedrooms_from, bedrooms_to},
               success : apartments => {
-                  console.log(apartments);
+                  floor_apartments = apartments;
                   updateApartments(apartments);
               },
               error: () => {
@@ -247,6 +277,5 @@
           $(this).ekkoLightbox();
       });
     </script>
-    <script type="text/javascript" src="../js/map-resizer.js"></script>
   </body>
 </html>
