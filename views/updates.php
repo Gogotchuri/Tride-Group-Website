@@ -29,19 +29,20 @@
     <div id="top"></div>
     <!-- About -->
     <section id="about" class="about">
-      <div class="container">
+      <div class="container-my">
         <div class="row">
-          <div class="col-lg-12">
-            <h2 class="text-center header-y"><?= $translator->translate("სიახლეები") ?></h2>
-              <hr class="small">
+          <div class="col-lg-12" style="padding: 0">
+            <h2 class="header-y"><?= $translator->translate("სიახლეები") ?></h2>
               <div class="row">
               <?php
                 foreach($news as $row){ ?>
-              <div itemscope itemtype="http://schema.org/Article" class="col-md-12 about-content">
-                <div class="col-sm-5 col-md-5 col-xs-12">
-                  <img itemprop="image" class="img-responsive news-thumb" src="<?=$row["image"]?>" alt="<?= $row["header".$lang] ?>">
+              <div itemscope itemtype="http://schema.org/Article" class="col-md-12 about-content" style="padding: 0">
+                <div class="col-xs-12 col-sm-12 col-md-5 col-xs-12 news-photo">
+                    <div class="under-ph"></div>
+                    <img itemprop="image" class="img-responsive news-thumb" src="<?=$row["image"]?>" alt="<?= $row["header".$lang] ?>">
+                    <div class="abs-photo" style="background: url(<?=$row["image"]?>)"></div>
                 </div>
-                <div class="col-md-7 about-txt col-xs-12 news-content">
+                <div class="col-xs-12 col-md-6 about-txt col-xs-12 news-content">
                   <h4 itemprop="title"><?= $row["header".$lang] ?></h4>
                   <span class="news-date"><?= date_format(date_create($row["pubdate"]), "d/m/Y") ?></span>
                   <?= $row["html".$lang] ?>
