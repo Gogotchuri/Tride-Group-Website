@@ -629,7 +629,8 @@ h2,
 h3,
 label {
     text-transform: uppercase!important;
-    font-weight: 400
+    font-weight: 400;
+    vertical-align: bottom;
 }
 
 /* Development (Remaster) */
@@ -806,9 +807,12 @@ nav{
 }
 .socials-side{
     opacity: 0;
-    transition: all 1.5s ease-in-out
+    transition: all 1.5s ease-in-out;
+    position: relative;
 }
-
+.socials-side >  li > a >img{
+    margin: 0;
+}
 .mobile-lang > li{
     cursor: pointer;
 }
@@ -843,11 +847,6 @@ nav{
     border: none;
     height: 47px;
 }
-.modalsMob>button>img,
-.modalsDesk>button>img{
-    height: 19px;
-    width: 19px;
-}
 .modalsMob>button{
     margin-right: 20px;
 }
@@ -863,6 +862,14 @@ nav{
 .modalsMob>button.plancall:hover,
 .modalsDesk>button.plancall:hover{
     background-color: #ffa200;
+}
+.plancall>p,.showroom>p{
+    font-size: 20px;
+    display: inline-block;
+    margin: 0;
+    line-height: 0.9;
+
+    vertical-align: bottom;
 }
 .modalsMob>button.showroom,
 .modalsDesk>button.showroom{
@@ -891,9 +898,11 @@ nav{
 .openMenu>.socials-side > li{
     margin: 0 10px;
 }
-.brand-logo{
+.brand-logo > a > img{
     display: inline-block;
     float: left;
+    height: 60px;
+    width: auto;
 }
 .brand-logo-Desk{
     display: none;    
@@ -906,6 +915,15 @@ nav{
 }
 .brand-logo-mobile > a > img{
     height: 47px;
+}
+.social-icon > img{
+    height: 50px;
+    width: 50px;
+    margin: 7.5px 0;
+}
+.plancall > img,.showroom > img{
+    width: 26px;
+    height: 26px;
 }
 @media (min-width: 1280px) {
     .brand-logo-Desk{
@@ -978,7 +996,8 @@ nav{
     }
     .brand-logo-Desk > a > img,
     .brand-logo-mobile > a > img{
-        height: 65px;
+        height: 60px;
+        margin: 3.5px 0;
     }
 }
 @media (min-width: 890px){
@@ -1007,6 +1026,7 @@ nav{
         display: inline-block;
         background-color: none;
         margin: 0 15px;
+        transform: translateY(25%);
     }
     .dropdown>button{
         background-color: transparent;
@@ -1122,6 +1142,13 @@ nav{
         margin: 0 180px;
     }
 }
+.dropdown > button >img{
+    transform: translateY(-23%)  translateX(5px);
+    transition: all 0.2s ease-in-out;
+}
+.dropdown.open > button > img{
+    transform: translateY(-23%) translateX(5px)rotate(-90deg);
+}
 /* /Navigation */
 
 /* Modals */
@@ -1145,7 +1172,7 @@ nav{
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 600px;
+    max-width: 547px;
     position: relative;
     border-radius: 8px;
 }
@@ -1167,14 +1194,16 @@ nav{
 }
 .modalo-content > .contact-us-call{
     padding: 0;
-    min-height: 240px;
+    min-height: auto;
 }
 .contact-us-call>.under-button{
     height: 50px;
     width: 100px;
 }
 .modalo-content > .contact-us-call > button{
-    right: 30px;
+    right: 0;
+    font-size: 16px;
+    padding: 10px 15px;
 }
 .modalo-content > .contact-us-call > button:hover,.contact-us-call > button:hover{
     background-color: #ffa200;
@@ -1222,12 +1251,37 @@ nav{
 
 /* Headers */
 h2.header-y{
-    font-size: 30px;
+    font-size: 20px!important;
     font-weight: bold;
     text-decoration: underline #ffb300;
-    margin-bottom: 30px;
-    margin-top: 0;
     text-align: center;
+    margin-top: 30px!important;
+    margin-bottom: 30px!important;
+}
+.about-nav{
+    font-size: 20px;
+}
+.hide-on-mob{
+    display: none;
+}
+@media (min-width: 1280px) {
+    h2.header-y{
+        font-size: 30px!important;
+    }
+    h3.header-y{
+        text-align: left;
+    }
+    .hide-on-mob{
+        display: block;
+    }
+}
+@media (min-width: 1920px) {
+    h2.header-y{
+        font-size: 40px!important;
+        margin-top: 80px!important;
+        margin-bottom: 80px!important;
+        text-align: left;
+    }
 }
 .header-y{
     text-decoration: underline #ffb300;
@@ -1243,22 +1297,10 @@ h3.header-y{
 h3.header-b{
     font-size: 24px;
     font-weight: bold;
-    text-decoration: underline #1a2b3e;
+    text-decoration: underline rgb(13,207,218);
     margin-bottom: 30px;
     margin-top: 0;
-}
-@media (min-width: 1280px) {
-    h2.header-y{
-        font-size: 40px;
-        font-weight: bold;
-        text-decoration: underline #ffb300;
-        margin-bottom: 60px;
-        margin-top: 0;
-        text-align: left;
-    }
-    h3.header-y{
-        text-align: left;
-    }
+    text-align: center;
 }
 /* /Headers*/
 
@@ -1286,9 +1328,22 @@ h3.header-b{
     padding-left: 32px;
     color: #1a2b3e;
 }
+.about-content{
+    font-size: 20px;
+}
 @media (min-width: 768px) {
     .about-nav{
         padding-right: 10px;
+    }
+}
+@media (min-width: 1280px) {
+    .about-content{
+        font-size: 18px;
+    }
+}
+@media (min-width: 1920px) {
+    .about-content{
+        font-size: 18px;
     }
 }
 /* /About */
@@ -1379,8 +1434,8 @@ h2.contact-us-header{
     border: none;
     text-underline: none;
     padding: 8px 13px;
-    bottom: 25px;
-    right: 40px;
+    bottom: 0;
+    right: 0;
 }
 .contact-us-call>button>img{
     margin-left: 5px;
@@ -1388,7 +1443,7 @@ h2.contact-us-header{
 }
 @media (min-width: 768px) {
     .modalo-content>.contact-us-showroom{
-        min-height: 350px;
+        min-height: auto;
     }
     .map{
         height: 620px;
@@ -1530,6 +1585,11 @@ div.thumb-descr{
     color: #131f2d;
     z-index: 2;
 }
+.gallery-descr{
+    left: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    width: 100%;
+}
 @media (max-height: 576px) {
     .gallery-link{
         width: 100%;
@@ -1552,6 +1612,8 @@ div.thumb-descr{
     }
     .gallery-descr{
         margin: 0;
+        left: 0;
+        width: auto;
         transform: translateY(-50%) translateX(-10px);
         padding: 10px 40px;
         border-radius: 6px;
@@ -1926,6 +1988,7 @@ a.header-y{
 }
 .about-project{
     transform: translateY(200px)scale(1.2);
+    font-size: 18px;
 }
 .about-project > .about-project-header{
     padding: 20px 40px;
@@ -1937,6 +2000,10 @@ a.header-y{
 
 .about-project>div>ul:last-of-type{
     margin-bottom: 80px;
+}
+.about-project-header{
+    font-size: 24px;
+    color: #131f2d;
 }
 @media (min-width: 768px) {
 
@@ -1958,7 +2025,7 @@ a.header-y{
         transform: translateX(-40px);
     }
     .about-project>div{
-        font-size: 16px;
+        font-size: 18px;
         color: #000000;
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
@@ -1983,6 +2050,11 @@ a.header-y{
     .about-content-infra{
         padding: 0px;
 
+    }
+}
+@media (min-width: 1280px) {
+    .about-project-header {
+        font-size: 24px;
     }
 }
 /* /Project Page */
@@ -2173,3 +2245,20 @@ area {
     opacity: 0;
 }
 /* /Appartament page*/
+#showRoomModal > .modalo-content > .close{
+    color: #1a2b3e;
+    opacity: 1;
+}
+
+#planCallModal > .modalo-content > .close{
+    opacity: 1;
+    color: #ffc336;
+}
+
+#showRoomModal > .modalo-content > .close:hover{
+    opacity: 0.4;
+}
+
+#planCallModal > .modalo-content > .close:hover{
+    opacity: 0.4;
+}

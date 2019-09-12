@@ -21,14 +21,13 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="header-y"><?=$translator->translate("ფოტო ალბომები")?></h2>
-            <hr class="small">
             <div class="row">
               <?php
                 foreach($albums as $row){ ?>
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="portfolio-item" style="text-align: center">
                   <a href="<?="album?ID=".$row["ID"]?>" class="sel">
-                      <div class="gallery-link" style="background-image: url(<?=$row["defaultImage"]?>);left: 5px"></div>
+                      <div class="gallery-link" style="background-image: url(<?=$row["defaultImage"]?>);left: 50%;transform: translateX(-50%);"></div>
                       <div class="gallery-link" style="position: relative;margin: 0"></div>
                     <div class="gallery-descr"><span><?=$row["name" . $lang]?></span></div>
                       <div class="on-hov"></div>

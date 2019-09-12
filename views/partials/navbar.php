@@ -13,7 +13,7 @@
     <a href="/projects" class="link"><?=$translator->translate("პროექტები")?></a>
     <a href="/updates" class="link"><?=$translator->translate("სიახლეები")?></a>
     <a href="/gallery" class="link"><?=$translator->translate("გალერეა")?></a>
-    <a href="/about-us" class="link"><?=$translator->translate("ჩვენს შესახებ")?></a>
+    <a href="/about-us" class="link"><?=$translator->translate("ჩვენ შესახებ")?></a>
     <a href="/contact" class="link"><?=$translator->translate("კონტაქტი")?></a>
 
     <!-- Language list only for mobile -->
@@ -64,8 +64,8 @@
             <?php }else{?>
         <div class="modalsDesk">
             <?php } ?>
-            <button class="plancall" id="planModalD"><img src="<?=BASE_URL?>img/icons/planCall.svg" alt="call"><?=$translator->translate("შეუკვეთე ზარი")?></button>
-            <button class="showroom" id="showModalD"><img src="<?=BASE_URL?>img/icons/showroom.svg" alt="showroom"><?=$translator->translate("დაჯავშნე შოურუმი")?></button>
+            <button class="plancall" id="planModalD"><img src="<?=BASE_URL?>img/icons/planCall.svg" alt="call"><p><?=$translator->translate("შეუკვეთე ზარი")?></p></button>
+            <button class="showroom" id="showModalD"><img src="<?=BASE_URL?>img/icons/showroom.svg" alt="showroom"><p><?=$translator->translate("დაჯავშნე შოურუმი")?></p></button>
         </div>
 
         <!-- Buttons for modals Mobile only -->
@@ -77,7 +77,7 @@
         <!-- Language Dropdown For Desktop -->
         <div id="dropdown_wrap" class="dropdown">
             <button onclick="changeDropdownState()" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
-                <?=$lang?>
+                <?=$lang?><img src="../../img/icons/arrow-lang.png" height="15px">
             </button>
             <div id="dropdown-menu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a onclick="setLanguage('KA')" class="dropdown-item">KA</a>
@@ -108,7 +108,7 @@
             <div>
                 <input type="date" name="date" id="showroom_date">
             </div>
-            <button onclick="bookShowroom()" ><?= $translator->translate("დაჯავშნე შოურუმი")?><img src="../img/icons/arrow-right-circle.svg"></button>
+            <button onclick="bookShowroom()" ><?= $translator->translate("დაჯავშნე")?><img src="../img/icons/arrow-right-circle.svg"></button>
             <div class="under-button"></div>
         </div>
     </div>
@@ -117,7 +117,7 @@
     <div class="modalo-content">
         <span class="closePlan close">&times;</span>
             <div class="contact-us-call">
-                <h3 class="header-y"><?= $translator->translate("შეუკვეთე ზარი")?></h3>
+                <h3 class="header-y"><?= $translator->translate("შეუკვეთე")?></h3>
                 <div>
                     <input type="text" id="call_name" placeholder="<?= $translator->translate("სახელი")?>" required>
                 </div>

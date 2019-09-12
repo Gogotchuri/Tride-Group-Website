@@ -36,13 +36,12 @@
         <div class="row">
           <div class="col-lg-12 text-center album">
             <h2 class="header-y"><?=$album["name" . $lang]?></h2>
-            <hr class="small">
             <div class="row">
               <?php for($i=2;$i<count($imgs);$i++){?>
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="portfolio-item">
                   <a href="<?=$imgs[$i]?>" data-toggle="lightbox" data-gallery="example-gallery">
-                      <div class="gallery-link" style="background-image: url(<?=$imgs[$i]?>);left: 5px"></div>
+                      <div class="gallery-link" style="background-image: url(<?=$imgs[$i]?>);left: 5px;width: 100%;height: 100%"></div>
                       <div class="gallery-link" style="position: relative;margin: 0"></div>
                       <div class="on-hov"></div>
                   </a>
