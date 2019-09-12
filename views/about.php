@@ -24,7 +24,7 @@
                   <li><a href="#" onclick="$('#about_cont').empty().load(suggestions);"><?=$translator->translate("რჩევები მყიდველს")?></a></li>
                 </ul>
               </div>
-              <div class="col-md-8 about-content" id="about_cont">
+              <div class="col-md-8 about-content about-content-left" id="about_cont" style="-webkit-backdrop-filter: blur(30px);backdrop-filter: blur(30px);background-color: #ffffff;">
               </div>
             </div>
             <!-- /.row (nested) -->

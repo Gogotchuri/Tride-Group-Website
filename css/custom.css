@@ -2085,6 +2085,9 @@ a.header-y{
     border-top-right-radius: 8px;
     margin-bottom: 0;
 }
+.find-parameters > label{
+    left: 0;
+}
 .find-appartament>.find-parameters{
     font-size: 16px;
     color: #000000;
@@ -2093,17 +2096,17 @@ a.header-y{
     background-color: #ffffff;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    text-align: center;
+    text-align: left;
 }
-.find-parameters > button{
+.find-parameters > div > button{
     border-radius: 8px;
     border: solid 3px #1a2b3e;
-    padding: 5px 40px;
+    padding: 10px 60px;
     background-color: white;
     margin: auto;
-    margin-top: 10px    ;
+    margin-top: 10px;
 }
-.find-parameters > button:hover{
+.find-parameters > div > button:hover{
     background-color: #1a2b3e;
     color: white;
 }
@@ -2112,7 +2115,13 @@ a.header-y{
 }
 .irs--flat .irs-handle>i:first-child{
     background-color: #dbdbdb!important;
-    width: 8px!important;
+    width: 17px!important;
+    height: 35px!important;
+    transform: translateY(-13%) !important;
+}
+.irs--flat.irs-with-grid{
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .irs--flat .irs-from,
 .irs--flat .irs-to,
@@ -2124,18 +2133,28 @@ a.header-y{
 .irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before{
     border-top-color: transparent!important;
 }
+.irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single:before{
+    transform: translateX(7px) translateY(-50%)!important;
+    font-size: 18px!important;
+    font-weight: bold!important;
+}
+.irs-min, .irs-max{
+    transform: translateY(-50%)!important;
+    font-size: 18px!important;
+    font-weight: bold!important;
+}
 .irs-with-grid .irs-grid{
     display: none!important;
 }
 .irs--flat .irs-line {
     top: 25px !important;
-    height: 6px !important;
+    height: 10px !important;
     transform: translateY(50%) !important;
     background-color: #e1e4e9 !important;
     border-radius: 4px !important;
 }
 .irs--flat .irs-bar{
-    height: 6px !important;
+    height: 10px !important;
     transform: translateY(50%) !important;
 }
 .mapimage{
@@ -2358,4 +2377,11 @@ area {
 }
 ul li{
     list-style-image: url("../img/icons/square-s.png");
+}
+.free-apps > p:last-of-type{
+    text-align: center;
+}
+
+.about-content-left > h3.header-y{
+    text-align: left;
 }
