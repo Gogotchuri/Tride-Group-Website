@@ -2356,3 +2356,6 @@ area {
         margin-top: 10px;
     }
 }
+ul li{
+    list-style-image: url("../img/icons/square-s.png");
+}
