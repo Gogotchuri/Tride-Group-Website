@@ -78,10 +78,10 @@
             <h2 class="text-center header-y" id="infra"><?= $translator->translate("ინფრასტრუქტურული პროექტები") ?></h2>
             <div class="row">
               <div class="col-md-12 about-content-infra">
-                <div class="col-sm-6">
-                  <img class="img-responsive news-thumb" src="../img/homepage/featured1.jpg" alt="">
+                <div class="col-sm-6" style="padding: 0">
+                  <img class="img-responsive news-thumb" src="../img/homepage/featured1.jpg" alt="" style="margin: 0;border: none">
                 </div>
-                <div class="col-md-6 about-txt-infra" style="margin-top: 37px">
+                <div class="col-md-6 about-txt-infra" style="margin-top: 0px">
                   <h3><?= $translator->translate("საბავშვო ბაღი")?></h3>
                   <p><?= $translator->translate("თანამედროვე სტანდარტების საბავშვო ბაღი „ტრიდეს“ მორიგი ინფრასტრუქტურული პროექტია,რომელიც „დიღმის პარკში“ცხოვრებას კიდევ უფრო კომფორტულს ხდის. 150 ბავშვზე გათვლილი ბაღი ფუნქციონირებს 2016წლის 1 ოქტომბრიდან. მეტი ინფორმაციისთვის დაუკავშირდით ბაღის ადმინისტრაციას.")?>
                   <ul>
@@ -97,8 +97,8 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12 about-content-infra">
-                <div class="col-md-6 about-txt-infra" style="margin-top: 37px">
+              <div class="col-md-12 about-content-infra" style="margin-top: 20px">
+                <div class="col-md-6 about-txt-infra" style="margin-top: 0px">
                   <h3><?= $translator->translate("ჰაუს მარკეტი")?></h3>
                   <p><?= $translator->translate("\"ტრიდე ჯგუფის\" მიზანი და აუცილებელი პირობა, მომხმარებლისათვის მაქსიმალური კომფორტისა და სასიამოვნო გარემოს შექმნაა. <br>სწორედ მომხმარებლისათვის დამატებითი კომფორტის შესაქმნელად , 2014 წლის დეკემბრიდან ჩვენივე კომპლექსის \"ბ\" კორპუსის პირველ სართულზე გაიხსნა ადგილობრივი ბრენდი - \"ჰაუს მარკეტი\". <br>სუპერმარკეტი 750 კვ.მ ზეა განლაგებული და წარმოდგენილია ათასობით დასახელების პროდუქტი. მომხმარებელს შეუძლია შეიძინოს, როგორც სასურსათო და საოჯახო, ასევე, საკონდიტრო ნაწარმი და მზა პროდუქტები. <br>მომხმარებელს ასევე შეუძლია ისარგებლოს მარკეტში მოქმედი კაფით.")?>
                   <ul>
@@ -110,8 +110,8 @@
                   </ul>
                   </p>
                 </div>
-                <div class="col-sm-6">
-                  <img class="img-responsive news-thumb" src="img/projects/housemarket.jpg" alt="">
+                <div class="col-sm-6" >
+                  <img class="img-responsive news-thumb" src="img/projects/housemarket.jpg" alt="" style="margin: 0;border: none">
                 </div>
               </div>
             </div>
