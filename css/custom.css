@@ -2319,9 +2319,9 @@ area {
     opacity: 0;
 }
 .abs-photo{
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-size: contain!important;
+    background-repeat: no-repeat!important;
+    background-position: center!important;
     width: 95%;
     height: 95%;
     position: absolute;
