@@ -1446,8 +1446,8 @@ h2.contact-us-header{
     border: none;
     text-underline: none;
     padding: 8px 13px;
-    bottom: 0;
-    right: 0;
+    bottom: 25px;
+    right: 40px;
 }
 .contact-us-call>button>img{
     margin-left: 5px;
@@ -1811,6 +1811,15 @@ div.thumb-descr{
     height: 180px;
     margin: auto;
     margin-bottom: 10px;
+}
+.btn-more-question{
+    border-radius: 10px;
+    background-color: #ffb300;
+    padding: 10px 15px;color: white;
+    margin-top: 20px;
+}
+.btn-more-question:hover{
+    color: white;
 }
 .landing-news-title{
     font-size: 18px;
@@ -2388,4 +2397,36 @@ ul li{
 
 .about-content-left > h3.header-y{
     text-align: left;
+}
+#timer{
+    height: 100px;
+    width: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#timer>div{
+    display: inline-block;
+    height: 100px;
+    min-width: 100px;
+    border-radius: 9px;
+    background-color: #273f5a;
+    padding: 25px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+.two-dots{
+    height: 100px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #273f5a;
+    margin-left: -5px;
+    margin-right: -3px;
+}
+@media (max-width: 1280px) {
+    #timer{
+        display: none;
+    }
 }
