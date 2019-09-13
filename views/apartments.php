@@ -218,7 +218,8 @@
                   '<p><?= $translator->translate("სართული")?>: '+ap.floor+'</p>' +
                   '<p><?= $translator->translate("სტატუსი")?>: '+ ap.available +'</p>'
                   + '</div></div>';
-          })
+          });
+          apartmentsDiv.scrollIntoView({behavior: "smooth"});
       }
       function fetchApartments(floor = null){
           const area = $("#area").data("ionRangeSlider").result;
