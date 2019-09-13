@@ -52,34 +52,6 @@
             </div>
         </div>
         <div class="hide-on-mobile col-xs-12 col-sm-12 col-md-12"></div>
-        <div class="news-landing col-xs-12 col-sm-12">
-            <div class="row">
-            <?php  for($i = 2; $i < count($news) && $i < 4; $i++){
-                $row = $news[$i];
-                $news_title = $row["header".$lang];
-                $news_thumbnail = BASE_URL.$row["image"];
-                $news_description = substr($row["html".$lang], 0, 50)."..."; //cut to fit ?>
-                 <div class="col-xs-12 col-sm-12 col-md-5" style="padding: 0" >
-                        <div class="row">
-                            <a href="/updates" class="col-sm-12 col-xs-12 col-md-5">
-                                <div class="landing-news-photo" style="background-image: url(<?=$news_thumbnail?>)"></div>
-                            </a>
-                            <div class="landing-newsbot col-sm-12 col-xs-12 col-md-7">
-                                <a href="/updates">
-                                    <span class="landing-news-title"><?=$news_title?></span>
-                                </a>
-                                <div class="landing-news-body"><?=$news_description?></div>
-                            </div>
-                        </div>
-                 </div>
-            <?php } ?>
-                <div class="col-xs-12 col-sm-12 col-md-2" style="position: relative; height: 120px">
-                    <a href="/updates" class="header-y">
-                        <?= $translator->translate("ყველა სიახლე") ?><img src="../img/icons/arrow-left.svg" style="margin-left: 10px">
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 </body>

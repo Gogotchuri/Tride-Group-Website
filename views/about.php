@@ -11,8 +11,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="header-y"><?=$translator->translate("ჩვენ შესახებ")?></h2>
-              <hr class="small">
+            <h2 class="header-y hide-on-mob"><?=$translator->translate("ჩვენ შესახებ")?></h2>
             <div class="row">
               <div class="col-md-4 about-nav">
                 <ul class="nav nav-pills nav-stacked">
@@ -25,7 +24,7 @@
                   <li><a href="#" onclick="$('#about_cont').empty().load(suggestions);"><?=$translator->translate("რჩევები მყიდველს")?></a></li>
                 </ul>
               </div>
-              <div class="col-md-8 about-content" id="about_cont">
+              <div class="col-md-8 about-content about-content-left" id="about_cont" style="-webkit-backdrop-filter: blur(30px);backdrop-filter: blur(30px);background-color: #ffffff;">
               </div>
             </div>
             <!-- /.row (nested) -->

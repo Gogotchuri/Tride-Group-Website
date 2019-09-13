@@ -89,7 +89,7 @@
                   <div class="find-appartament">
                       <h3><?= $translator->translate("ძიება პარამეტრებით")?> </h3>
                       <div class="find-parameters">
-                          <label for="floor"><?= $translator->translate("სართული")?></label>
+                          <label for="floor"><?= $translator->translate("აირჩიე სართული")?></label>
                           <input type="text" class="js-range-slider" name="floors" id="floors" value=""
                                  data-type="double"
                                  data-min="0"
@@ -98,7 +98,7 @@
                                  data-to="15"
                                  data-grid="true"
                           />
-                          <label for="area"><?= $translator->translate("ფართობი")?></label>
+                          <label for="area"><?= $translator->translate("აირჩიეთ კვადრატულობა")?></label>
                           <input type="text" class="js-range-slider" name="area" id="area" value=""
                                  data-type="double"
                                  data-min="30"
@@ -107,7 +107,7 @@
                                  data-to="120"
                                  data-grid="true"
                           />
-                          <label for="bedrooms"><?= $translator->translate("საძინებლები")?></label>
+                          <label for="bedrooms"><?= $translator->translate("აირჩიეთ საძინებლების რაოდენობა")?></label>
                           <input type="text" class="js-range-slider" name="bedrooms" id="bedrooms" value=""
                                  data-type="double"
                                  data-min="0"
@@ -116,7 +116,9 @@
                                  data-to="3"
                                  data-grid="true"
                           />
+                          <div style="width: 100%;text-align: center">
                           <button onclick="fetchApartments()"><?= $translator->translate("ძებნა")?></button>
+                          </div>
                       </div>
                   </div>
 
@@ -218,7 +220,6 @@
                   + '</div></div>';
           })
       }
-
       function fetchApartments(floor = null){
           const area = $("#area").data("ionRangeSlider").result;
           const floors = $("#floors").data("ionRangeSlider").result;
