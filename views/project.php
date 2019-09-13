@@ -33,6 +33,11 @@
                   <div id="wrap">
                     <img src="<?=BASE_URL.$project["picture"]?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" />
                   </div>
+                    <div style="text-align: center" class="under-photo-project">
+                        <?php if($project["status"]){?>
+                            <a href="/apartments?projectID=9"><?= $translator->translate("ბინის არჩევა") ?></a>
+                        <?php }?>
+                    </div>
                 </div>
                 <div class="col-md-7 col-xs-12 col-sm-12 about-project">
                     <h2 class="about-project-header"><?=$project["name" . $lang]?></h2>

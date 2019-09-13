@@ -1742,7 +1742,6 @@ div.thumb-descr{
     width: 100%;
     height: 40vh;
     padding: 0;
-
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
@@ -2404,6 +2403,7 @@ ul li{
     position: absolute;
     right: 0;
     top: 0;
+    margin: 5px;
 }
 #timer>div{
     display: inline-block;
@@ -2429,4 +2429,19 @@ ul li{
     #timer{
         display: none;
     }
+}
+.under-photo-project > a{
+    border-radius: 8px;
+    border: solid 3px #ffc336;
+    padding: 15px 35px;
+    text-decoration: none;
+    margin: auto;
+    margin-top: 20px;
+    color: #1e1e1e;
+}
+.under-photo-project{
+    margin: 30px;
+}
+.under-photo-project > a:hover{
+    color: #ffc336;
 }
