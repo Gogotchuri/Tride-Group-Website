@@ -18,5 +18,9 @@ jQuery(window).bind('resize orientationchange', function(e) {
             fillColor: 'ffb600',
             fillOpacity: 0.5
         });
+        if (windowWidth != $(window).width()) {
+            location.reload();
+            return;
+        }
     })
 });

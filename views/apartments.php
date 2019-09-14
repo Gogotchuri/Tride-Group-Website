@@ -40,7 +40,7 @@
                       <img src="<?=BASE_URL."/img/projects/new23/1.png"?>" class="img-responsive mapimage" id="map_image" usemap="#image_map" style="opacity: 0;">
                       <?=$project["map"]?>
                   </div>
-                  <div id="floor-wrap">
+                  <div id="floor-wrap" class="hidden-floor">
                       <img id="floor_image" src="/img/projects/new23/floor3-15.png" class="img-responsive mapimage" usemap="#floor_map" style="opacity: 0;">
                       <map name="floor_map" id="floor_map">
                           <area id="a1"  alt="ბინა 1" title="ბინა 1" coords="426,197,751,201,755,361,737,365,780,633,426,629" shape="poly">
@@ -157,7 +157,8 @@
 
         setTimeout(() => {
             floorWrap.style["display"] = "none";
-        }, 30);
+            floorWrap.classList=[];
+        }, 400);
 
         function showBuilding(){
             floorWrap.style["display"] = "none";

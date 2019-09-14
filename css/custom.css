@@ -2279,6 +2279,13 @@ area {
 #floor-wrap *{
     max-height: 100%!important;
 }
+.hidden-floor {
+   opacity: 0;
+}
+
+.hidden-floor *{
+    opacity: 0;
+}
 /* /Appartament page*/
 #showRoomModal > .modalo-content > .close{
     color: #1a2b3e;
