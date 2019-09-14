@@ -152,7 +152,6 @@
             },
 
             success : data => {
-                console.log(data);
                 if(data['success']){
                     window.alert('<?= $translator->translate("ზარი წარმატებით იქნა მოთხოვნილი!")?>');
                 }else{

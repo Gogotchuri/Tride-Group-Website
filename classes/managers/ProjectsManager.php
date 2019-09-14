@@ -109,4 +109,12 @@ class ProjectsManager
 
         return $available_count;
     }
+
+    public static function markApartmentUnavailable(int $ap_num, int $floor, int $project_id = 9){
+        self::getDAO();
+        if(self::$DAO == null) return false;
+        $status = self::$DAO->executeQuery("UPDATE appartments a SET a.available=0 WHERE a.number=".$ap_num." AND a.floor=".$floor." AND a.projectID=".$project_id.";");
+        if(!$status) return false;
+        return true;
+    }
 }

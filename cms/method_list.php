@@ -2,10 +2,15 @@
     include_once("../config.php");
     include_once(MANAGERS."/GalleryManager.php");
     include_once(MANAGERS."/NewsManager.php");
+    include_once(MANAGERS."/ProjectsManager.php");
+    include_once(HTTP."/middleware/Authenticated.php");
 
+    use manager\ProjectsManager;
+    use middleware\Authenticated;
     use manager\GalleryManager;
     use manager\NewsManager;
 
+    if(!Authenticated::isAuthenticated()) exit();
     header('Content-Type: application/json');
 
     $aResult = [];
@@ -110,6 +115,12 @@
                if($news) $aResult['response'] = json_encode($news);
                $aResult['result'] = True;
                break;
+
+            case 'markApartmentSold':
+                $ap_num = $_POST["arguments"]["number"];
+                $floor = $_POST["arguments"]["floor"];
+                $aResult["result"] = ProjectsManager::markApartmentUnavailable($ap_num, $floor);
+                break;
             default:
                $aResult['error'] = 'Not found function '.$_POST['name'].'!';
                break;

@@ -208,7 +208,7 @@
           const base_url = '<?=BASE_URL?>';
           apartmentsDiv.innerHTML = "";
           apartments.forEach(ap => {
-              ap.available = ap.available ? "<?= $translator->translate("თავისუფალი")?>" : "<?= $translator->translate("გაყიდული")?>";
+              ap.available = (ap.available == "1") ? "<?= $translator->translate("თავისუფალი")?>" : "<?= $translator->translate("გაყიდული")?>";
               ap.image = base_url+"/"+ap.image;
               apartmentsDiv.innerHTML += '<div class='+'"'+'appartament-explore col-lg-4 col-sm-6 col-xs-12'+'"'+'> ' +
                       '<a href='+'"'+ap.image+'"'+ 'data-toggle='+'"'+'lightbox' + '"' + 'data-gallery='+'"'+'example-gallery'+'"'+'>'+
