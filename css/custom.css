@@ -641,7 +641,7 @@ nav{
     height:90px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #efefef;
-    padding: 20px 0;
+    padding: 17px 0;
     position: relative;
     z-index: 6;
     text-align: right;
@@ -659,7 +659,7 @@ nav{
     background-color: #1a2b3e;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 120px;
+    padding-top: 100px;
 }
 .mainMenu a:first-of-type{
     margin-top: 30px;
@@ -864,12 +864,12 @@ nav{
     background-color: #ffa200;
 }
 .plancall>p,.showroom>p{
-    font-size: 20px;
+    font-size: 18px;
     display: inline-block;
     margin: 0;
     line-height: 0.9;
 
-    vertical-align: bottom;
+    vertical-align: middle;
 }
 .modalsMob>button.showroom,
 .modalsDesk>button.showroom{
@@ -901,7 +901,7 @@ nav{
 .brand-logo > a > img{
     display: inline-block;
     float: left;
-    height: 60px;
+    height: 50px;
     width: auto;
 }
 .brand-logo-Desk{
@@ -917,8 +917,8 @@ nav{
     height: 47px;
 }
 .social-icon > img{
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     margin: 7.5px 0;
 }
 .plancall > img,.showroom > img{
@@ -946,7 +946,7 @@ nav{
         background-color: #ffb300;
         color: white;
         font-size: 20px;
-        padding: 15px 25px;
+        padding: 10px 25px;
         border: none;
         height: 65px;
     }
@@ -955,7 +955,7 @@ nav{
         margin-right: 16px;
     }
     nav{
-        height: 100px;
+        height: 90px;
     }
     .openMenu{
         width: 550px!important;
@@ -990,13 +990,13 @@ nav{
         border-radius: 10px;
         color: white;
         font-size: 16px;
-        padding: 15px 15px;
+        padding: 10px 15px;
         border: none;
         height: 65px;
     }
     .brand-logo-Desk > a > img,
     .brand-logo-mobile > a > img{
-        height: 60px;
+        height: 50px;
         margin: 3.5px 0;
     }
 }
@@ -1016,9 +1016,9 @@ nav{
         border-radius: 10px;
         color: white;
         font-size: 20px;
-        padding: 15px 25px;
+        padding: 10px 25px;
         border: none;
-        height: 65px;
+        height: 55px;
     }
 }
 @media (min-width:1280px){
@@ -1159,6 +1159,12 @@ nav{
 }
 .mainMenu > .link:hover::after{
     width: 100%;
+}
+@media (max-width: 1400px) {
+    a.link{
+        font-size: 18px;
+        margin: 20px 0;
+    }
 }
 /* /Navigation */
 
@@ -2194,13 +2200,13 @@ a.header-y{
     display: inline-block;
 }
 .return{
-    width: 79px;
-    height: 79px;
+    width: 59px;
+    height: 59px;
     background-color: #1a2b3e;
     border-radius: 50%;
     position: absolute;
     z-index: 3;
-    padding: 24px;
+    padding: 14px;
 }
 .free-apps{
     padding: 20px 40px;
@@ -2516,13 +2522,15 @@ ul li{
     width: 100%;
 }
 .new-landing-learn-more>a{
-    padding: 15px 30px;
+    padding: 10px 30px;
     border-radius: 10px;
     background-color: #ffb300;
     color: white;
     margin: auto;
     font-weight: bold;
     font-size: 14px;
+    text-decoration: none;
+    height: 55px;
 }
 .popular-land{
     width: 100%;
@@ -2549,7 +2557,7 @@ ul li{
         margin-bottom: 35px;
     }
     .new-landing-moto{
-        margin-bottom: 45px;
+        margin-bottom: 55px;
     }
     .popular-slider{
         width: 100%;
@@ -2589,7 +2597,7 @@ ul li{
     .new-landing-moto{
         float: right;
         width: 420px;
-        margin-bottom: 15px;
+        margin-bottom: 25px;
     }
     .popular-land{
         margin-top: 30px;
@@ -2627,10 +2635,10 @@ ul li{
         margin-top: 108px;
     }
     .new-landing-moto{
-        margin-bottom: 15px;
+        margin-bottom: 25px;
     }
     .new-landing-learn-more>a{
-        padding: 20px 50px;
+        padding: 10px 30px;
 
     }
     .popular-slider{
@@ -2675,7 +2683,7 @@ ul li{
         padding: 30px 70px;
     }
     .new-landing-moto{
-        margin-bottom: 45px;
+        margin-bottom: 55px;
     }
     .popular-land{
         width: 535px;

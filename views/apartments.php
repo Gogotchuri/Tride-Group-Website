@@ -78,20 +78,24 @@
                           <span id="available_floors"> -- </span>
                       </p>
                   </div>
-                  <div id="app-preview" class="free-apps" style="display: none">
+                  <div id="app-preview" class="free-apps appartament-explore" style="display: none">
                      <div>
                          <img src="" style="width: 200px" alt="apartment preview" id="ap-preview-image">
                      </div>
                       <div>
                           <p>
                               <?= $translator->translate("ფართობი") ?>:
-                              <span id="prev-area"></span>|
+                              <span id="prev-area"></span>
+                          </p>
+                          <p>
                               <?= $translator->translate("საძინებლები") ?>:
                               <span id="prev-bedrooms"></span>
                           </p>
                           <p>
                               <?= $translator->translate("სართული") ?>:
-                              <span id="prev-floor"></span>|
+                              <span id="prev-floor"></span>
+                          </p>
+                          <p>
                               <?= $translator->translate("სტატუსი") ?>:
                               <span id="prev-status"></span>
                           </p>
