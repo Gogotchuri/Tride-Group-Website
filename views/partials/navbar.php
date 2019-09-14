@@ -65,13 +65,13 @@
         <div class="modalsDesk">
             <?php } ?>
             <button class="plancall" id="planModalD"><img src="<?=BASE_URL?>img/icons/planCall.svg" alt="call"><p><?=$translator->translate("შეუკვეთე ზარი")?></p></button>
-            <button class="showroom" id="showModalD"><img src="<?=BASE_URL?>img/icons/showroom.svg" alt="showroom"><p><?=$translator->translate("დაჯავშნე შოურუმი")?></p></button>
+            <button class="showroom" id="showModalD"><img src="<?=BASE_URL?>img/icons/eye.svg" alt="showroom"><p><?=$translator->translate("დაჯავშნე შოურუმი")?></p></button>
         </div>
 
         <!-- Buttons for modals Mobile only -->
         <div class="modalsMob">
             <button class="plancall" id="planModalM"><img src="<?=BASE_URL?>img/icons/planCall.svg" alt="call"></button>
-            <button class="showroom" id="showModalM"><img src="<?=BASE_URL?>img/icons/showroom.svg" alt="showroom"></button>
+            <button class="showroom" id="showModalM"><img src="<?=BASE_URL?>img/icons/eye.svg" alt="showroom"></button>
         </div>
 
         <!-- Language Dropdown For Desktop -->

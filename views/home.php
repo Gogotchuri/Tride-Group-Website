@@ -25,46 +25,56 @@
 <?php include(VIEWS."/partials/navbar.php"); ?>
 
 <!-- Landing -->
-<section id="landing" class="container-my landing">
-    <div class="row">
-        <div class="main-landing col-xs-12 col-sm-12 col-md-8">
-            <a href="/project?ID=9">
-                <div class="landing-photo" style="background-image: url(<?=$project_thumbnail?>)">
-                    <div id="timer">
-                        <div id="days"></div>
-                        <span class="two-dots">:</span>
-                        <div id="hours"></div>
-                        <span class="two-dots">:</span>
-                        <div id="minutes"></div>
-                        <span class="two-dots">:</span>
-                        <div id="seconds"></div>
-                    </div>
-                    <div class="landing-photo-thumbnail">
-                        <span><?=$project_name?></span>
-                        <?=$project_desc?>
-                    </div>
-                </div>
-            </a>
+<section class="new-landing">
+    <a href="/project?ID=9" class="new-landing-main" style="background: url(<?=$project_thumbnail?>)">
+        <img src="<?=$project_thumbnail?>" style="opacity: 0">
+        <div id="timer">
+            <div id="days"></div>
+            <span class="two-dots">:</span>
+            <div id="hours"></div>
+            <span class="two-dots">:</span>
+            <div id="minutes"></div>
+            <span class="two-dots">:</span>
+            <div id="seconds"></div>
         </div>
-        <div class="gallery-landing col-xs-12 col-sm-12 col-md-4">
-            <div class="row" style="justify-content: space-around;width: 100%">
-                <?php for($i = 1; $i < count($albums) && $i < 5; $i++) {
-                    $album_thumbnail = BASE_URL . $albums[$i]["defaultImage"];
-                    $album_link = BASE_URL."album?ID=".$albums[$i]["ID"]; ?>
-                    <div class="col-md-12 col-xs-3 col-sm-3 hui" style="padding:  0px;text-align: center">
-                        <a href="<?=$album_link?>">
-                            <div class="landing-gallery-photo" style="margin: auto;background-image: url(<?=$album_thumbnail?>)">
-                            </div>
-                        </a>
-                    </div>
-                <?php } ?>
+    </a>
+    <div class="new-landing-right">
+        <div class="new-landing-header">
+            <p><?=$project_name?></p>
+        </div>
+        <div class="new-landing-moto">
+            „სახლი ბელიაშვილზე“ - ეს არის უახლესი ტიპის მრავალფუნქციური შენობა თბილისის საქმიან ნაწილში, სადაც წარმატებით ერთიანდება საბინაო და ბიზნეს ფორმატები.
+        </div>
+        <div class="new-landing-learn-more" >
+            <a href="/project?ID=9"><?=$translator->translate("გაიგე მეტი")?></a>
+        </div>
+        <div class="popular-land">
+            <div class="popular-head"><?=$translator->translate("პოპულარული ბინები")?></div>
+            <div class="popular-slider slider-container">
+                <div class="mySlide fade">
+                    <img src="../img/homepage/slider/1.png" style="width: 100%;height: 100%"">
+                </div>
+                <div class="mySlide fade">
+                    <img src="../img/homepage/slider/2.png" style="width: 100%;height: 100%"">
+                </div>
+                <div class="mySlide fade">
+                    <img src="../img/homepage/slider/3.png" style="width: 100%;height: 100%">
+                </div>
+                <div class="mySlide fade">
+                    <img src="../img/homepage/slider/4.png" style="width: 100%;height: 100%">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
         </div>
-        <div class="hide-on-mobile col-xs-12 col-sm-12 col-md-12"></div>
     </div>
 </section>
+<!-- /Landing-->
+
 <script>
-    var countDownDate = new Date("Apr 10, 2020 23:59:59").getTime();
+    // Countdown timer
+    var countDownDate = new Date("Dec 30, 2019 23:59:59").getTime();
     var x = setInterval(function () {
         // Get today's date and time
         var now = new Date().getTime();
@@ -89,7 +99,34 @@
             clearInterval(x);
             document.getElementById("timer").innerHTML = "EXPIRED";
         }
-    },1000)
+    },1000);
+
+    //
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlide");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+
+    setInterval(function () {
+        plusSlides(1);
+    },5000);
 </script>
 </body>
 </html>

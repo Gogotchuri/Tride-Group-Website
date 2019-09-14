@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30.453" height="29.444" viewBox="0 0 30.453 29.444">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}
+        </style>
+    </defs>
+    <path id="key" d="M29.031 2l-2.846 2.845M15.359 15.672a7.825 7.825 0 1 1-11.066 0 7.824 7.824 0 0 1 11.066 0zm0 0l5.847-5.847m0 0l4.268 4.268 4.979-4.979-4.268-4.269m-4.979 4.98l4.979-4.979" class="cls-1" transform="translate(-1.001 -.586)"/>
+</svg>
