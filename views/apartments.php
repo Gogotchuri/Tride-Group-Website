@@ -178,7 +178,7 @@
             setTimeout(() => {
                 floorWrap.style["display"] = "none";
                 floorWrap.classList = [];
-            }, 700);
+            }, 1000);
         });
 
 
