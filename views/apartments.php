@@ -170,10 +170,14 @@
         const ap_preview_elem = document.getElementById("app-preview");
         const available_apartments_elem = document.getElementById("free-apps");
 
-        setTimeout(() => {
-            floorWrap.style["display"] = "none";
-            floorWrap.classList = [];
-        }, 400);
+        $(document).ready(() => {
+            setTimeout(() => {
+                floorWrap.style["display"] = "none";
+                floorWrap.classList = [];
+            }, 700);
+        });
+
+
 
         function switchApartment(ID){
             if(ID <= 0){
@@ -257,7 +261,7 @@
       });
 
       //Update apartments div here
-      function updateApartments(apartments) {
+      function updateApartments(apartments, fromFilter) {
           let apartmentsDiv = document.getElementById("apartments");
           const base_url = '<?=BASE_URL?>';
           apartmentsDiv.innerHTML = "";
@@ -273,7 +277,7 @@
                   '<p><?= $translator->translate("სტატუსი")?>: '+ ap.available +'</p>'
                   + '</div></div>';
           });
-          apartmentsDiv.scrollIntoView({behavior: "smooth"});
+          if(fromFilter) apartmentsDiv.scrollIntoView({behavior: "smooth"});
       }
       function fetchApartments(floor = null){
           const area = $("#area").data("ionRangeSlider").result;
@@ -298,7 +302,7 @@
               data: { area_from, area_to, floors_from, floors_to, bedrooms_from, bedrooms_to},
               success : apartments => {
                   floor_apartments = apartments;
-                  updateApartments(apartments);
+                  updateApartments(apartments, floor == null);
               },
               error: () => {
                   console.error("error!");
