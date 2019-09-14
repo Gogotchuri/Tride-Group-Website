@@ -10,6 +10,7 @@
     </div>
 
     <!-- Inner links -->
+    <a href="/home" class="link"><?=$translator->translate("მთავარი")?></a>
     <a href="/projects" class="link"><?=$translator->translate("პროექტები")?></a>
     <a href="/updates" class="link"><?=$translator->translate("სიახლეები")?></a>
     <a href="/gallery" class="link"><?=$translator->translate("გალერეა")?></a>

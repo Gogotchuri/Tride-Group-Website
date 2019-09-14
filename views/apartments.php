@@ -79,9 +79,9 @@
                       </p>
                   </div>
                   <div id="app-preview" class="free-apps appartament-explore" style="display: none">
-                     <div>
+                     <a id="ap-image-link" data-toggle="lightbox" data-gallery="example-gallery">
                          <img src="" style="width: 200px" alt="apartment preview" id="ap-preview-image">
-                     </div>
+                     </a>
                       <div>
                           <p>
                               <?= $translator->translate("ფართობი") ?>:
@@ -191,6 +191,7 @@
             }else{
                 const apartment = floor_apartments[ID-1];
                 document.getElementById("ap-preview-image").setAttribute("src", apartment.image);
+                document.getElementById("ap-image-link").setAttribute("href", apartment.image);
                 document.getElementById("prev-area").innerText = apartment.area;
                 document.getElementById("prev-status").innerText = apartment.available;
                 document.getElementById("prev-floor").innerText = apartment.floor;

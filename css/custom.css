@@ -1162,7 +1162,7 @@ nav{
 }
 @media (max-width: 1400px) {
     a.link{
-        font-size: 18px;
+        font-size: 20px;
         margin: 20px 0;
     }
 }
@@ -2450,7 +2450,7 @@ ul li{
 .under-photo-project > a{
     border-radius: 8px;
     border: solid 3px #ffc336;
-    padding: 15px 35px;
+    padding: 10px 25px;
     text-decoration: none;
     margin: auto;
     margin-top: 20px;
@@ -2600,7 +2600,7 @@ ul li{
         margin-bottom: 25px;
     }
     .popular-land{
-        margin-top: 30px;
+        margin-top: 25px;
         float: right;
         width: 420px;
         height: 245px;
@@ -2628,11 +2628,12 @@ ul li{
     .new-landing-right{
         width: 590px;
         height: 682.16px;
+        padding-right: 30px;
     }
     .popular-land{
         width: 455px;
         height: 265px;
-        margin-top: 108px;
+        margin-top: 100px;
     }
     .new-landing-moto{
         margin-bottom: 25px;
@@ -2688,7 +2689,7 @@ ul li{
     .popular-land{
         width: 535px;
         height: 325px;
-        margin-top: 135px;
+        margin-top: 124px;
     }
     .popular-slider{
         width: 535px;
