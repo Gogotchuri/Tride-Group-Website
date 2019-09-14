@@ -1109,7 +1109,7 @@ nav{
         margin-top: 30px;
     }
     .mainMenu a{
-        margin-bottom: 60px;
+        margin-bottom: 30px;
     }
     .mainMenu a:first-of-type{
         margin-top: 30px;
@@ -2391,7 +2391,11 @@ ul li{
 .free-apps > p:last-of-type{
     text-align: center;
 }
-
+@media (max-width: 990px) {
+    .free-apps{
+        display: none;
+    }
+}
 .about-content-left > h3.header-y{
     text-align: left;
 }
@@ -2790,5 +2794,11 @@ body{
 @media (max-width: 324px) {
     .popular-slider{
         max-width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .proj-fix{
+        transform: none;
+        left: 0;
     }
 }

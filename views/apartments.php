@@ -67,12 +67,12 @@
                     <?=$project["name".$lang]?>
                 </div>
                   <div id="free-apps" class="free-apps">
-                      <p>
+                      <p style="display: inline-block">
                           <?= $translator->translate("სართული")?>
                           <br>
                           <span id="floor_num"> -- </span>
                       </p>
-                      <p>
+                      <p style="display: inline-block">
                           <?= $translator->translate("თავისუფალი ბინები სართულზე")?>
                           <br>
                           <span id="available_floors"> -- </span>
@@ -179,7 +179,7 @@
             if(ID <= 0){
                 preview_ap_id = 0;
                 ap_preview_elem.style["display"] = "none";
-                available_apartments_elem.style["display"] = "block";
+                available_apartments_elem.style["display"] = "flex";
             }else{
                 const apartment = floor_apartments[ID-1];
                 document.getElementById("ap-preview-image").setAttribute("src", apartment.image);
