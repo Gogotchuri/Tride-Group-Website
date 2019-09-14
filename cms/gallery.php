@@ -1,4 +1,5 @@
 <?php
+    include_once("../config.php");
     include(LOCALE."/exportTranslator.php");
 
     include_once(HTTP."/middleware/Authenticated.php");
@@ -105,7 +106,7 @@
                       <h4 class="modal-title">ალბომის რედაქტირება</h4>
                     </div>
                     <div class="modal-body">
-                      <form action="/admin/uploadAlbum" method="POST" id="edit_create_album" enctype="multipart/form-data">
+                      <form action="/cms/uploadAlbum.php" method="POST" id="edit_create_album" enctype="multipart/form-data">
                         <!-- Form სიახლის დამატება/რედაქტირება -->
                         <input type="hidden" name="ID" value="-1">
                         <div class="form-group">

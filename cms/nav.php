@@ -13,8 +13,8 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/admin/updates">სიახლეები</a></li>
-        <li><a href="/admin/gallery">გალერეა</a></li>
+        <li><a href="/cms/updates.php">სიახლეები</a></li>
+        <li><a href="/cms/gallery.php">გალერეა</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/sign-out">გასვლა</a></li>

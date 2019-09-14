@@ -73,45 +73,13 @@
     ##################### Admin ##############################
 
     $router->get("/admin", function (){
-       require(CMS."/sign-in.php");
-    });
-
-    $router->post("/admin", function (){
-       require(CMS."/sign-in.php");
-    });
-
-    $router->get("/admin/gallery", function (){
-        require(CMS."/gallery.php");
+       echo '
+            <script> location.href = "/cms/sign-in.php"</script>
+       ';
     });
 
     $router->get("/sign-out", function (){
         require(CMS."/sign-out.php");
-    });
-
-    $router->get("/admin/updates", function(){
-       require(CMS."/updates.php");
-    });
-    ##### For sake of backwards compatibility #####
-    //methods TODO think about refactoring
-    $router->get("/admin/methods", function(){
-        require(CMS."/method_list.php");
-    });
-    $router->post("/admin/methods", function(){
-        require(CMS."/method_list.php");
-    });
-
-    $router->get("/admin/uploadAlbum", function(){
-        require(CMS."/uploadAlbum.php");
-    });
-    $router->post("/admin/uploadAlbum", function(){
-        require(CMS."/uploadAlbum.php");
-    });
-
-    $router->get("/admin/uploadNews", function(){
-        require(CMS."/uploadNews.php");
-    });
-    $router->post("/admin/uploadNews", function(){
-        require(CMS."/uploadNews.php");
     });
 
     ###################################################

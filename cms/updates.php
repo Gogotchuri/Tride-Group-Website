@@ -1,4 +1,5 @@
 <?php
+    include_once("../config.php");
     include(LOCALE."/exportTranslator.php");
 
     include_once(CLASSES . "/http/middleware/Authenticated.php");
@@ -92,7 +93,7 @@
                       <h4 class="modal-title">სიახლის რედაქტირება</h4>
                     </div>
                     <div class="modal-body">
-                      <form id="newsForm" action="/admin/uploadNews" method="POST" enctype="multipart/form-data">
+                      <form id="newsForm" action="/cms/uploadNews.php" method="POST" enctype="multipart/form-data">
                         <!-- Form სიახლის დამატება/რედაქტირება -->
                         <input type="hidden" name="ID" value="-1">
                         <div class="form-group">

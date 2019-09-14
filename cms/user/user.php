@@ -15,10 +15,10 @@ class User {
             $_SESSION['user']['admin'] = True;
             $_SESSION['user']['username'] = "Admin";
             
-            header('Location: admin/gallery');
+            header('Location: /cms/gallery.php');
             die();
         }else{
-            header('Location: admin');
+            header('Location: /cms/sign-in.php');
             die();
         }
 
@@ -26,7 +26,7 @@ class User {
 
     public static function logout(){
         session_destroy();
-        header("Location: admin");
+        header("Location: /cms/sign-in.php");
         die();
     }
 }

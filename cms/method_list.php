@@ -1,4 +1,5 @@
 <?php
+    include_once("../config.php");
     include_once(MANAGERS."/GalleryManager.php");
     include_once(MANAGERS."/NewsManager.php");
 
