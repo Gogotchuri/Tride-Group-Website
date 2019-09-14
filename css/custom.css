@@ -1309,7 +1309,7 @@ h3.header-y{
 h3.header-b{
     font-size: 24px;
     font-weight: bold;
-    text-decoration: underline rgb(13,207,218);
+    text-decoration: underline B8C8E0;
     margin-bottom: 30px;
     margin-top: 0;
     text-align: center;
@@ -2475,7 +2475,6 @@ ul li{
     margin-bottom: 15px;
 }
 .new-landing-right{
-    background-color: yellow;
     width: 100%;
     text-align: center;
 }
@@ -2666,6 +2665,7 @@ ul li{
     .new-landing-right{
         width: 780px;
         height: 818.59px;
+        padding-right: 100px;
     }
     .new-landing-header{
         width: 554px;
