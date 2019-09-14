@@ -170,10 +170,14 @@
         const ap_preview_elem = document.getElementById("app-preview");
         const available_apartments_elem = document.getElementById("free-apps");
 
-        setTimeout(() => {
-            floorWrap.style["display"] = "none";
-            floorWrap.classList = [];
-        }, 400);
+        $(document).ready(() => {
+            setTimeout(() => {
+                floorWrap.style["display"] = "none";
+                floorWrap.classList = [];
+            }, 700);
+        });
+
+
 
         function switchApartment(ID){
             if(ID <= 0){
