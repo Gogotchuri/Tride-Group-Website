@@ -79,12 +79,23 @@
                       </p>
                   </div>
                   <div id="app-preview" class="free-apps" style="display: none">
-                      <p>
-                          blalbalbalbal
-                      </p>
-                      <p>
-                          ballblalblllblbb
-                      </p>
+                     <div>
+                         <img src="" style="width: 200px" alt="apartment preview" id="ap-preview-image">
+                     </div>
+                      <div>
+                          <p>
+                              <?= $translator->translate("ფართობი") ?>:
+                              <span id="prev-area"></span>|
+                              <?= $translator->translate("საძინებლები") ?>:
+                              <span id="prev-bedrooms"></span>
+                          </p>
+                          <p>
+                              <?= $translator->translate("სართული") ?>:
+                              <span id="prev-floor"></span>|
+                              <?= $translator->translate("სტატუსი") ?>:
+                              <span id="prev-status"></span>
+                          </p>
+                      </div>
                   </div>
                   <div class="find-appartament">
                       <h3><?= $translator->translate("ძიება პარამეტრებით")?> </h3>
@@ -145,6 +156,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script type="text/javascript" src="../js/map-resizer.js"></script>
     <script>
+        let preview_ap_id = 0;
         let floor_apartments = null;
         const availableApps = JSON.parse('<?=json_encode($available_apartments)?>');
         const floor_images = JSON.parse('<?=json_encode($floor_images)?>');
@@ -155,14 +167,35 @@
         const buildingWrap = document.getElementById("building-wrap");
         const floorWrap = document.getElementById("floor-wrap");
 
+        const ap_preview_elem = document.getElementById("app-preview");
+        const available_apartments_elem = document.getElementById("free-apps");
+
         setTimeout(() => {
             floorWrap.style["display"] = "none";
-            floorWrap.classList=[];
+            floorWrap.classList = [];
         }, 400);
+
+        function switchApartment(ID){
+            if(ID <= 0){
+                preview_ap_id = 0;
+                ap_preview_elem.style["display"] = "none";
+                available_apartments_elem.style["display"] = "block";
+            }else{
+                const apartment = floor_apartments[ID-1];
+                document.getElementById("ap-preview-image").setAttribute("src", apartment.image);
+                document.getElementById("prev-area").innerText = apartment.area;
+                document.getElementById("prev-status").innerText = apartment.available;
+                document.getElementById("prev-floor").innerText = apartment.floor;
+                document.getElementById("prev-bedrooms").innerText = apartment.bedrooms;
+                available_apartments_elem.style["display"] = "none";
+                ap_preview_elem.style["display"] = "block";
+            }
+        }
 
         function showBuilding(){
             floorWrap.style["display"] = "none";
             buildingWrap.style["display"] = "block";
+            switchApartment(0);
             document.getElementById("back-button").style["display"] = "none";
         }
 
@@ -192,6 +225,27 @@
           document.getElementById("floor_num").innerHTML = "" + ((floor_chosen) ? curr_floor : "--");
           document.getElementById("available_floors").innerHTML = "" + (floor_chosen? availableApps[curr_floor] : "--");
       });
+
+        //Apartment click listener
+        floorAreas.on("click", function(e){
+            let ID = $(e.target).prop("id");
+            ID = ID.substr(1);
+            preview_ap_id = ID;
+            switchApartment(ID);
+        });
+
+        floorAreas.on("mouseover", e => {
+            let ID = $(e.target).prop("id");
+            ID = ID.substr(1);
+            switchApartment(ID);
+        });
+
+        floorAreas.on("mouseleave", () => {
+            if(preview_ap_id <= 0)
+                switchApartment(0);
+            else
+                switchApartment(preview_ap_id);
+        });
 
       $(".js-range-slider").ionRangeSlider({
           type: "double",
