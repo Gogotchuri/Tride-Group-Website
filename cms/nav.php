@@ -17,7 +17,7 @@
         <li><a href="/cms/gallery.php">გალერეა</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/sign-out">გასვლა</a></li>
+        <li><a href="/cms/sign-out.php">გასვლა</a></li>
       </ul>
     </div>
   </div>

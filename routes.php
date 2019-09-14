@@ -78,8 +78,4 @@
        ';
     });
 
-    $router->get("/sign-out", function (){
-        require(CMS."/sign-out.php");
-    });
-
     ###################################################
