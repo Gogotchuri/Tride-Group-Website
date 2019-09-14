@@ -1,5 +1,5 @@
 <?php
-    require_once(CMS."/user/user.php");
+    require_once("user/user.php");
     
     if($_SERVER["REQUEST_METHOD"] === "POST"){
     

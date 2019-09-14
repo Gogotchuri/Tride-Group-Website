@@ -1,4 +1,5 @@
 <?php
+    include_once("../config.php");
     include_once(CLASSES."/database/DatabaseAccessObject.php");
     use http\DatabaseAccessObject;
     $dao = DatabaseAccessObject::getInstance();
@@ -70,14 +71,14 @@
         $Query = "UPDATE news SET htmlKA='$htmlKA',htmlEN='$htmlEN',htmlRU='$htmlRU',image='$imageSource',pubdate='$pubdate',headerKA='$headerKA',headerEN='$headerEN',headerRU='$headerRU' WHERE ID=$id";    
 
         if($database->query($Query)){
-            header('Location: updates');
+            header('Location: /cms/updates.php');
             die();
         }else{
             echo "Failed on updating data base";
         }
     
     }else{
-        header('Location: updates');
+        header('Location: /cms/updates.php');
     }
 
 

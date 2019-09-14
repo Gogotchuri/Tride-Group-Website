@@ -64,7 +64,7 @@ function deleteNews(){
   
   jQuery.ajax({
       type: "POST",
-      url: '/admin/methods',
+      url: '/cms/method_list.php',
       dataType: 'json',
       data: {name: 'deleteNews', arguments: [newsID]},
       
@@ -95,7 +95,7 @@ function setEdit(id){
   jQuery.ajax(
     {
       type: "POST",
-      url: '/admin/methods',
+      url: '/cms/method_list.php',
       contentType: "application/x-www-form-urlencoded;charset=utf-8",
       dataType: 'json',
       data: {name : 'fillFormNews',arguments: [id]},
@@ -145,7 +145,7 @@ function deleteAlbum(){
   
   jQuery.ajax({
       type: "POST",
-      url: '/admin/methods',
+      url: '/cms/method_list.php',
       dataType: 'json',
       data: {name: 'deleteAlbum', arguments: [Albid]},
       

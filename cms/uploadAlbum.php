@@ -1,4 +1,5 @@
 <?php
+    include_once("../config.php");
     include_once(CLASSES."/database/DatabaseAccessObject.php");
     use http\DatabaseAccessObject;
     $dao = DatabaseAccessObject::getInstance();
@@ -87,11 +88,11 @@
         }
 
         if($database->query($Query)){
-            header('Location: /admin/gallery');
+            header('Location: /cms/gallery.php');
         }
 
     }else{
-        header('Location: /admin/gallery');
+        header('Location: /cms/gallery.php');
     }
 
 ?>

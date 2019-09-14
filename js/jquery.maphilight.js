@@ -229,6 +229,9 @@
                 }, 200);
             }
 
+            var imgW = img.width();
+            var imgH = img.height();
+
             options = $.extend({}, opts, $.metadata ? img.metadata() : false, img.data('maphilight'));
 
             // jQuery bug with Opera, results in full-url#usemap being returned from jQuery's attr.

@@ -90,7 +90,7 @@ removePic.addEventListener('click',(e)=>{
     }
     jQuery.ajax({
     type: "POST",
-    url: '/admin/methods',
+    url: '/cms/method_list.php',
     dataType: 'json',
     data: {name : 'removeImages',arguments: imagePathArr},
 
@@ -121,7 +121,7 @@ function setEdit(id){
 
     jQuery.ajax({
     type: "POST",
-    url: '/admin/methods',
+    url: '/cms/method_list.php',
     dataType: 'json',
     data: {name : 'fillFormAlbum',arguments: [id]},
 
@@ -175,7 +175,7 @@ function deleteAlbum(){
     
     jQuery.ajax({
         type: "POST",
-        url: '/admin/methods',
+        url: '/cms/method_list.php',
         dataType: 'json',
         data: {name: 'deleteAlbum', arguments: [Albid]},
         
@@ -231,7 +231,7 @@ saveUrls.addEventListener('click',()=>{
     }
     jQuery.ajax({
         type: "POST",
-        url: '/admin/methods',
+        url: '/cms/method_list.php',
         dataType: 'json',
         data: {name: 'updateURLs', arguments: urlArr},
         //TODO on 'access denied' reaction..

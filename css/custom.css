@@ -2276,8 +2276,7 @@ area {
 }
 
 #floor-wrap *{
-    height: 100%;
-    max-height: 100%;
+    max-height: 100%!important;
 }
 .hidden-floor {
    opacity: 0;
