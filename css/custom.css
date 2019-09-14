@@ -2580,6 +2580,7 @@ ul li{
         width: 700px;
         text-align: right;
         position: relative;
+        padding-right: 30px;
     }
     .new-landing-header{
         width: 420px;
