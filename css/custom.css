@@ -2813,14 +2813,14 @@ body{
     }
 }
 
-#timer > span{
+#timer > span.left{
     color: #1a2b3e;
     font-size: 28px;
     font-weight: bold;
     margin-right: 10px;
 }
 @media (max-width: 560px) {
-    #timer > span{
+    #timer > span.left{
         display: block;
         text-align: center;
     }
