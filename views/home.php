@@ -29,6 +29,7 @@
     <a href="/project?ID=9" class="new-landing-main" style="background: url(<?=$project_thumbnail?>)">
         <img src="<?=$project_thumbnail?>" style="opacity: 0">
         <div id="timer">
+            <span><?=$translator->translate("დარჩენილია")?></span>
             <div id="days"></div>
             <span class="two-dots">:</span>
             <div id="hours"></div>

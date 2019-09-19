@@ -2812,3 +2812,16 @@ body{
         left: 0;
     }
 }
+
+#timer > span{
+    color: #1a2b3e;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+@media (max-width: 560px) {
+    #timer > span{
+        display: block;
+        text-align: center;
+    }
+}

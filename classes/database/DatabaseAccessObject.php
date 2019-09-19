@@ -1,6 +1,6 @@
 <?php
-
-namespace http;
+//
+//namespace http;
 use ErrorException;
 use mysqli;
 

@@ -5,7 +5,7 @@ namespace manager;
 
 include_once(CLASSES."/database/DatabaseAccessObject.php");
 
-use http\DatabaseAccessObject;
+use DatabaseAccessObject;
 
 class NewsManager
 {

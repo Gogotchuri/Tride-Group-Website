@@ -16,7 +16,7 @@
                     <p class="contact-us-info">
                         <?=$translator->translate("ტელეფონი")?> : (+995) 599675675; 2 309090; 2 239091
                         <br>
-                        <?=$translator->translate("სათავო ოფისი")?> : <?=$translator->translate("ლუბლიანას ქ. 11")?>
+                        <?=$translator->translate("სათავო ოფისი")?> : <?=$translator->translate("ლუბლიანას ქ. 11")?> , <?=$translator->translate("ბელიაშვილის ქ. 22")?>
                         <br>
                         <?=$translator->translate("ელ-ფოსტა")?> : info@tridegroup.ge
                     </p>

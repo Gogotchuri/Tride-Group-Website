@@ -17,7 +17,6 @@
                 <ul class="nav nav-pills nav-stacked">
                   <li class="active"><a href="#" onclick="$('#about_cont').empty().load(tridegroup);"><?=$translator->translate("ტრიდე ჯგუფი")?></a></li>
                   <li><a href="#" onclick="$('#about_cont').empty().load(contactinfo);"><?=$translator->translate("საკონტაქტო ინფორმაცია")?></a></li>
-                  <li><a href="#" onclick="$('#about_cont').empty().load(services);"><?=$translator->translate("ჩვენი სერვისები")?></a></li>
                   <li><a href="#" onclick="$('#about_cont').empty().load(infra);"><?=$translator->translate("მდებარეობა და ინფრასტრუქტურა")?></a></li>
                   <li><a href="#" onclick="$('#about_cont').empty().load(materials);"><?=$translator->translate("სამშენებლო მასალები და ტექნოლოგიები")?></a></li>
                   <li><a href="#" onclick="$('#about_cont').empty().load(FAQ);"><?=$translator->translate("ხშირად დასმული შეკითხვები")?></a></li>
@@ -48,7 +47,6 @@
       });
       var tridegroup = "about/<?=$lang?>/tridegroup.html";
       var contactinfo = "about/<?=$lang?>/contactinfo.html";
-      var services = "about/<?=$lang?>/services.html";
       var infra = "about/<?=$lang?>/infra.html";
       var materials = "about/<?=$lang?>/materials.html";
       var FAQ = "about/<?=$lang?>/faq.html";
