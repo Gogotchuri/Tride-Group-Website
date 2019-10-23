@@ -34,7 +34,7 @@
                     <img src="<?=BASE_URL.$project["picture"]?>" class="img-responsive mapimage" id="panorama3" usemap="#panorama3map" />
                   </div>
                     <div style="text-align: center" class="under-photo-project project-btn">
-                        <?php if($project["status"]){?>
+                        <?php if($project["ID"] == 9){?>
                             <a href="/apartments?projectID=9"><img src="img/icons/key.svg" alt="key" width="20" height="auto" style="margin-right: 5px"><?= $translator->translate("ბინის არჩევა") ?></a>
                         <?php }?>
                     </div>
@@ -43,7 +43,7 @@
                     <h2 class="about-project-header" style="text-align: center"><?=$project["name" . $lang]?></h2>
                     <div>
                         <?=(strlen($project["descriptionLarge" . $lang]) < 10)? $project["descriptionLargeKA"] : $project["descriptionLarge" . $lang]?>
-                        <?php if($project["status"]){?>
+                        <?php if($project["ID"] == 9){?>
                             <div class="project-btn">
                                 <a href="/apartments?projectID=9"><img src="img/icons/key.svg" alt="key"  width="20" height="auto" style="margin-right: 5px"><?= $translator->translate("ბინის არჩევა") ?></a>
                             </div>

@@ -1,13 +1,13 @@
 <?php ?>
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50741180-3"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148748122-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-50741180-3');
+        gtag('config', 'UA-148748122-1');
     </script>
     <meta charset="utf-8">
     <meta name="description" content="სამშენებლო კომპანია „ტრიდე“ 2007 წელს დაარსდა. სადღეისოდ იგი მზარდ დინამიურ ორგანიზაციას წარმოადგენს, რომელიც სამშენებლო ბაზარზე ფართომასშტაბიან სამუშაოებს ახორციელებს. Founded in 2007 TRIDE building company has grown into a dynamically developing organization that has been implementing large-scale projects in the development market. Строительная компания «Триде» была основана в 2007 году. На сегодняшний день она представляет собой растущую динамичную организацию, которая осуществляет широкомасштабные работы на строительном рынке.">
