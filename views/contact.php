@@ -14,7 +14,7 @@
                 <div class="col-md-5">
                     <h2 class="header-y contact-us-header"><?=$translator->translate("კონტაქტი")?></h2>
                     <p class="contact-us-info">
-                        <?=$translator->translate("ტელეფონი")?> : (+995) 599675675; 2 309090; 2 239091
+                        <?=$translator->translate("ტელეფონი")?> : (+995) 599675675; 2 309090; (+995) 596675675
                         <br>
                         <?=$translator->translate("სათავო ოფისი")?> : <?=$translator->translate("ლუბლიანას ქ. 11")?> , <?=$translator->translate("ბელიაშვილის ქ. 22")?>
                         <br>
