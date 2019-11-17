@@ -1,8 +1,6 @@
 <?php
 //
 //namespace http;
-use ErrorException;
-use mysqli;
 
 class DatabaseAccessObject
 {
