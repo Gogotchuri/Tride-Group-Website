@@ -226,13 +226,20 @@
       buildingAreas.on("mouseover", e => {
           const id = $(e.target).prop("id");
           document.getElementById("floor_num").innerHTML = id;
-          document.getElementById("available_floors").innerHTML = ""+availableApps[id];
+          if(availableApps[id])
+              document.getElementById("available_floors").innerHTML = ""+availableApps[id];
+          else
+              document.getElementById("available_floors").innerHTML = "0";
+
       });
 
       buildingAreas.on("mouseleave", () => {
           let floor_chosen = curr_floor != 0;
           document.getElementById("floor_num").innerHTML = "" + ((floor_chosen) ? curr_floor : "--");
-          document.getElementById("available_floors").innerHTML = "" + (floor_chosen? availableApps[curr_floor] : "--");
+          if(availableApps[curr_floor])
+              document.getElementById("available_floors").innerHTML = "" + (floor_chosen? availableApps[curr_floor] : "--");
+          else
+              document.getElementById("available_floors").innerHTML = "" + (floor_chosen? "0" : "--");
       });
 
         //Apartment click listener

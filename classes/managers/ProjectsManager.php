@@ -4,7 +4,7 @@
 namespace manager;
 
 include_once(CLASSES."/database/DatabaseAccessObject.php");
-use DatabaseAccessObject;
+use http\DatabaseAccessObject;
 
 class ProjectsManager
 {
@@ -102,9 +102,10 @@ class ProjectsManager
         $apartments = self::getProjectApartments($projectID);
         $available_count = [];
         foreach($apartments as $apartment){
-            if(key_exists($apartment["floor"], $available_count))
+            if(key_exists($apartment["floor"], $available_count) && $apartment["available"] == 1)
                 $available_count[$apartment["floor"]]++;
-            else $available_count[$apartment["floor"]] = 1;
+            else if($apartment["available"] == 1)
+                $available_count[$apartment["floor"]] = 1;
         }
 
         return $available_count;
@@ -114,6 +115,14 @@ class ProjectsManager
         self::getDAO();
         if(self::$DAO == null) return false;
         $status = self::$DAO->executeQuery("UPDATE appartments a SET a.available=0 WHERE a.number=".$ap_num." AND a.floor=".$floor." AND a.projectID=".$project_id.";");
+        if(!$status) return false;
+        return true;
+    }
+
+    public static function markApartmentAvailable(int $ap_num, int $floor, int $project_id = 9){
+        self::getDAO();
+        if(self::$DAO == null) return false;
+        $status = self::$DAO->executeQuery("UPDATE appartments a SET a.available=1 WHERE a.number=".$ap_num." AND a.floor=".$floor." AND a.projectID=".$project_id.";");
         if(!$status) return false;
         return true;
     }

@@ -119,7 +119,11 @@
             case 'markApartmentSold':
                 $ap_num = $_POST["arguments"]["number"];
                 $floor = $_POST["arguments"]["floor"];
-                $aResult["result"] = ProjectsManager::markApartmentUnavailable($ap_num, $floor);
+                $option = $_POST["arguments"]["option"];
+                if($option == "1")
+                    $aResult["result"] = ProjectsManager::markApartmentUnavailable($ap_num, $floor);
+                else
+                    $aResult["result"] = ProjectsManager::markApartmentAvailable($ap_num, $floor);
                 break;
             default:
                $aResult['error'] = 'Not found function '.$_POST['name'].'!';

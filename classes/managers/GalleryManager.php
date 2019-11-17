@@ -40,7 +40,7 @@ class GalleryManager
         self::getDAO();
         if(self::$DAO == null) return null;
         $albums_raw = self::$DAO->executeQuery("SELECT * FROM album order by ID");
-        if($albums_raw == null) return null;
+        if($albums_raw == null) return [];
         $albums = [];
         while($row = $albums_raw->fetch_array())
             $albums[] = $row;

@@ -36,7 +36,7 @@
                 <h4 class="modal-title">მონიშნე ბინა გაყიდულად</h4>
             </div>
             <div class="modal-body">
-                <div>მონიშნე ბელიაშვილის ბინა გაყიდულად</div><br>
+                <div>მონიშნე ბინა</div><br>
                 <label for="floor" style="margin: 10px">
                     სართული:
                     <input id="floor" name="floor" type="number" max="22" min="2">
@@ -45,7 +45,15 @@
                     ბინის ნომერი:
                     <input id="ap_num" name="ap_num" type="number" max="15" min="1">
                 </label>
-                <label><input type="button" value="მონიშნე გაყიდულად" onclick="markSold()"></label>
+                <label for="ap_num" style="margin: 10px">
+                    მოქმედება:
+                    <select id="choose_option">
+                        <option value="1">გაყიდულად მონიშვნა</option>
+                        <option value="2">გასაყიდად მონიშვნა</option>
+                    </select>
+                </label>
+                <br>
+                <label><input type="button" value="მონიშნე ბინა" onclick="markSold()"></label>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -55,6 +63,7 @@
     function markSold(){
         const floor = document.getElementById("floor").value;
         const ap_num = document.getElementById("ap_num").value;
+        const option = document.getElementById("choose_option").value;
         if(!floor || !ap_num || floor < 3 || floor > 22 || ap_num < 1 || ap_num > 15) {
             window.alert("გთხოვთ შეიყვანოთ ბინის სართული და ნომერი სწორად!");
             return;
@@ -63,10 +72,13 @@
             type: "POST",
             url: '/cms/method_list.php',
             dataType: 'json',
-            data: {name: 'markApartmentSold', arguments:{floor: floor, number : ap_num}},
+            data: {name: 'markApartmentSold', arguments:{floor: floor, number : ap_num, option : option}},
             success : function(data){
                 if(data["result"])
-                    window.alert("ბინა მონიშნულია გაყიდულად.");
+                    if(option == "1")
+                        window.alert("ბინა მონიშნულია გაყიდულად.");
+                    else
+                        window.alert("ბინა მონიშნულია გასაყიდად.");
                 else
                     window.alert("ბინის გაყიდულად მონიშვნა შეუძლებელია");
             },
