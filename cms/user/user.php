@@ -4,8 +4,8 @@ if(!isset($_SESSION)) {
 }
 class User {
 
-    Private static $_ADMIN_MAIL = 'tsitsi@tridegroup.ge';
-    Private static $_ADMIN_PWD = 'tride_@tsitsi';
+    Private static $_ADMIN_MAIL = '';
+    Private static $_ADMIN_PWD = '';
 
     public static function login($email, $pwd) {
         
